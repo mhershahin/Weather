@@ -5,6 +5,33 @@
       <GradleProjectSettings>
         <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/app-domain" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/base-ui" />
+            <option value="$PROJECT_DIR$/common/entity" />
+            <option value="$PROJECT_DIR$/common/feature-api" />
+            <option value="$PROJECT_DIR$/common/utils" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/api" />
+            <option value="$PROJECT_DIR$/data/datastore" />
+            <option value="$PROJECT_DIR$/data/datastore/core" />
+            <option value="$PROJECT_DIR$/data/datastore/repo" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/current" />
+            <option value="$PROJECT_DIR$/feature/current/current-domain" />
+            <option value="$PROJECT_DIR$/feature/current/current-presentation" />
+            <option value="$PROJECT_DIR$/feature/forecast" />
+            <option value="$PROJECT_DIR$/feature/forecast/forecast-domain" />
+            <option value="$PROJECT_DIR$/feature/forecast/forecast-presentation" />
+            <option value="$PROJECT_DIR$/feature/radar" />
+            <option value="$PROJECT_DIR$/feature/radar/radar-domain" />
+            <option value="$PROJECT_DIR$/feature/radar/radar-presentation" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
