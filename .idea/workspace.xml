@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_current.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_forecast.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_radar.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="create module structure">
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/App.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/AppNavGraph.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependecy/DependencyProvider.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependecy/DependencyProviderImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/di/AppProviderModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/BottomBar.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/ic_launcher-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/BaseViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/ScaffoldSnackFree.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/netwok/ConnectionState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/netwok/NetworkUtility.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Font.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Shape.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Theme.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_current.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_forecast.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_radar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/font/open_sans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/Result.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/FeaturesMain.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/Application.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/Feature.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/FeatureApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/NavExtation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/RetrofitUtils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/ui/Spacing.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/ui/TextSize.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/feature_api/CurrentFeatureApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/feature_api/CurrentFeatureApiImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentDestination.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/feature_api/ForecastFeatureApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/feature_api/ForecastFeatureApiImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastDestination.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/feature_api/RadarFeatureApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/feature_api/RadarFeatureApiImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarDestination.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-domain/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-domain/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/theme/Color.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/theme/Theme.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/base-ui/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/base-ui/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/base-ui/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/entity/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/entity/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/entity/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/feature-api/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/feature-api/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/feature-api/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/feature-api/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/feature-api/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/core/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/core/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/core/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/core/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/core/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/repo/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/repo/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/repo/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/repo/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/repo/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-domain/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=R5CWB1R2NGB]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Weather" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mhershahin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mhershahin/Weather.git&quot;,
+    &quot;accountId&quot;: &quot;5d749790-6b98-4ff0-850f-bfaa89a04f1a&quot;
+  }
+}</component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\mhers\.gredel\wrapper\dists\gradle-9.3.1-bin\23ovyewtku6u96viwx3xl3oks\gradle-9.3.1" javaHome="C:\Program Files\Android\Android Studio\jbr" gradleVersion="9.3.1" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3DUAbmLdWZAn7s3r8Fsn40rs1hY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Weather/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Weather\feature\radar\radar-presentation\src\main\java\com\service\rader_presentation" />
+      <recent name="D:\Weather\feature\forecast\forecast-presentation\src\main\java\com\service\forecast_presentation" />
+      <recent name="D:\Weather\app\src\main\java\com\service\weather\home" />
+      <recent name="D:\Weather\common\base-ui\src\main\res\font" />
+      <recent name="D:\Weather\common\base-ui\src\main\java\com\service\base_ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Weather\common\base-ui\src\main\res\xml" />
+      <recent name="D:\Weather\common\base-ui\src\main\res" />
+      <recent name="D:\Weather\common\base-ui\src\main\res\values" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.service.weather.dependecy" />
+      <recent name="com.service.utils.ui" />
+      <recent name="com.service.weather.ui" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="Weather.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="" />
+      <created>1778326349326</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778326349326</updated>
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1778326684401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778326684401</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create module structure">
+      <option name="closed" value="true" />
+      <created>1778334812303</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778334812305</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="first commit" />
+    <MESSAGE value="create module structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="create module structure" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/service/weather/MainActivity.kt</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="com.service.api.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333643285" />
+          </value>
+        </entry>
+        <entry key="com.service.app_domain.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333381335" />
+          </value>
+        </entry>
+        <entry key="com.service.base_ui.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778427450151" />
+          </value>
+        </entry>
+        <entry key="com.service.core.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333922642" />
+          </value>
+        </entry>
+        <entry key="com.service.current_domain.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778334040372" />
+          </value>
+        </entry>
+        <entry key="com.service.current_presentation.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333391684" />
+          </value>
+        </entry>
+        <entry key="com.service.entity.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333677245" />
+          </value>
+        </entry>
+        <entry key="com.service.feature_api.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333910665" />
+          </value>
+        </entry>
+        <entry key="com.service.forecast_domain.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333643287" />
+          </value>
+        </entry>
+        <entry key="com.service.forecast_presentation.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333911820" />
+          </value>
+        </entry>
+        <entry key="com.service.radar_domain.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778334078280" />
+          </value>
+        </entry>
+        <entry key="com.service.rader_presentation.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778334101827" />
+          </value>
+        </entry>
+        <entry key="com.service.repo.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778334002028" />
+          </value>
+        </entry>
+        <entry key="com.service.utils.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778333391686" />
+          </value>
+        </entry>
+        <entry key="com.service.weather">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778336005533" />
+          </value>
+        </entry>
+        <entry key="com.service.weather.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778336005530" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,6 +1,27 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.compose) apply false
-    alias(libs.plugins.android.library) apply false
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap") }
+        maven {
+            url = uri("https://storage.googleapis.com/r8-releases/raw")
+        }
+    }
+    dependencies {
+        classpath(deps.r8.tools)
+        classpath(deps.android.gradlePlugin)
+        classpath(deps.google.services)
+        classpath(deps.grgit.gradle)
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap") }
+        maven {
+            url = uri("https://storage.googleapis.com/r8-releases/raw")
+        }
+    }
 }
