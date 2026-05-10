@@ -47,7 +47,6 @@ fun HomeGraph(
             bottomBarVisibility = bottomBarVisibility,
             modifier = modifier,
             onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack
-
         )
         register(
             radar,

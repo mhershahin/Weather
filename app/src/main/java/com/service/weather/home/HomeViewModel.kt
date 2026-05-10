@@ -21,6 +21,4 @@ class HomeViewModel @Inject constructor(
     override fun handleEvents(event: HomeContract.Event) {
 
     }
-
-
 }

@@ -26,152 +26,37 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="create module structure">
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/App.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/AppNavGraph.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependecy/DependencyProvider.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependecy/DependencyProviderImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/di/AppProviderModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/BottomBar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/ic_launcher-playstore.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/BaseViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/ScaffoldSnackFree.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/netwok/ConnectionState.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/netwok/NetworkUtility.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Color.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Font.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Shape.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Theme.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_current.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_forecast.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/drawable/ic_radar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/font/open_sans.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/Result.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/FeaturesMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/Application.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/Feature.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/FeatureApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/NavExtation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/RetrofitUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/ui/Spacing.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/ui/TextSize.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/feature_api/CurrentFeatureApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/feature_api/CurrentFeatureApiImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentDestination.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/feature_api/ForecastFeatureApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/feature_api/ForecastFeatureApiImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastDestination.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/feature_api/RadarFeatureApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/feature_api/RadarFeatureApiImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarDestination.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-domain/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app-domain/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-domain/src/main/AndroidManifest.xml" afterDir="false" />
+    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="creating screens adding architectural features logic">
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/location/GeoLocation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/location/GeocodingResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/CurrentUnits.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/CurrentWeather.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/DailyUnits.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/DailyWeather.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/HourlyUnits.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/HourlyWeather.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/WeatherResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/di/ApiRepositoryModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/dayle/DailyWeatherRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/dayle/DailyWeatherRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/multi/MultiLocationRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/multi/MultiLocationRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/search/SearchCityRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/search/SearchCityRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingApiService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingConstants.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/weather/RequestConstants.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/weather/WeatherApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/theme/Type.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/xml/backup_rules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/base-ui/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/base-ui/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/base-ui/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/entity/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/feature-api/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/feature-api/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/feature-api/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/feature-api/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/feature-api/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/api/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/api/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/api/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datastore/core/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/core/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datastore/core/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datastore/core/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/core/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datastore/repo/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/repo/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datastore/repo/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datastore/repo/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/repo/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-domain/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-domain/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +66,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=R5CWB1R2NGB]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -207,10 +92,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin File" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
-        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -256,7 +141,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Weather/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Weather/data/api/src/main/java/com/service/api/repository/weekly&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -266,21 +151,26 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Weather\data\api\src\main\java\com\service\api\repository\weekly" />
+      <recent name="D:\Weather\data\api\src\main\java\com\service\api\repository\search" />
+      <recent name="D:\Weather\data\api\src\main\java\com\service\api\service\geocoding" />
       <recent name="D:\Weather\feature\radar\radar-presentation\src\main\java\com\service\rader_presentation" />
       <recent name="D:\Weather\feature\forecast\forecast-presentation\src\main\java\com\service\forecast_presentation" />
-      <recent name="D:\Weather\app\src\main\java\com\service\weather\home" />
-      <recent name="D:\Weather\common\base-ui\src\main\res\font" />
-      <recent name="D:\Weather\common\base-ui\src\main\java\com\service\base_ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Weather\common\base-ui\src\main\res\xml" />
       <recent name="D:\Weather\common\base-ui\src\main\res" />
       <recent name="D:\Weather\common\base-ui\src\main\res\values" />
     </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.service.api.repository.weekly" />
+    </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.service.api.repository.multi" />
+      <recent name="com.service.api.service.weather" />
+      <recent name="com.service.entity.response.weather" />
+      <recent name="com.service.api.service" />
       <recent name="com.service.weather.dependecy" />
-      <recent name="com.service.utils.ui" />
-      <recent name="com.service.weather.ui" />
     </key>
   </component>
   <component name="RunManager">
@@ -381,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778334812305</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="creating screens adding architectural features logic">
+      <option name="closed" value="true" />
+      <created>1778427837533</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778427837533</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -389,7 +287,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="first commit" />
     <MESSAGE value="create module structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="create module structure" />
+    <MESSAGE value="creating screens adding architectural features logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating screens adding architectural features logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

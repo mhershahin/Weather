@@ -67,6 +67,9 @@ android {
             useLegacyPackaging = true
         }
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {

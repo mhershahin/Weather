@@ -5,8 +5,6 @@ plugins {
     alias(deps.plugins.ksp)
     alias(deps.plugins.hilt)
 }
-
-
 android {
     namespace = "com.service.api"
     compileSdk {
@@ -38,12 +36,29 @@ android {
             jvmTarget.set(JvmTarget.fromTarget(deps.versions.jvm.get()))
         }
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
     implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
+    // Coroutines
+    implementation(deps.kotlinx.coroutines.core)
+    implementation(deps.kotlinx.coroutines.android)
     //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
+
+    //Retrofit
+    implementation(deps.retrofit.core)
+    implementation(deps.retrofit.converter.scalars)
+    implementation(deps.okhttp.logging)
+    implementation(deps.retrofit.kotlinx.serialization)
+
+    implementation(projects.common.entity)
+    implementation(projects.common.utils)
+
+    // Kotlin Serialization
+    implementation(deps.kotlinx.serialization.json)
 }
