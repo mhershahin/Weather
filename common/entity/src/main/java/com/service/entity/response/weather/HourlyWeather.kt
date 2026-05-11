@@ -12,5 +12,7 @@ data class HourlyWeather(
     val uvIndex: List<Double?>? = null,
     @SerialName("dew_point_2m")
     val dewPoint: List<Double?>? = null,
-    val visibility: List<Double?>? = null
+    val visibility: List<Double?>? = null,
+    @SerialName("precipitation_probability")
+    val precipitationProbability: List<Int?>? = null
 )

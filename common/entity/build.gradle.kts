@@ -44,4 +44,6 @@ dependencies {
     // Kotlin Serialization
     implementation(deps.kotlinx.serialization.json)
 
+    // Room (annotations only; processing happens in :data:datastore:core)
+    implementation(deps.androidx.room.runtime)
 }

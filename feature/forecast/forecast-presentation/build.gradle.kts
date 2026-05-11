@@ -71,8 +71,15 @@ dependencies {
 
     implementation(deps.kotlinx.collections.immutable)
 
+    implementation(deps.androidx.compose.material.icons.extended)
+
+    //Coroutines
+    implementation(deps.kotlinx.coroutines.core)
+    implementation(deps.kotlinx.coroutines.android)
+
     implementation(projects.common.entity)
     implementation(projects.common.utils)
     implementation(projects.common.baseUi)
     implementation(projects.common.featureApi)
+    implementation(projects.feature.forecast.forecastDomain)
 }

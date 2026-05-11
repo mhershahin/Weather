@@ -1,0 +1,70 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+    alias(deps.plugins.android.library)
+    alias(deps.plugins.ksp)
+    alias(deps.plugins.hilt)
+}
+
+android {
+    namespace = "com.service.db"
+    compileSdk {
+        version = release(deps.versions.sdk.compile.get().toInt()) {
+            minorApiLevel = 1
+        }
+    }
+
+    defaultConfig {
+        minSdk = deps.versions.sdk.min.get().toInt()
+        testInstrumentationRunner = deps.versions.test.instrumentation.runner.get().toString()
+    }
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        val jvmVersion = deps.versions.jvm.get()
+        sourceCompatibility = JavaVersion.toVersion(jvmVersion)
+        targetCompatibility = JavaVersion.toVersion(jvmVersion)
+    }
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(deps.versions.jvm.get()))
+        }
+    }
+}
+
+dependencies {
+    implementation(deps.androidx.core.ktx)
+    implementation(deps.androidx.appcompat)
+
+    //Hilt
+    implementation(deps.hilt.android)
+    ksp(deps.hilt.compiler)
+
+    // Room
+    implementation(deps.androidx.room.runtime)
+    implementation(deps.androidx.room.ktx)
+    ksp(deps.androidx.room.compiler)
+
+    implementation(deps.kotlinx.coroutines.core)
+
+    implementation(projects.common.entity)
+
+    // Room
+    implementation(deps.androidx.room.runtime)
+    implementation(deps.androidx.room.ktx)
+    ksp(deps.androidx.room.compiler)
+
+    // Kotlin Serialization
+    implementation(deps.kotlinx.serialization.json)
+
+    implementation(deps.kotlinx.coroutines.core)
+
+    implementation(projects.common.entity)
+}

@@ -65,6 +65,7 @@ dependencies {
     implementation(deps.androidx.compose.runtime)
     implementation(deps.androidx.compose.material)
     implementation(deps.androidx.compose.material3)
+    implementation(deps.androidx.compose.material.icons.extended)
     implementation(deps.androidx.compose.ui.tooling.preview)
     implementation(deps.androidx.compose.animation)
     implementation(deps.androidx.activity.compose)

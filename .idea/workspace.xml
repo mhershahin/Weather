@@ -26,37 +26,116 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="creating screens adding architectural features logic">
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/location/GeoLocation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/location/GeocodingResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/CurrentUnits.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/CurrentWeather.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/DailyUnits.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/DailyWeather.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/HourlyUnits.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/HourlyWeather.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/WeatherResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/di/ApiRepositoryModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/dayle/DailyWeatherRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/dayle/DailyWeatherRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/multi/MultiLocationRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/multi/MultiLocationRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/search/SearchCityRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/search/SearchCityRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingApiService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingConstants.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/weather/RequestConstants.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/weather/WeatherApiService.kt" afterDir="false" />
+    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="add api calls">
+      <change afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/AppTopBar.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/ForecastDayRow.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/HourlyForecastItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/SavedLocationCard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/SearchField.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/SectionHeader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/StatCard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/base-ui/src/main/java/com/service/base_ui/components/StateOverlays.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/LatLon.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/db/LocationEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/db/WeatherCacheEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/domain/Location.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/domain/Mappers.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/domain/Weather.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/Mapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/di/ProviderModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/dispatcher/DispatcherProvider.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/dispatcher/DispatcherProviderImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/format/DateFormatters.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/weather/WeatherCodeMapper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/geocoding/ReverseGeocodingRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/geocoding/ReverseGeocodingRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/datastore/repo/src/main/java/com/service/repo/di/DataStoreModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/dao/LocationDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/dao/WeatherCacheDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/dao/WeatherDatabase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/di/DbModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/repo/saved/SavedLocationsRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/repo/saved/SavedLocationsRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/repo/weather/CachedWeatherRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/main/java/com/service/db/repo/weather/CachedWeatherRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/db/src/test/java/com/service/db/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-domain/src/main/java/com/service/current_domain/di/CurrentDomainModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-domain/src/main/java/com/service/current_domain/usecase/ObserveCurrentWeatherUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/current/current-domain/src/main/java/com/service/current_domain/usecase/RefreshCurrentWeatherUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/java/com/service/forecast_domain/di/ForecastDomainModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/java/com/service/forecast_domain/usecase/ObserveForecastUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/src/main/java/com/service/forecast_domain/usecase/RefreshForecastUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/di/RadarDomainModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/RadarUseCases.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/androidTest/java/com/service/splash_domain/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/di/SplashDomainModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/location/GetCurrentLocationUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/location/GetCurrentLocationUseCaseImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/location/provider/GetLocationProviderUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/location/provider/GetLocationProviderUseCaseImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/permission/HasLocationPermissionUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/permission/HasLocationPermissionUseCaseImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/save/SaveDeviceLocationUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/save/SaveDeviceLocationUseCaseImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/update/UpdateAllDataUseCase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/update/UpdateAllDataUseCaseImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/test/java/com/service/splash_domain/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/androidTest/java/com/service/splash_presentation/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/java/com/service/splash_presentation/SplashContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/java/com/service/splash_presentation/SplashDestination.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/java/com/service/splash_presentation/SplashScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/java/com/service/splash_presentation/SplashViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/test/java/com/service/splash_presentation/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContract.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/AppNavGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/AppNavGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/BottomBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/base-ui/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/base-ui/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/entity/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/api/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/DailyWeather.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/DailyWeather.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/HourlyWeather.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/response/weather/HourlyWeather.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/feature-api/src/main/java/com/service/feature_api/Application.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/ui/TextSize.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/ui/TextSize.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/di/ApiRepositoryModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/di/ApiRepositoryModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/weekly/WeeklyWeatherRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingConstants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/service/geocoding/GeocodingConstants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/repo/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/data/datastore/repo/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datastore/repo/src/androidTest/java/com/service/repo/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/db/src/androidTest/java/com/service/db/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentDestination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentDestination.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/current/current-presentation/src/main/java/com/service/current_presentation/ui/CurrentViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastDestination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastDestination.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/forecast/forecast-presentation/src/main/java/com/service/forecast_presentation/ui/ForecastViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarContract.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarDestination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarDestination.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +145,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=R5CWB1R2NGB]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -93,8 +172,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -126,36 +205,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Weather/data/api/src/main/java/com/service/api/repository/weekly&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Weather/data/api/src/main/java/com/service/api/repository/geocoding",
+    "project.structure.last.edited": "Dependencies",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Weather\data\api\src\main\java\com\service\api\repository\geocoding" />
+      <recent name="D:\Weather\feature\splash\splash-presentation\src\main\java\com\service\splash_presentation" />
+      <recent name="D:\Weather\common\utils\src\main\java\com\service\utils\dispatcher" />
       <recent name="D:\Weather\data\api\src\main\java\com\service\api\repository\weekly" />
       <recent name="D:\Weather\data\api\src\main\java\com\service\api\repository\search" />
-      <recent name="D:\Weather\data\api\src\main\java\com\service\api\service\geocoding" />
-      <recent name="D:\Weather\feature\radar\radar-presentation\src\main\java\com\service\rader_presentation" />
-      <recent name="D:\Weather\feature\forecast\forecast-presentation\src\main\java\com\service\forecast_presentation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Weather\common\base-ui\src\main\res\xml" />
@@ -166,11 +246,11 @@
       <recent name="com.service.api.repository.weekly" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
-      <recent name="com.service.api.repository.multi" />
-      <recent name="com.service.api.service.weather" />
-      <recent name="com.service.entity.response.weather" />
-      <recent name="com.service.api.service" />
-      <recent name="com.service.weather.dependecy" />
+      <recent name="com.service.splash_domain.usecase.location.provider" />
+      <recent name="com.service.db.core" />
+      <recent name="com.service.splash_domain.usecase.save" />
+      <recent name="com.service.splash_domain.usecase.update" />
+      <recent name="com.service.splash_domain.usecase.permission" />
     </key>
   </component>
   <component name="RunManager">
@@ -279,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778427837533</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add api calls">
+      <option name="closed" value="true" />
+      <created>1778437571193</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778437571193</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -288,7 +376,8 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="create module structure" />
     <MESSAGE value="creating screens adding architectural features logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating screens adding architectural features logic" />
+    <MESSAGE value="add api calls" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api calls" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,7 +405,7 @@
         </entry>
         <entry key="com.service.base_ui.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1778427450151" />
+            <CheckInfo lastCheckTimestamp="1778519011074" />
           </value>
         </entry>
         <entry key="com.service.core.test">
@@ -332,6 +421,11 @@
         <entry key="com.service.current_presentation.test">
           <value>
             <CheckInfo lastCheckTimestamp="1778333391684" />
+          </value>
+        </entry>
+        <entry key="com.service.db.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778508299013" />
           </value>
         </entry>
         <entry key="com.service.entity.test">
@@ -369,6 +463,16 @@
             <CheckInfo lastCheckTimestamp="1778334002028" />
           </value>
         </entry>
+        <entry key="com.service.splash_domain.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778520695144" />
+          </value>
+        </entry>
+        <entry key="com.service.splash_presentation.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1778510733846" />
+          </value>
+        </entry>
         <entry key="com.service.utils.test">
           <value>
             <CheckInfo lastCheckTimestamp="1778333391686" />
@@ -376,12 +480,12 @@
         </entry>
         <entry key="com.service.weather">
           <value>
-            <CheckInfo lastCheckTimestamp="1778336005533" />
+            <CheckInfo lastCheckTimestamp="1778510760379" />
           </value>
         </entry>
         <entry key="com.service.weather.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1778336005530" />
+            <CheckInfo lastCheckTimestamp="1778510760379" />
           </value>
         </entry>
       </map>

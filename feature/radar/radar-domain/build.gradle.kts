@@ -42,9 +42,15 @@ android {
 dependencies {
     implementation(deps.androidx.core.ktx)
     implementation(deps.androidx.appcompat)
-    
+
     testImplementation(deps.junit)
     //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
+
+    implementation(deps.kotlinx.coroutines.core)
+    implementation(projects.common.entity)
+    implementation(projects.common.utils)
+    implementation(projects.data.api)
+    implementation(projects.data.db)
 }

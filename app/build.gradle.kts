@@ -84,18 +84,16 @@ dependencies {
     implementation(deps.androidx.navigation.compose)
     implementation(deps.androidx.lifecycle.extensions)
 
-    //Accompanist
-    implementation(deps.accompanist.insets)
 
     //Compose Test
     debugImplementation(deps.androidx.compose.ui.test)
     debugImplementation(deps.androidx.compose.ui.tooling)
 
     //Hilt
-    //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
 
     //Lifecycle
     implementation(deps.androidx.lifecycle.runtime)
@@ -138,9 +136,17 @@ dependencies {
     implementation(projects.feature.current.currentPresentation)
     implementation(projects.feature.forecast.forecastPresentation)
     implementation(projects.feature.radar.radarPresentation)
+    implementation(projects.feature.splash.splashPresentation)
+    implementation(projects.feature.splash.splashDomain)
+
+    // Feature Domains (Hilt module discovery)
+    implementation(projects.feature.current.currentDomain)
+    implementation(projects.feature.forecast.forecastDomain)
+    implementation(projects.feature.radar.radarDomain)
 
 
     // Data & Services
     implementation(projects.data.api)
+    implementation(projects.data.datastore.core)
     implementation(projects.data.datastore.repo)
 }

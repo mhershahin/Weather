@@ -3,29 +3,31 @@ package com.service.api.di
 import com.service.api.BuildConfig
 import com.service.api.repository.dayle.DailyWeatherRepository
 import com.service.api.repository.dayle.DailyWeatherRepositoryImpl
+import com.service.api.repository.geocoding.ReverseGeocodingRepository
+import com.service.api.repository.geocoding.ReverseGeocodingRepositoryImpl
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.multi.MultiLocationRepositoryImpl
 import com.service.api.repository.search.SearchCityRepository
 import com.service.api.repository.search.SearchCityRepositoryImpl
 import com.service.api.repository.weekly.WeeklyWeatherRepository
 import com.service.api.repository.weekly.WeeklyWeatherRepositoryImpl
-import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.service.api.service.geocoding.GeocodingApiService
 import com.service.api.service.geocoding.GeocodingConstants
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import com.service.api.service.weather.RequestConstants.Companion.BASE_URL
 import com.service.api.service.weather.WeatherApiService
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
-import retrofit2.Retrofit
 
 
 @Module
@@ -102,33 +104,42 @@ object ApiRepositoryModule {
     @Singleton
     @Provides
     fun provideDailyWeatherRepository(
-        @Named("WeatherRetrofit") weatherApiService: WeatherApiService
+        weatherApiService: WeatherApiService
     ): DailyWeatherRepository =
         DailyWeatherRepositoryImpl(
             weatherApiService
         )
+
     @Singleton
     @Provides
     fun provideWeeklyWeatherRepository(
-        @Named("WeatherRetrofit") weatherApiService: WeatherApiService
+        weatherApiService: WeatherApiService
     ): WeeklyWeatherRepository =
         WeeklyWeatherRepositoryImpl(
             weatherApiService
         )
+
     @Singleton
     @Provides
     fun provideSearchCityRepository(
-        @Named("GeocodingRetrofit") geocodingRetrofit: GeocodingApiService
+        geocodingApiService: GeocodingApiService
     ): SearchCityRepository =
         SearchCityRepositoryImpl(
-            geocodingRetrofit
+            geocodingApiService
         )
+
+    @Singleton
+    @Provides
+    fun provideReverseGeocodingRepository(
+        geocodingApiService: GeocodingApiService
+    ): ReverseGeocodingRepository =
+        ReverseGeocodingRepositoryImpl(geocodingApiService)
 
 
     @Singleton
     @Provides
     fun provideMultiLocationRepository(
-        @Named("WeatherRetrofit") weatherApiService: WeatherApiService
+        weatherApiService: WeatherApiService
     ): MultiLocationRepository =
         MultiLocationRepositoryImpl(
             weatherApiService

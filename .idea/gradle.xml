@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/data/datastore" />
             <option value="$PROJECT_DIR$/data/datastore/core" />
             <option value="$PROJECT_DIR$/data/datastore/repo" />
+            <option value="$PROJECT_DIR$/data/db" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/current" />
             <option value="$PROJECT_DIR$/feature/current/current-domain" />
@@ -31,6 +32,9 @@
             <option value="$PROJECT_DIR$/feature/radar" />
             <option value="$PROJECT_DIR$/feature/radar/radar-domain" />
             <option value="$PROJECT_DIR$/feature/radar/radar-presentation" />
+            <option value="$PROJECT_DIR$/feature/splash" />
+            <option value="$PROJECT_DIR$/feature/splash/splash-domain" />
+            <option value="$PROJECT_DIR$/feature/splash/splash-presentation" />
           </set>
         </option>
       </GradleProjectSettings>
