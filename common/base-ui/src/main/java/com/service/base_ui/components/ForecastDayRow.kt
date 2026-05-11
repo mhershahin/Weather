@@ -22,8 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.service.utils.ui.LocalSpacing
+import com.service.utils.ui.LocalTextSize
 
 @Composable
 fun ForecastDayRow(
@@ -36,83 +36,85 @@ fun ForecastDayRow(
     modifier: Modifier = Modifier,
     isToday: Boolean = false,
 ) {
+    val spacing = LocalSpacing.current
+    val sizes = LocalTextSize.current
     Surface(
         color = MaterialTheme.colors.surface,
         contentColor = MaterialTheme.colors.onSurface,
-        shape = RoundedCornerShape(16.dp),
-        modifier = modifier.fillMaxWidth().height(78.dp)
+        shape = RoundedCornerShape(spacing.sixteenDp),
+        modifier = modifier.fillMaxWidth().height(spacing.seventyFourDp + spacing.fourDp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Box(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .padding(vertical = 12.dp)
-                    .width(if (isToday) 4.dp else 0.dp)
-                    .clip(RoundedCornerShape(2.dp))
+                    .padding(vertical = spacing.twelveDp)
+                    .width(if (isToday) spacing.fourDp else spacing.zeroDp)
+                    .clip(RoundedCornerShape(spacing.twoDp))
                     .background(MaterialTheme.colors.primary)
             )
             Column(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(start = 16.dp)
+                    .padding(start = spacing.sixteenDp)
             ) {
                 if (isToday) {
                     Text(
                         text = "TODAY",
                         color = MaterialTheme.colors.primary,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 11.sp
+                        fontSize = sizes.elevenSp
                     )
-                    Spacer(Modifier.height(2.dp))
+                    Spacer(Modifier.height(spacing.twoDp))
                 }
                 Text(
                     text = day,
                     color = MaterialTheme.colors.onSurface,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 16.sp
+                    fontSize = sizes.sixteenSp
                 )
-                Spacer(Modifier.height(2.dp))
+                Spacer(Modifier.height(spacing.twoDp))
                 Text(
                     text = date,
                     color = MaterialTheme.colors.secondary,
-                    fontSize = 11.sp,
+                    fontSize = sizes.elevenSp,
                     fontWeight = FontWeight.Medium
                 )
             }
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(horizontal = 8.dp)
+                modifier = Modifier.padding(horizontal = spacing.eightDp)
             ) {
                 Icon(
                     imageVector = icon,
                     contentDescription = null,
                     tint = MaterialTheme.colors.onSurface,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(spacing.twentyEightDp)
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(spacing.fourDp))
                 Text(
                     text = "$precipPct%",
                     color = if (precipPct >= 50) MaterialTheme.colors.primary else MaterialTheme.colors.secondary,
-                    fontSize = 11.sp,
+                    fontSize = sizes.elevenSp,
                     fontWeight = FontWeight.Medium
                 )
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(end = 16.dp)
+                modifier = Modifier.padding(end = spacing.sixteenDp)
             ) {
                 Text(
                     text = "${tempMax}°",
                     color = MaterialTheme.colors.onSurface,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 18.sp
+                    fontSize = sizes.eighteenSp
                 )
-                Spacer(Modifier.width(8.dp))
+                Spacer(Modifier.width(spacing.eightDp))
                 Text(
                     text = "${tempMin}°",
                     color = MaterialTheme.colors.secondary,
                     fontWeight = FontWeight.Medium,
-                    fontSize = 18.sp
+                    fontSize = sizes.eighteenSp
                 )
             }
         }

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.service.utils.ui.LocalTextSize
 
 @Composable
 fun SectionHeader(
@@ -15,12 +16,13 @@ fun SectionHeader(
     modifier: Modifier = Modifier,
     trailing: @Composable (() -> Unit)? = null,
 ) {
+    val sizes = LocalTextSize.current
     Row(modifier = modifier.fillMaxWidth()) {
         Text(
             text = title.uppercase(),
             color = MaterialTheme.colors.secondary,
             fontWeight = FontWeight.SemiBold,
-            fontSize = 11.sp,
+            fontSize = sizes.elevenSp,
             letterSpacing = 1.sp,
             modifier = Modifier.weight(1f)
         )

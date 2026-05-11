@@ -30,6 +30,7 @@ android {
     }
     compileOptions {
         val jvmVersion = deps.versions.jvm.get()
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.toVersion(jvmVersion)
         targetCompatibility = JavaVersion.toVersion(jvmVersion)
     }
@@ -76,6 +77,9 @@ dependencies {
     //Coroutines
     implementation(deps.kotlinx.coroutines.core)
     implementation(deps.kotlinx.coroutines.android)
+
+    //Desugaring
+    coreLibraryDesugaring(deps.desugar.jdk.libs)
 
     implementation(projects.common.entity)
     implementation(projects.common.utils)

@@ -23,8 +23,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.service.utils.ui.LocalSpacing
+import com.service.utils.ui.LocalTextSize
 
 @Composable
 fun StatCard(
@@ -35,30 +35,32 @@ fun StatCard(
     subText: String? = null,
     progress: Float? = null,
 ) {
+    val spacing = LocalSpacing.current
+    val sizes = LocalTextSize.current
     Surface(
         color = MaterialTheme.colors.surface,
         contentColor = MaterialTheme.colors.onSurface,
-        shape = RoundedCornerShape(16.dp),
-        modifier = modifier.heightIn(min = 120.dp)
+        shape = RoundedCornerShape(spacing.sixteenDp),
+        modifier = modifier.heightIn(min = spacing.hundredDp + spacing.twentyDp)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column(modifier = Modifier.padding(spacing.sixteenDp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = icon,
                     contentDescription = null,
                     tint = MaterialTheme.colors.secondary,
-                    modifier = Modifier.size(16.dp)
+                    modifier = Modifier.size(spacing.sixteenDp)
                 )
-                Spacer(Modifier.width(6.dp))
+                Spacer(Modifier.width(spacing.sixDp))
                 Text(
                     text = label.uppercase(),
                     style = MaterialTheme.typography.caption,
                     color = MaterialTheme.colors.secondary,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp
+                    fontSize = sizes.twelveSp
                 )
             }
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(spacing.eightDp))
             Text(
                 text = value,
                 style = MaterialTheme.typography.h5,
@@ -66,7 +68,7 @@ fun StatCard(
                 fontWeight = FontWeight.SemiBold
             )
             if (subText != null) {
-                Spacer(Modifier.height(6.dp))
+                Spacer(Modifier.height(spacing.sixDp))
                 Text(
                     text = subText,
                     style = MaterialTheme.typography.body2,
@@ -74,19 +76,19 @@ fun StatCard(
                 )
             }
             if (progress != null) {
-                Spacer(Modifier.height(10.dp))
+                Spacer(Modifier.height(spacing.tenDp))
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(4.dp)
-                        .clip(RoundedCornerShape(2.dp))
+                        .height(spacing.fourDp)
+                        .clip(RoundedCornerShape(spacing.twoDp))
                         .background(Color.White.copy(alpha = 0.12f))
                 ) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth(progress.coerceIn(0f, 1f))
-                            .height(4.dp)
-                            .clip(RoundedCornerShape(2.dp))
+                            .height(spacing.fourDp)
+                            .clip(RoundedCornerShape(spacing.twoDp))
                             .background(MaterialTheme.colors.primary)
                     )
                 }

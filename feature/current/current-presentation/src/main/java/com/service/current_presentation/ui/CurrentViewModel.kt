@@ -37,12 +37,16 @@ class CurrentViewModel @Inject constructor(
 
     override fun handleEvents(event: CurrentContract.Event) {
         when (event) {
-            CurrentContract.Event.Refresh -> {
-                lastRefreshedLocationId = null
-            }
-            CurrentContract.Event.SearchClicked -> Unit
+            CurrentContract.Event.Refresh -> handelRefresh()
+            CurrentContract.Event.SearchClicked -> handelSearchClicked()
         }
     }
+
+    private fun handelRefresh() {
+        lastRefreshedLocationId = null
+    }
+
+    private fun handelSearchClicked() = Unit
 
     private fun triggerRefreshIfNeeded(location: Location?) {
         val id = location?.id ?: return

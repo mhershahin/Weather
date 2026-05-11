@@ -2,7 +2,9 @@ package com.service.radar_domain.di
 
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.search.SearchCityRepository
+import com.service.api.repository.weekly.WeeklyWeatherRepository
 import com.service.db.repo.saved.SavedLocationsRepository
+import com.service.db.repo.weather.CachedWeatherRepository
 import com.service.radar_domain.usecase.AddLocationUseCase
 import com.service.radar_domain.usecase.AddLocationUseCaseImpl
 import com.service.radar_domain.usecase.FetchCityCardsUseCase
@@ -65,9 +67,13 @@ object RadarDomainModule {
     @Provides
     fun provideSelectCurrentLocationUseCase(
         repo: SavedLocationsRepository,
+        cachedRepo: CachedWeatherRepository,
+        weeklyRepo: WeeklyWeatherRepository,
     ): SelectCurrentLocationUseCase =
         SelectCurrentLocationUseCaseImpl(
             repo,
+            cachedRepo,
+            weeklyRepo,
         )
 
     @Singleton

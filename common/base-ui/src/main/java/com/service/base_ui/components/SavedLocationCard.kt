@@ -27,8 +27,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.service.utils.ui.LocalSpacing
+import com.service.utils.ui.LocalTextSize
 
 @Composable
 fun SavedLocationCard(
@@ -41,20 +41,22 @@ fun SavedLocationCard(
     onClick: () -> Unit = {},
     onRemove: () -> Unit = {},
 ) {
+    val spacing = LocalSpacing.current
+    val sizes = LocalTextSize.current
     Surface(
         color = MaterialTheme.colors.surface,
         contentColor = MaterialTheme.colors.onSurface,
-        shape = RoundedCornerShape(20.dp),
+        shape = RoundedCornerShape(spacing.twentyDp),
         modifier = modifier
             .fillMaxWidth()
-            .height(120.dp)
+            .height(spacing.hundredDp + spacing.twentyDp)
             .clickable(enabled = !isEditing) { onClick() }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(RoundedCornerShape(20.dp))
+                    .clip(RoundedCornerShape(spacing.twentyDp))
                     .background(
                         Brush.horizontalGradient(
                             listOf(
@@ -67,7 +69,7 @@ fun SavedLocationCard(
             Row(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(horizontal = 20.dp, vertical = 16.dp),
+                    .padding(horizontal = spacing.twentyDp, vertical = spacing.sixteenDp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(modifier = Modifier.weight(1f)) {
@@ -77,7 +79,7 @@ fun SavedLocationCard(
                         color = MaterialTheme.colors.onSurface,
                         fontWeight = FontWeight.SemiBold
                     )
-                    Spacer(Modifier.height(4.dp))
+                    Spacer(Modifier.height(spacing.fourDp))
                     Text(
                         text = country,
                         style = MaterialTheme.typography.body2,
@@ -89,12 +91,12 @@ fun SavedLocationCard(
                         imageVector = icon,
                         contentDescription = null,
                         tint = MaterialTheme.colors.primary,
-                        modifier = Modifier.size(28.dp)
+                        modifier = Modifier.size(spacing.twentyEightDp)
                     )
-                    Spacer(Modifier.height(4.dp))
+                    Spacer(Modifier.height(spacing.fourDp))
                     Text(
                         text = temp,
-                        fontSize = 28.sp,
+                        fontSize = sizes.twentyEightSp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colors.onSurface
                     )
@@ -105,7 +107,7 @@ fun SavedLocationCard(
                     onClick = onRemove,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
-                        .padding(6.dp)
+                        .padding(spacing.sixDp)
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Close,

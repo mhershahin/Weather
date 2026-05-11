@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
+import com.service.utils.ui.LocalSpacing
 
 @Composable
 fun HourlyForecastItem(
@@ -22,8 +22,9 @@ fun HourlyForecastItem(
     temp: String,
     modifier: Modifier = Modifier,
 ) {
+    val spacing = LocalSpacing.current
     Column(
-        modifier = modifier.width(72.dp),
+        modifier = modifier.width(spacing.seventyTwoDp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
@@ -32,14 +33,14 @@ fun HourlyForecastItem(
             color = MaterialTheme.colors.secondary,
             fontWeight = FontWeight.Medium
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(spacing.eightDp))
         Icon(
             imageVector = icon,
             contentDescription = null,
             tint = MaterialTheme.colors.onSurface,
-            modifier = Modifier.size(28.dp)
+            modifier = Modifier.size(spacing.twentyEightDp)
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(spacing.eightDp))
         Text(
             text = temp,
             style = MaterialTheme.typography.subtitle1,

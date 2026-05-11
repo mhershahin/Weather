@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
+import com.service.utils.ui.LocalSpacing
 
 @Composable
 fun AppTopBar(
@@ -28,6 +28,7 @@ fun AppTopBar(
     trailingDescription: String? = null,
     onTrailingClick: (() -> Unit)? = null,
 ) {
+    val spacing = LocalSpacing.current
     Surface(
         color = MaterialTheme.colors.background,
         contentColor = MaterialTheme.colors.onBackground,
@@ -36,11 +37,11 @@ fun AppTopBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(56.dp)
-                .padding(horizontal = 16.dp),
+                .height(spacing.fiftySixDp)
+                .padding(horizontal = spacing.sixteenDp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(modifier = Modifier.size(10.dp))
+            Box(modifier = Modifier.size(spacing.tenDp))
             Text(
                 text = title,
                 modifier = Modifier.weight(1f),
@@ -57,9 +58,9 @@ fun AppTopBar(
                     )
                 }
             } else {
-                Box(modifier = Modifier.size(40.dp))
+                Box(modifier = Modifier.size(spacing.fortyDp))
             }
         }
     }
-    Divider(color = Color.White.copy(alpha = 0.06f), thickness = 1.dp)
+    Divider(color = Color.White.copy(alpha = 0.06f), thickness = spacing.oneDp)
 }

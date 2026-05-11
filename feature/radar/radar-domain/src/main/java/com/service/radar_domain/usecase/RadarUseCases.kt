@@ -2,7 +2,9 @@ package com.service.radar_domain.usecase
 
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.search.SearchCityRepository
+import com.service.api.repository.weekly.WeeklyWeatherRepository
 import com.service.db.repo.saved.SavedLocationsRepository
+import com.service.db.repo.weather.CachedWeatherRepository
 import com.service.entity.Result
 import com.service.entity.domain.Location
 import com.service.entity.domain.LocationKind
@@ -73,10 +75,16 @@ interface SelectCurrentLocationUseCase {
 
 class SelectCurrentLocationUseCaseImpl @Inject constructor(
     private val repo: SavedLocationsRepository,
+    private val cachedRepo: CachedWeatherRepository,
+    private val weeklyRepo: WeeklyWeatherRepository,
 ) : SelectCurrentLocationUseCase {
     override suspend fun invoke(location: Location) {
-        repo.save(location.copy(isCurrent = false))
+        repo.save(location)
         repo.setCurrent(location.id)
+        cachedRepo.refresh(
+            location,
+            weeklyRepo.getWeeklyWeather(location.latitude, location.longitude),
+        )
     }
 }
 

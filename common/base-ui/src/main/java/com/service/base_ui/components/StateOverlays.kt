@@ -13,7 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.service.utils.ui.LocalSpacing
 
 @Composable
 fun LoadingState(modifier: Modifier = Modifier) {
@@ -27,8 +27,9 @@ fun LoadingState(modifier: Modifier = Modifier) {
 
 @Composable
 fun ErrorState(message: String, modifier: Modifier = Modifier) {
+    val spacing = LocalSpacing.current
     Box(
-        modifier = modifier.fillMaxSize().padding(24.dp),
+        modifier = modifier.fillMaxSize().padding(spacing.twentyFourDp),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -40,7 +41,7 @@ fun ErrorState(message: String, modifier: Modifier = Modifier) {
                 color = MaterialTheme.colors.secondary,
                 style = MaterialTheme.typography.body1
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(spacing.eightDp))
         }
     }
 }

@@ -26,7 +26,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
-import androidx.compose.ui.unit.dp
+import com.service.utils.ui.LocalSpacing
 
 @Composable
 fun SearchField(
@@ -36,13 +36,14 @@ fun SearchField(
     modifier: Modifier = Modifier,
     onClear: () -> Unit = { onQueryChange("") }
 ) {
+    val spacing = LocalSpacing.current
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(48.dp)
-            .clip(RoundedCornerShape(24.dp))
+            .height(spacing.fortyEightDp)
+            .clip(RoundedCornerShape(spacing.twentyFourDp))
             .background(MaterialTheme.colors.surface)
-            .padding(horizontal = 12.dp),
+            .padding(horizontal = spacing.twelveDp),
         contentAlignment = Alignment.CenterStart
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -50,9 +51,9 @@ fun SearchField(
                 imageVector = Icons.Filled.Search,
                 contentDescription = null,
                 tint = MaterialTheme.colors.secondary,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(spacing.twentyDp)
             )
-            Box(modifier = Modifier.weight(1f).padding(horizontal = 10.dp)) {
+            Box(modifier = Modifier.weight(1f).padding(horizontal = spacing.tenDp)) {
                 if (query.isEmpty()) {
                     Text(
                         text = placeholder,
@@ -74,12 +75,12 @@ fun SearchField(
                 )
             }
             if (query.isNotEmpty()) {
-                IconButton(onClick = onClear, modifier = Modifier.size(28.dp)) {
+                IconButton(onClick = onClear, modifier = Modifier.size(spacing.twentyEightDp)) {
                     Icon(
                         imageVector = Icons.Filled.Close,
                         contentDescription = null,
                         tint = MaterialTheme.colors.secondary,
-                        modifier = Modifier.size(18.dp)
+                        modifier = Modifier.size(spacing.eighteenDp)
                     )
                 }
             }

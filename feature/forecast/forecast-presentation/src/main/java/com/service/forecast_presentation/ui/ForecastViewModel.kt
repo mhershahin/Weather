@@ -34,8 +34,12 @@ class ForecastViewModel @Inject constructor(
 
     override fun handleEvents(event: ForecastContract.Event) {
         when (event) {
-            ForecastContract.Event.Refresh -> lastRefreshedLocationId = null
+            ForecastContract.Event.Refresh -> handelRefresh()
         }
+    }
+
+    private fun handelRefresh() {
+        lastRefreshedLocationId = null
     }
 
     private fun triggerRefreshIfNeeded(location: Location?) {

@@ -1,6 +1,7 @@
 package com.service.rader_presentation.ui
 
 import com.service.base_ui.BaseViewModel
+import com.service.entity.domain.Location
 import com.service.radar_domain.usecase.AddLocationUseCase
 import com.service.radar_domain.usecase.FetchCityCardsUseCase
 import com.service.radar_domain.usecase.ObserveSavedLocationsUseCase
@@ -53,31 +54,50 @@ class RadarViewModel @Inject constructor(
 
     override fun handleEvents(event: RadarContract.Event) {
         when (event) {
-            RadarContract.Event.OpenSearch ->
-                setState { copy(isSearchOpen = true) }
-            RadarContract.Event.CloseSearch ->
-                setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList()) }
-                    .also { searchQueryFlow.value = "" }
-            RadarContract.Event.ToggleEdit ->
-                setState { copy(isEditing = !isEditing) }
-            is RadarContract.Event.SearchQueryChanged -> {
-                setState { copy(searchQuery = event.query) }
-                searchQueryFlow.value = event.query
-            }
-            is RadarContract.Event.AddCity -> {
-                launchIODispatcher {
-                    addLocation(event.location)
-                    setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList()) }
-                    searchQueryFlow.value = ""
-                }
-            }
-            is RadarContract.Event.RemoveCity -> launchIODispatcher { removeLocation(event.id) }
-            is RadarContract.Event.CityClicked -> {
-                launchIODispatcher {
-                    selectCurrent(event.location)
-                    setEffect { RadarContract.Effect.Navigation.ToCurrentScreen }
-                }
-            }
+            RadarContract.Event.OpenSearch -> handelOpenSearch()
+            RadarContract.Event.CloseSearch -> handelCloseSearch()
+            RadarContract.Event.ToggleEdit -> handelToggleEdit()
+            is RadarContract.Event.SearchQueryChanged -> handelSearchQueryChanged(event.query)
+            is RadarContract.Event.AddCity -> handelAddCity(event.location)
+            is RadarContract.Event.RemoveCity -> handelRemoveCity(event.id)
+            is RadarContract.Event.CityClicked -> handelCityClicked(event.location)
+        }
+    }
+
+    private fun handelOpenSearch() {
+        setState { copy(isSearchOpen = true) }
+    }
+
+    private fun handelCloseSearch() {
+        setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList()) }
+        searchQueryFlow.value = ""
+    }
+
+    private fun handelToggleEdit() {
+        setState { copy(isEditing = !isEditing) }
+    }
+
+    private fun handelSearchQueryChanged(query: String) {
+        setState { copy(searchQuery = query) }
+        searchQueryFlow.value = query
+    }
+
+    private fun handelAddCity(location: Location) {
+        launchIODispatcher {
+            addLocation(location)
+            setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList()) }
+            searchQueryFlow.value = ""
+        }
+    }
+
+    private fun handelRemoveCity(id: Int) {
+        launchIODispatcher { removeLocation(id) }
+    }
+
+    private fun handelCityClicked(location: Location) {
+        launchIODispatcher {
+            selectCurrent(location)
+            setEffect { RadarContract.Effect.Navigation.ToCurrentScreen }
         }
     }
 }
