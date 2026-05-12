@@ -10,6 +10,10 @@ import com.service.radar_domain.usecase.add.AddLocationUseCase
 import com.service.radar_domain.usecase.add.AddLocationUseCaseImpl
 import com.service.radar_domain.usecase.fetch.FetchCityCardsUseCase
 import com.service.radar_domain.usecase.fetch.FetchCityCardsUseCaseImpl
+import com.service.radar_domain.usecase.observe.ObserveActiveLocationUseCase
+import com.service.radar_domain.usecase.observe.ObserveActiveLocationUseCaseImpl
+import com.service.radar_domain.usecase.observe.ObserveGpsLocationUseCase
+import com.service.radar_domain.usecase.observe.ObserveGpsLocationUseCaseImpl
 import com.service.radar_domain.usecase.observe.ObserveSavedLocationsUseCase
 import com.service.radar_domain.usecase.observe.ObserveSavedLocationsUseCaseImpl
 import com.service.radar_domain.usecase.remove.RemoveLocationUseCase
@@ -36,6 +40,28 @@ object RadarDomainModule {
         dispatchers: DispatcherProvider,
     ): ObserveSavedLocationsUseCase =
         ObserveSavedLocationsUseCaseImpl(
+            repo,
+            dispatchers,
+        )
+
+    @Singleton
+    @Provides
+    fun provideObserveGpsLocationUseCase(
+        repo: SavedLocationsRepository,
+        dispatchers: DispatcherProvider,
+    ): ObserveGpsLocationUseCase =
+        ObserveGpsLocationUseCaseImpl(
+            repo,
+            dispatchers,
+        )
+
+    @Singleton
+    @Provides
+    fun provideObserveActiveLocationUseCase(
+        repo: SavedLocationsRepository,
+        dispatchers: DispatcherProvider,
+    ): ObserveActiveLocationUseCase =
+        ObserveActiveLocationUseCaseImpl(
             repo,
             dispatchers,
         )
@@ -94,10 +120,12 @@ object RadarDomainModule {
     @Provides
     fun provideFetchCityCardsUseCase(
         multiRepo: MultiLocationRepository,
+        dailyRepo: DailyWeatherRepository,
         dispatchers: DispatcherProvider,
     ): FetchCityCardsUseCase =
         FetchCityCardsUseCaseImpl(
             multiRepo,
+            dailyRepo,
             dispatchers,
         )
 }

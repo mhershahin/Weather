@@ -60,8 +60,9 @@ class WeeklyViewModel @Inject constructor(
     }
 
     private fun applySnapshot(snap: WeeklySnapshot) {
+        val isCurrent = snap.location != null && snap.gpsLocationId != null && snap.location?.id == snap.gpsLocationId
         val location = snap.location ?: run {
-            setState { copy(isLoading = true) }
+            setState { copy(isLoading = true, isCurrentLocation = isCurrent) }
             return
         }
         val weather = snap.weather
@@ -69,7 +70,8 @@ class WeeklyViewModel @Inject constructor(
             setState {
                 copy(
                     isLoading = true,
-                    cityLabel = location.displayName.ifEmpty { "Current Location" },
+                    cityLabel = location.displayName,
+                    isCurrentLocation = isCurrent,
                 )
             }
             return
@@ -94,9 +96,10 @@ class WeeklyViewModel @Inject constructor(
             copy(
                 isLoading = false,
                 errorMessage = null,
-                cityLabel = location.displayName.ifEmpty { "Current Location" },
+                cityLabel = location.displayName,
                 dateRange = range,
                 days = rows,
+                isCurrentLocation = isCurrent,
             )
         }
     }

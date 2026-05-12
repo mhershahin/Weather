@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -29,6 +31,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -55,32 +58,47 @@ internal fun RadarScreen(
     onEventSent: (event: RadarContract.Event) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { padding ->
-        Column(
-            modifier = Modifier
-                .padding(padding)
-                .fillMaxSize()
-                .background(MaterialTheme.colors.background),
-        ) {
-            AppTopBar(
-                title = stringResource(R.string.radar),
-                trailingIcon = if (state.isSearchOpen) null else Icons.Filled.Search,
-                trailingDescription = stringResource(R.string.search),
-                onTrailingClick = { onEventSent(RadarContract.Event.OpenSearch) },
-            )
-            if (state.isSearchOpen) {
-                SearchSection(
-                    state = state,
-                    onQueryChange = { onEventSent(RadarContract.Event.SearchQueryChanged(it)) },
-                    onSelect = { onEventSent(RadarContract.Event.AddCity(it)) },
-                    onClose = { onEventSent(RadarContract.Event.CloseSearch) },
+        Box(modifier = Modifier.padding(padding).fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colors.background),
+            ) {
+                AppTopBar(
+                    title = stringResource(R.string.radar),
+                    trailingIcon = if (state.isSearchOpen) null else Icons.Filled.Search,
+                    trailingDescription = stringResource(R.string.search),
+                    onTrailingClick = { onEventSent(RadarContract.Event.OpenSearch) },
                 )
-            } else {
-                SavedSection(
-                    state = state,
-                    onAddCity = { onEventSent(RadarContract.Event.OpenSearch) },
-                    onRemove = { onEventSent(RadarContract.Event.RemoveCity(it)) },
-                    onCityClick = { onEventSent(RadarContract.Event.CityClicked(it)) },
-                )
+                if (state.isSearchOpen) {
+                    SearchSection(
+                        state = state,
+                        onQueryChange = { onEventSent(RadarContract.Event.SearchQueryChanged(it)) },
+                        onSelect = { onEventSent(RadarContract.Event.AddCity(it)) },
+                        onClose = { onEventSent(RadarContract.Event.CloseSearch) },
+                    )
+                } else {
+                    SavedSection(
+                        state = state,
+                        onAddCity = { onEventSent(RadarContract.Event.OpenSearch) },
+                        onRemove = { onEventSent(RadarContract.Event.RemoveCity(it)) },
+                        onCityClick = { onEventSent(RadarContract.Event.CityClicked(it)) },
+                    )
+                }
+            }
+            if (state.isLoading) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.Black.copy(alpha = 0.5f))
+                        .clickable(
+                            indication = null,
+                            interactionSource = remember { MutableInteractionSource() },
+                        ) {},
+                    contentAlignment = Alignment.Center,
+                ) {
+                    CircularProgressIndicator(color = MaterialTheme.colors.primary)
+                }
             }
         }
     }
@@ -104,12 +122,13 @@ private fun SavedSection(
             SectionHeader(title = stringResource(R.string.saved_locations))
         }
         items(state.saved, key = { "saved-${it.location.id}" }) { city ->
+            val isGpsCity = state.gpsLocationId == city.location.id
             SavedLocationCard(
                 city = city.location.name,
                 country = city.location.country,
                 temp = city.tempC?.let { "${it}°" } ?: "—",
                 icon = WeatherCodeMapper.icon(city.weatherCode, city.isDay),
-                canDelete = state.saved.size>1,
+                isCurrentLocation = isGpsCity,
                 onClick = { onCityClick(city.location) },
                 onRemove = { onRemove(city.location.id) },
             )

@@ -76,7 +76,7 @@ private fun WeeklyContent(state: WeeklyContract.State) {
             verticalArrangement = Arrangement.spacedBy(spacing.twelveDp),
             contentPadding = PaddingValues(bottom = spacing.sixteenDp),
         ) {
-            item { WeeklyTitleInf(false, state.cityLabel, state.dateRange) }
+            item { WeeklyTitleInf(state.isCurrentLocation, state.cityLabel, state.dateRange) }
             items(state.days, key = { it.date + it.day }) { row ->
                 ForecastDayRow(
                     day = row.day,

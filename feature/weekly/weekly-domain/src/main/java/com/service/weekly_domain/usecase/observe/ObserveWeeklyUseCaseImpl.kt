@@ -20,10 +20,12 @@ internal class ObserveWeeklyUseCaseImpl @Inject constructor(
 ) : ObserveWeeklyUseCase {
 
     override fun invoke(): Flow<WeeklySnapshot> =
-        savedRepo.observeCurrent().flatMapLatest { loc ->
-            if (loc == null) flowOf(WeeklySnapshot(null, null))
+        combine(savedRepo.observeCurrent(), savedRepo.observeGps()) { active, gps ->
+            active to gps?.id
+        }.flatMapLatest { (loc, gpsId) ->
+            if (loc == null) flowOf(WeeklySnapshot(null, null, gpsId))
             else combine(flowOf(loc), cachedRepo.observeForLocation(loc.id)) { l, w ->
-                WeeklySnapshot(l, w)
+                WeeklySnapshot(l, w, gpsId)
             }
         }.flowOn(dispatchers.io)
 }

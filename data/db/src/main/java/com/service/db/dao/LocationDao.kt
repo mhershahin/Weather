@@ -20,8 +20,14 @@ abstract class LocationDao {
     @Query("SELECT * FROM locations WHERE isCurrent = 1 LIMIT 1")
     abstract fun observeCurrent(): Flow<LocationEntity?>
 
+    @Query("SELECT * FROM locations WHERE isGps = 1 LIMIT 1")
+    abstract fun observeGps(): Flow<LocationEntity?>
+
     @Query("SELECT * FROM locations WHERE id = :id LIMIT 1")
     abstract suspend fun getById(id: Int): LocationEntity?
+
+    @Query("SELECT COUNT(*) FROM locations")
+    abstract suspend fun count(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun upsert(entity: LocationEntity)
@@ -34,6 +40,12 @@ abstract class LocationDao {
 
     @Query("UPDATE locations SET isCurrent = 1 WHERE id = :id")
     abstract suspend fun markCurrent(id: Int): Int
+
+    @Query("UPDATE locations SET isGps = 0")
+    abstract suspend fun clearGpsFlag(): Int
+
+    @Query("UPDATE locations SET isGps = 1 WHERE id = :id")
+    abstract suspend fun markGps(id: Int): Int
 
     @Delete
     abstract suspend fun delete(entity: LocationEntity): Int

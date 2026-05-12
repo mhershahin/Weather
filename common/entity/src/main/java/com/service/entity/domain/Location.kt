@@ -8,6 +8,7 @@ data class Location(
     val latitude: Double,
     val longitude: Double,
     val isCurrent: Boolean = false,
+    val isGps: Boolean = false,
     val kind: LocationKind = LocationKind.SAVED,
 ) {
 

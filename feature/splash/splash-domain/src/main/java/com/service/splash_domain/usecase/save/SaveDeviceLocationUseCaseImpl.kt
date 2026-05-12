@@ -24,10 +24,11 @@ internal class SaveDeviceLocationUseCaseImpl @Inject constructor(
         val apiLocation =
             if (reverseLocation is Result.Success) reverseLocation.data?.results?.firstOrNull()
                 ?.toLocation() ?: Location.getDefault() else Location.getDefault()
-        savedRepo.save(apiLocation)
-        savedRepo.setCurrent(apiLocation.id)
-        return@withContext apiLocation
-
+        val gpsLocation = apiLocation.copy(isGps = true, isCurrent = true)
+        savedRepo.save(gpsLocation)
+        savedRepo.setGps(gpsLocation.id)
+        savedRepo.setCurrent(gpsLocation.id)
+        return@withContext gpsLocation
     }
 
 

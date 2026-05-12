@@ -21,8 +21,17 @@ class SavedLocationsRepositoryImpl @Inject constructor(
     override fun observeCurrent(): Flow<Location?> =
         locationDao.observeCurrent().map { it?.toDomain() }
 
+    override fun observeGps(): Flow<Location?> =
+        locationDao.observeGps().map { it?.toDomain() }
+
     override suspend fun save(location: Location) {
-        locationDao.upsert(LocationEntity.fromDomain(location.copy(kind = LocationKind.SAVED)))
+        val existing = locationDao.getById(location.id)
+        val merged = location.copy(
+            kind = LocationKind.SAVED,
+            isCurrent = location.isCurrent || (existing?.isCurrent ?: false),
+            isGps = location.isGps || (existing?.isGps ?: false),
+        )
+        locationDao.upsert(LocationEntity.fromDomain(merged))
     }
 
     override suspend fun remove(id: Int) {
@@ -34,4 +43,9 @@ class SavedLocationsRepositoryImpl @Inject constructor(
         locationDao.markCurrent(id)
     }
 
+    override suspend fun setGps(id: Int) {
+        locationDao.clearGpsFlag()
+        locationDao.markGps(id)
+    }
+    override suspend fun count(): Int = locationDao.count()
 }

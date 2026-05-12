@@ -6,4 +6,5 @@ import com.service.entity.domain.Weather
 data class CurrentSnapshot(
     val location: Location?,
     val weather: Weather?,
+    val gpsLocationId: Int? = null,
 )

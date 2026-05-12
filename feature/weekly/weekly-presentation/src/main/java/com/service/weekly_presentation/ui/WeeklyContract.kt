@@ -24,7 +24,8 @@ interface WeeklyContract {
     data class State(
         val isLoading: Boolean = true,
         val errorMessage: String? = null,
-        val cityLabel: String = "Current Location",
+        val cityLabel: String = "-",
+        val isCurrentLocation: Boolean = false,
         val dateRange: String = "",
         val days: List<DayRow> = emptyList(),
     ) : ViewState

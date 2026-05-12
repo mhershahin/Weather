@@ -53,20 +53,22 @@ class DailyViewModel @Inject constructor(
     private fun applySnapshot(snap: CurrentSnapshot) {
         val location = snap.location
         val weather = snap.weather
+        val isCurrent = location != null && snap.gpsLocationId != null && location.id == snap.gpsLocationId
         if (location == null) {
-            setState { copy(isLoading = true) }
+            setState { copy(isLoading = true, isCurrentLocation = isCurrent) }
             return
         }
         if (weather == null) {
             setState {
                 copy(
                     isLoading = true,
-                    cityLabel = location.displayName.ifEmpty { "Current Location" },
+                    cityLabel = location.displayName,
+                    isCurrentLocation = isCurrent,
                 )
             }
             return
         }
-        setState { reduce(location, weather) }
+        setState { reduce(location, weather).copy(isCurrentLocation = isCurrent) }
     }
 
     private fun DailyContract.State.reduce(location: Location, weather: Weather): DailyContract.State {
@@ -93,7 +95,7 @@ class DailyViewModel @Inject constructor(
         return copy(
             isLoading = false,
             errorMessage = null,
-            cityLabel = location.displayName.ifEmpty { "Current Location" },
+            cityLabel = location.displayName,
             tempC = c?.tempC,
             condition = WeatherCodeMapper.label(c?.weatherCode),
             highC = weather.highC,

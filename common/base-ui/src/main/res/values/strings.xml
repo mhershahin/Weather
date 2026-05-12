@@ -38,4 +38,6 @@
     <string name="location_permission_required">Do you want to move forward and grant location permission in app settings?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="cant_delete_current_location">You can\'t delete the current location</string>
+    <string name="cant_delete_last_location">You can\'t delete the last location</string>
 </resources>

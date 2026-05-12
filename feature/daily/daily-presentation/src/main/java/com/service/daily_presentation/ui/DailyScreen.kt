@@ -80,14 +80,16 @@ private fun DailyContent(state: DailyContract.State) {
     ) {
 
         Spacer(Modifier.width(spacing.eightDp))
-        Text(
-            text = stringResource(R.string.current_location).uppercase(),
-            color = MaterialTheme.colors.primary,
-            fontSize = sizes.elevenSp,
-            fontWeight = FontWeight.SemiBold,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth(),
-        )
+        if (state.isCurrentLocation) {
+            Text(
+                text = stringResource(R.string.current_location).uppercase(),
+                color = MaterialTheme.colors.primary,
+                fontSize = sizes.elevenSp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
         Text(
             text = state.cityLabel,
             modifier = Modifier.fillMaxWidth(),

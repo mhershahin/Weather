@@ -7,7 +7,6 @@ import com.service.entity.domain.Location
 import com.service.entity.domain.toLocation
 import com.service.splash_domain.usecase.location.provider.GetLocationProviderUseCase
 import com.service.utils.dispatcher.DispatcherProvider
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -20,10 +19,17 @@ internal class GetCurrentLocationUseCaseImpl @Inject constructor(
 
     override suspend fun invoke(): Location? = withContext(dispatchers.io) {
         val location = getLocationProviderUseCase.invoke()
+        if (location.name == null) return@withContext null
         val reverseLocation =
             searchCityRepository.searchCity(location.name ?: Location.getDefault().name)
-        val apiLocation:Location? = if (reverseLocation is Result.Success) reverseLocation.data?.results?.firstOrNull()
+        val apiLocation: Location? =
+            if (reverseLocation is Result.Success) reverseLocation.data?.results?.firstOrNull()
                 ?.toLocation() else null
-        return@withContext apiLocation ?: savedRepo.observeCurrent().firstOrNull()
+        if (apiLocation != null) {
+            val gpsLocation = apiLocation.copy(isGps = true)
+            savedRepo.save(gpsLocation)
+            savedRepo.setGps(gpsLocation.id)
+        }
+        return@withContext apiLocation?.copy(isGps = true)
     }
 }

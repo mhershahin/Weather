@@ -14,6 +14,7 @@ data class LocationEntity(
     val latitude: Double,
     val longitude: Double,
     val isCurrent: Boolean,
+    val isGps: Boolean,
     val kind: String,
 ) {
     fun toDomain(): Location = Location(
@@ -24,6 +25,7 @@ data class LocationEntity(
         latitude = latitude,
         longitude = longitude,
         isCurrent = isCurrent,
+        isGps = isGps,
         kind = runCatching { LocationKind.valueOf(kind) }.getOrElse { LocationKind.SAVED },
     )
 
@@ -36,6 +38,7 @@ data class LocationEntity(
             latitude = location.latitude,
             longitude = location.longitude,
             isCurrent = location.isCurrent,
+            isGps = location.isGps,
             kind = location.kind.name,
         )
     }

@@ -24,6 +24,7 @@ internal class UpdateWeatherDataUseCaseImpl @Inject constructor(
             val daily = dailyRepo.getDailyWeather(location.latitude, location.longitude)
             cachedRepo.refreshHourly(location, daily)
             cachedRepo.refreshForecast(location, weekly)
+            repo.setCurrent(location.id)
         }
     }
 }

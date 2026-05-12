@@ -20,10 +20,12 @@ internal class ObserveDailyWeatherUseCaseImpl @Inject constructor(
 ) : ObserveDailyWeatherUseCase {
 
     override fun invoke(): Flow<CurrentSnapshot> =
-        savedRepo.observeCurrent().flatMapLatest { loc ->
-            if (loc == null) flowOf(CurrentSnapshot(null, null))
+        combine(savedRepo.observeCurrent(), savedRepo.observeGps()) { active, gps ->
+            active to gps?.id
+        }.flatMapLatest { (loc, gpsId) ->
+            if (loc == null) flowOf(CurrentSnapshot(null, null, gpsId))
             else combine(flowOf(loc), cachedRepo.observeForLocation(loc.id)) { l, w ->
-                CurrentSnapshot(l, w)
+                CurrentSnapshot(l, w, gpsId)
             }
         }.flowOn(dispatchers.io)
 }

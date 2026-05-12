@@ -1,5 +1,6 @@
 package com.service.base_ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
@@ -23,7 +24,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.service.base_ui.R
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 
@@ -33,8 +36,8 @@ fun SavedLocationCard(
     country: String,
     temp: String,
     icon: ImageVector,
-    canDelete: Boolean,
     modifier: Modifier = Modifier,
+    isCurrentLocation: Boolean = false,
     onClick: () -> Unit = {},
     onRemove: () -> Unit = {},
 ) {
@@ -44,16 +47,13 @@ fun SavedLocationCard(
         color = MaterialTheme.colors.surface,
         contentColor = MaterialTheme.colors.onSurface,
         shape = RoundedCornerShape(spacing.twentyDp),
+        border = if (isCurrentLocation) BorderStroke(spacing.oneDp, MaterialTheme.colors.primary) else null,
         modifier = modifier
             .fillMaxWidth()
             .height(spacing.hundredDp + spacing.twentyDp)
             .combinedClickable(
                 onClick = { onClick() },
-                onLongClick = {
-                    if (canDelete) {
-                        onRemove()
-                    }
-                },
+                onLongClick = { onRemove() },
             )
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -77,6 +77,15 @@ fun SavedLocationCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(modifier = Modifier.weight(1f)) {
+                    if (isCurrentLocation) {
+                        Text(
+                            text = stringResource(R.string.current_location),
+                            color = MaterialTheme.colors.primary,
+                            fontSize = sizes.elevenSp,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        Spacer(Modifier.height(spacing.fourDp))
+                    }
                     Text(
                         text = city,
                         style = MaterialTheme.typography.h6,

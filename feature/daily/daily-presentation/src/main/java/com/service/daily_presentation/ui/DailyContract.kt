@@ -11,12 +11,11 @@ interface DailyContract {
         data object Refresh : Event()
     }
 
-
-
     data class State(
         val isLoading: Boolean = true,
         val errorMessage: String? = null,
         val cityLabel: String = "",
+        val isCurrentLocation: Boolean = false,
         val tempC: Int? = null,
         val condition: String = "",
         val highC: Int? = null,

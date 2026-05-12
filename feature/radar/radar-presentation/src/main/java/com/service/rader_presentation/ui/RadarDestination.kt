@@ -1,7 +1,9 @@
 package com.service.rader_presentation.ui
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.service.feature_api.Home
@@ -11,6 +13,7 @@ fun RadarDestination(
     navController: NavHostController,
     viewModel: RadarViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
     LaunchedEffect(viewModel) {
         viewModel.effect.collect { effect ->
             when (effect) {
@@ -20,6 +23,10 @@ fun RadarDestination(
                         launchSingleTop = true
                     }
                 }
+                is RadarContract.Effect.ShowToast -> {
+                    Toast.makeText(context, context.getString(effect.messageRes), Toast.LENGTH_SHORT).show()
+                }
+                is RadarContract.Effect.Dialog -> Unit
             }
         }
     }

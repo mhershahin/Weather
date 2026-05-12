@@ -1,9 +1,12 @@
 package com.service.rader_presentation.ui
 
 import com.service.base_ui.BaseViewModel
+import com.service.base_ui.R
 import com.service.entity.domain.Location
 import com.service.radar_domain.usecase.add.AddLocationUseCase
 import com.service.radar_domain.usecase.fetch.FetchCityCardsUseCase
+import com.service.radar_domain.usecase.observe.ObserveActiveLocationUseCase
+import com.service.radar_domain.usecase.observe.ObserveGpsLocationUseCase
 import com.service.radar_domain.usecase.observe.ObserveSavedLocationsUseCase
 import com.service.radar_domain.usecase.remove.RemoveLocationUseCase
 import com.service.radar_domain.usecase.search.SearchLocationsUseCase
@@ -21,6 +24,8 @@ import javax.inject.Inject
 @HiltViewModel
 class RadarViewModel @Inject constructor(
     private val observeSaved: ObserveSavedLocationsUseCase,
+    private val observeGps: ObserveGpsLocationUseCase,
+    private val observeActive: ObserveActiveLocationUseCase,
     private val searchLocations: SearchLocationsUseCase,
     private val addLocation: AddLocationUseCase,
     private val removeLocation: RemoveLocationUseCase,
@@ -35,6 +40,16 @@ class RadarViewModel @Inject constructor(
             observeSaved().distinctUntilChanged().collect { list ->
                 val cards = fetchCards(list)
                 setState { copy(saved = cards.toImmutableList()) }
+            }
+        }
+        launchMainDispatcher {
+            observeGps().distinctUntilChanged().collect { gps ->
+                setState { copy(gpsLocationId = gps?.id) }
+            }
+        }
+        launchMainDispatcher {
+            observeActive().distinctUntilChanged().collect { active ->
+                setState { copy(activeLocationId = active?.id) }
             }
         }
         launchMainDispatcher {
@@ -94,12 +109,34 @@ class RadarViewModel @Inject constructor(
     }
 
     private fun handelRemoveCity(id: Int) {
-        launchMainDispatcher { removeLocation(id) }
+        val state = viewState.value
+        if (state.gpsLocationId == id) {
+            setEffect { RadarContract.Effect.ShowToast(R.string.cant_delete_current_location) }
+            return
+        }
+        if (state.saved.size <= 1) {
+            setEffect { RadarContract.Effect.ShowToast(R.string.cant_delete_last_location) }
+            return
+        }
+        val wasActive = state.activeLocationId == id
+        val gpsCity = state.saved.firstOrNull { it.location.id == state.gpsLocationId }?.location
+        launchMainDispatcher {
+            if (wasActive && gpsCity != null) {
+                setState { copy(isLoading = true) }
+                removeLocation.invoke(id)
+                updateWeatherDataUseCase.invoke(gpsCity)
+                setState { copy(isLoading = false) }
+            } else {
+                removeLocation.invoke(id)
+            }
+        }
     }
 
     private fun handelCityClicked(location: Location) {
         launchMainDispatcher {
+            setState { copy(isLoading = true) }
             updateWeatherDataUseCase.invoke(location)
+            setState { copy(isLoading = false) }
             setEffect { RadarContract.Effect.Navigation.ToDailyScreen }
         }
     }

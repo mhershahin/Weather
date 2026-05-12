@@ -27,9 +27,13 @@ interface RadarContract {
         val searchQuery: String = "",
         val searchResults: ImmutableList<Location> = emptyList<Location>().toImmutableList(),
         val isSearching: Boolean = false,
+        val gpsLocationId: Int? = null,
+        val activeLocationId: Int? = null,
     ) : ViewState
 
     sealed class Effect : ViewSideEffect {
+        data class ShowToast(val messageRes: Int) : Effect()
+
         sealed class Navigation : Effect() {
             data object ToDailyScreen : Navigation()
         }
