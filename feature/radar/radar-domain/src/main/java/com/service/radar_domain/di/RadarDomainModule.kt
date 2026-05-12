@@ -1,5 +1,6 @@
 package com.service.radar_domain.di
 
+import com.service.api.repository.dayle.DailyWeatherRepository
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.search.SearchCityRepository
 import com.service.api.repository.weekly.WeeklyWeatherRepository
@@ -15,8 +16,8 @@ import com.service.radar_domain.usecase.remove.RemoveLocationUseCase
 import com.service.radar_domain.usecase.remove.RemoveLocationUseCaseImpl
 import com.service.radar_domain.usecase.search.SearchLocationsUseCase
 import com.service.radar_domain.usecase.search.SearchLocationsUseCaseImpl
-import com.service.radar_domain.usecase.select.SelectCurrentLocationUseCase
-import com.service.radar_domain.usecase.select.SelectCurrentLocationUseCaseImpl
+import com.service.radar_domain.usecase.select.UpdateWeatherDataUseCase
+import com.service.radar_domain.usecase.select.UpdateWeatherDataUseCaseImpl
 import com.service.utils.dispatcher.DispatcherProvider
 import dagger.Module
 import dagger.Provides
@@ -78,12 +79,14 @@ object RadarDomainModule {
         repo: SavedLocationsRepository,
         cachedRepo: CachedWeatherRepository,
         weeklyRepo: WeeklyWeatherRepository,
+        dailyRepo: DailyWeatherRepository,
         dispatchers: DispatcherProvider,
-    ): SelectCurrentLocationUseCase =
-        SelectCurrentLocationUseCaseImpl(
+    ): UpdateWeatherDataUseCase =
+        UpdateWeatherDataUseCaseImpl(
             repo,
             cachedRepo,
             weeklyRepo,
+            dailyRepo,
             dispatchers,
         )
 

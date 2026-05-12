@@ -125,7 +125,6 @@ dependencies {
     implementation(deps.kotlinx.collections.immutable)
 
 // App & Common
-    implementation(projects.app.appDomain)
     implementation(projects.common.entity)
     implementation(projects.common.baseUi)
     implementation(projects.common.utils)

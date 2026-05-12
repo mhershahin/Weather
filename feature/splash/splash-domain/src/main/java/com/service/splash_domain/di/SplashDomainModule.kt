@@ -41,10 +41,14 @@ object SplashDomainModule {
     @Provides
     fun provideGetCurrentLocationUseCase(
         savedRepo: SavedLocationsRepository,
+        getLocationProviderUseCase: GetLocationProviderUseCase,
+        searchCityRepository: SearchCityRepository,
         dispatchers: DispatcherProvider,
     ): GetCurrentLocationUseCase =
         GetCurrentLocationUseCaseImpl(
             savedRepo,
+            getLocationProviderUseCase,
+            searchCityRepository,
             dispatchers,
         )
 

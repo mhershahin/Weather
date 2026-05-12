@@ -7,7 +7,7 @@ import com.service.radar_domain.usecase.fetch.FetchCityCardsUseCase
 import com.service.radar_domain.usecase.observe.ObserveSavedLocationsUseCase
 import com.service.radar_domain.usecase.remove.RemoveLocationUseCase
 import com.service.radar_domain.usecase.search.SearchLocationsUseCase
-import com.service.radar_domain.usecase.select.SelectCurrentLocationUseCase
+import com.service.radar_domain.usecase.select.UpdateWeatherDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.FlowPreview
@@ -24,7 +24,7 @@ class RadarViewModel @Inject constructor(
     private val searchLocations: SearchLocationsUseCase,
     private val addLocation: AddLocationUseCase,
     private val removeLocation: RemoveLocationUseCase,
-    private val selectCurrent: SelectCurrentLocationUseCase,
+    private val updateWeatherDataUseCase: UpdateWeatherDataUseCase,
     private val fetchCards: FetchCityCardsUseCase,
 ) : BaseViewModel<RadarContract.Event, RadarContract.State, RadarContract.Effect>() {
 
@@ -86,9 +86,10 @@ class RadarViewModel @Inject constructor(
 
     private fun handelAddCity(location: Location) {
         launchMainDispatcher {
-            addLocation(location)
+            addLocation.invoke(location)
             setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
             searchQueryFlow.value = ""
+            handelCityClicked(location)
         }
     }
 
@@ -98,7 +99,7 @@ class RadarViewModel @Inject constructor(
 
     private fun handelCityClicked(location: Location) {
         launchMainDispatcher {
-            selectCurrent(location)
+            updateWeatherDataUseCase.invoke(location)
             setEffect { RadarContract.Effect.Navigation.ToDailyScreen }
         }
     }

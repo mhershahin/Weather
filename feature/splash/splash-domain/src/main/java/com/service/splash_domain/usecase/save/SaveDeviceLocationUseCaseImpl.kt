@@ -25,6 +25,7 @@ internal class SaveDeviceLocationUseCaseImpl @Inject constructor(
             if (reverseLocation is Result.Success) reverseLocation.data?.results?.firstOrNull()
                 ?.toLocation() ?: Location.getDefault() else Location.getDefault()
         savedRepo.save(apiLocation)
+        savedRepo.setCurrent(apiLocation.id)
         return@withContext apiLocation
 
     }

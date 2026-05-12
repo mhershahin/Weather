@@ -21,6 +21,8 @@ internal class UpdateAllDataUseCaseImpl @Inject constructor(
         withContext(dispatchers.io) {
             val weeklyWeather = weeklyWeatherRepository.getWeeklyWeather(location.latitude, location.longitude)
             val dailyWeather = dailyWeatherRepository.getDailyWeather(location.latitude, location.longitude)
+            savedRepo.save(location)
+            savedRepo.setCurrent(location.id)
             weatherRepo.refreshForecast(location, weeklyWeather)
             weatherRepo.refreshHourly(location, dailyWeather)
         }
