@@ -30,7 +30,7 @@ interface RadarContract {
 
     sealed class Effect : ViewSideEffect {
         sealed class Navigation : Effect() {
-            data object ToCurrentScreen : Navigation()
+            data object ToDailyScreen : Navigation()
         }
         sealed class Dialog : Effect() {
             data class ShowTopAlertDialog(

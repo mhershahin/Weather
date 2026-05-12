@@ -132,15 +132,15 @@ dependencies {
     implementation(projects.common.featureApi)
 
     // Feature Presentations
-    implementation(projects.feature.current.currentPresentation)
-    implementation(projects.feature.forecast.forecastPresentation)
+    implementation(projects.feature.daily.dailyPresentation)
+    implementation(projects.feature.weekly.weeklyPresentation)
     implementation(projects.feature.radar.radarPresentation)
     implementation(projects.feature.splash.splashPresentation)
     implementation(projects.feature.splash.splashDomain)
 
     // Feature Domains (Hilt module discovery)
-    implementation(projects.feature.current.currentDomain)
-    implementation(projects.feature.forecast.forecastDomain)
+    implementation(projects.feature.daily.dailyDomain)
+    implementation(projects.feature.weekly.weeklyDomain)
     implementation(projects.feature.radar.radarDomain)
 
 

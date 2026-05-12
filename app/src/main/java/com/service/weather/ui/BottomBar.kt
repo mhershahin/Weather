@@ -111,5 +111,5 @@ fun getCurrentRouteName(currentRoute: String?, tabs: ImmutableList<FeaturesMain>
             }
         }
     }
-    return Home.Current.getRout()
+    return Home.Daily.getRout()
 }

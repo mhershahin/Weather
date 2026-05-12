@@ -20,18 +20,18 @@
             <option value="$PROJECT_DIR$/data/api" />
             <option value="$PROJECT_DIR$/data/db" />
             <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/current" />
-            <option value="$PROJECT_DIR$/feature/current/current-domain" />
-            <option value="$PROJECT_DIR$/feature/current/current-presentation" />
-            <option value="$PROJECT_DIR$/feature/forecast" />
-            <option value="$PROJECT_DIR$/feature/forecast/forecast-domain" />
-            <option value="$PROJECT_DIR$/feature/forecast/forecast-presentation" />
+            <option value="$PROJECT_DIR$/feature/daily" />
+            <option value="$PROJECT_DIR$/feature/daily/daily-domain" />
+            <option value="$PROJECT_DIR$/feature/daily/daily-presentation" />
             <option value="$PROJECT_DIR$/feature/radar" />
             <option value="$PROJECT_DIR$/feature/radar/radar-domain" />
             <option value="$PROJECT_DIR$/feature/radar/radar-presentation" />
             <option value="$PROJECT_DIR$/feature/splash" />
             <option value="$PROJECT_DIR$/feature/splash/splash-domain" />
             <option value="$PROJECT_DIR$/feature/splash/splash-presentation" />
+            <option value="$PROJECT_DIR$/feature/weekly" />
+            <option value="$PROJECT_DIR$/feature/weekly/weekly-domain" />
+            <option value="$PROJECT_DIR$/feature/weekly/weekly-presentation" />
           </set>
         </option>
       </GradleProjectSettings>

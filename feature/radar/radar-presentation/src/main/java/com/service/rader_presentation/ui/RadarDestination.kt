@@ -17,8 +17,8 @@ fun RadarDestination(
     LaunchedEffect(viewModel) {
         viewModel.effect.collect { effect ->
             when (effect) {
-                is RadarContract.Effect.Navigation.ToCurrentScreen -> {
-                    navController.navigate(Home.Current.getRout()) {
+                is RadarContract.Effect.Navigation.ToDailyScreen -> {
+                    navController.navigate(Home.Daily.getRout()) {
                         popUpTo(Home.Radar.getRout()) { inclusive = false }
                         launchSingleTop = true
                     }

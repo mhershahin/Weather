@@ -1,13 +1,13 @@
 package com.service.weather.di
 
-import com.service.current_presentation.feature_api.CurrentFeatureApi
-import com.service.current_presentation.feature_api.CurrentFeatureApiImpl
-import com.service.forecast_presentation.feature_api.ForecastFeatureApi
-import com.service.forecast_presentation.feature_api.ForecastFeatureApiImpl
+import com.service.daily_presentation.feature_api.DailyFeatureApi
+import com.service.daily_presentation.feature_api.DailyFeatureApiImpl
 import com.service.rader_presentation.feature_api.RadarFeatureApi
 import com.service.rader_presentation.feature_api.RadarFeatureApiImpl
 import com.service.weather.dependecy.DependencyProvider
 import com.service.weather.dependecy.DependencyProviderImpl
+import com.service.weekly_presentation.feature_api.WeeklyFeatureApi
+import com.service.weekly_presentation.feature_api.WeeklyFeatureApiImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,11 +20,11 @@ object AppProviderModule {
 
     @Provides
     @Singleton
-    fun provideCurrentFeatureApi(): CurrentFeatureApi = CurrentFeatureApiImpl()
+    fun provideDailyFeatureApi(): DailyFeatureApi = DailyFeatureApiImpl()
 
     @Provides
     @Singleton
-    fun provideForecastFeatureApi(): ForecastFeatureApi = ForecastFeatureApiImpl()
+    fun provideWeeklyFeatureApi(): WeeklyFeatureApi = WeeklyFeatureApiImpl()
 
     @Provides
     @Singleton
@@ -33,9 +33,9 @@ object AppProviderModule {
     @Provides
     @Singleton
     fun provideDependencyProvider(
-        currentFeatureApi: CurrentFeatureApi,
-        forecastFeatureApi: ForecastFeatureApi,
+        dailyFeatureApi: DailyFeatureApi,
+        weeklyFeatureApi: WeeklyFeatureApi,
         radarFeatureApi: RadarFeatureApi
     ): DependencyProvider =
-        DependencyProviderImpl(currentFeatureApi, forecastFeatureApi, radarFeatureApi)
+        DependencyProviderImpl(dailyFeatureApi, weeklyFeatureApi, radarFeatureApi)
 }

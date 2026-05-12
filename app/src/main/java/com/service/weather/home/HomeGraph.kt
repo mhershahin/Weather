@@ -27,22 +27,22 @@ fun HomeGraph(
     NavHost(
         navController = navController,
         route = Home.getRout(),
-        startDestination = dependencyProvider.currentFeatureApi().getFeature().getRout()
+        startDestination = dependencyProvider.dailyFeatureApi().getFeature().getRout()
     ) {
 
-        val current = dependencyProvider.currentFeatureApi()
-        val forecast = dependencyProvider.forecastFeatureApi()
+        val daily = dependencyProvider.dailyFeatureApi()
+        val weekly = dependencyProvider.weeklyFeatureApi()
         val radar = dependencyProvider.radarFeatureApi()
 
         register(
-            current,
+            daily,
             navController = navController,
             bottomBarVisibility = bottomBarVisibility,
             modifier = modifier,
             onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack
         )
         register(
-            forecast,
+            weekly,
             navController = navController,
             bottomBarVisibility = bottomBarVisibility,
             modifier = modifier,

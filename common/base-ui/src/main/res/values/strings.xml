@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="app_brand">Aether Weather</string>
-    <string name="current">Current</string>
-    <string name="forecast">Forecast</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
     <string name="radar">Radar</string>
     <string name="hourly_forecast">Hourly Forecast</string>
     <string name="uv_index">UV Index</string>

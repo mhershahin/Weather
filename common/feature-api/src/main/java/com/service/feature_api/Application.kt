@@ -6,12 +6,12 @@ const val SplashRoute = "SplashScreen"
 object Home : Feature(){
     private const val ROUT = "HomeScreen"
     override fun getRout(): String = ROUT
-    object Current : Feature() {
-        private const val ROUT = "CurrentScreen"
+    object Daily : Feature() {
+        private const val ROUT = "DailyScreen"
         override fun getRout(): String = ROUT
     }
-    object Forecast : Feature() {
-        private const val ROUT = "ForecastScreen"
+    object Weekly : Feature() {
+        private const val ROUT = "WeeklyScreen"
         override fun getRout(): String = ROUT
     }
     object Radar : Feature() {

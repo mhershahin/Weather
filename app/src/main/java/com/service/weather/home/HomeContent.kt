@@ -56,14 +56,14 @@ fun HomeScreen(
 private fun getFeatureList(): ImmutableList<FeaturesMain> {
     return listOf(
         FeaturesMain(
-            titleId = R.string.current,
-            routName = Home.Current.getRout(),
-            iconResId = R.drawable.ic_current
+            titleId = R.string.daily,
+            routName = Home.Daily.getRout(),
+            iconResId = R.drawable.ic_daily
         ),
         FeaturesMain(
-            titleId = R.string.forecast,
-            routName = Home.Forecast.getRout(),
-            iconResId = R.drawable.ic_forecast
+            titleId = R.string.weekly,
+            routName = Home.Weekly.getRout(),
+            iconResId = R.drawable.ic_weekly
         ),
         FeaturesMain(
             titleId = R.string.radar,
@@ -72,6 +72,3 @@ private fun getFeatureList(): ImmutableList<FeaturesMain> {
         )
     ).toImmutableList()
 }
-
-
-

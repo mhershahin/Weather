@@ -97,7 +97,7 @@ class RadarViewModel @Inject constructor(
     private fun handelCityClicked(location: Location) {
         launchIODispatcher {
             selectCurrent(location)
-            setEffect { RadarContract.Effect.Navigation.ToCurrentScreen }
+            setEffect { RadarContract.Effect.Navigation.ToDailyScreen }
         }
     }
 }

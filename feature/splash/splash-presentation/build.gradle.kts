@@ -89,6 +89,6 @@ dependencies {
     implementation(projects.common.utils)
     implementation(projects.common.baseUi)
     implementation(projects.common.featureApi)
-    implementation(projects.feature.forecast.forecastDomain)
+    implementation(projects.feature.weekly.weeklyDomain)
     implementation(projects.feature.splash.splashDomain)
 }
