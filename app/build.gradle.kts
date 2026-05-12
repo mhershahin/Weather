@@ -110,7 +110,6 @@ dependencies {
     implementation(deps.kotlinx.coroutines.core)
     implementation(deps.kotlinx.coroutines.android)
 
-    //Jackson
     implementation(deps.jackson.core)
     implementation(deps.jackson.kotlin)
     implementation(deps.jackson.databind)
@@ -145,8 +144,6 @@ dependencies {
     implementation(projects.feature.radar.radarDomain)
 
 
-    // Data & Services
+    // Data
     implementation(projects.data.api)
-    implementation(projects.data.datastore.core)
-    implementation(projects.data.datastore.repo)
 }

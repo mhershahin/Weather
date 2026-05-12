@@ -1,8 +1,8 @@
 package com.service.utils
 
-import java.net.UnknownHostException
 import com.service.entity.Result
 import retrofit2.Response
+import java.net.UnknownHostException
 
 const val NO_INTERNET_CONNECTION = -10
 

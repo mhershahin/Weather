@@ -14,11 +14,10 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.service.base_ui.R
@@ -44,14 +43,14 @@ fun SplashScreen(
             verticalArrangement = Arrangement.Center,
         ) {
             Icon(
-                imageVector = Icons.Filled.LocationOn,
+                modifier = Modifier.size(spacing.fortyEightDp),
+                painter = painterResource(id = R.drawable.logo),
                 contentDescription = null,
                 tint = MaterialTheme.colors.primary,
-                modifier = Modifier.size(spacing.fortyEightDp),
             )
             Spacer(Modifier.height(spacing.sixteenDp))
             Text(
-                text = "Aether Weather",
+                text = stringResource(R.string.app_name),
                 color = MaterialTheme.colors.onBackground,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = sizes.twentyFourSp,

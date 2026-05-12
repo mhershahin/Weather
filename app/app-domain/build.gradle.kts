@@ -47,8 +47,6 @@ dependencies {
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
 
-    //Jackson
-
     // Common
     implementation(projects.common.entity)
     implementation(projects.common.utils)
@@ -56,5 +54,4 @@ dependencies {
 
     // Data API
     implementation(projects.data.api)
-    implementation(projects.data.datastore.repo)
 }

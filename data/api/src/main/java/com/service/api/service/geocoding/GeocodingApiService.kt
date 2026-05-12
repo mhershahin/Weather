@@ -1,6 +1,5 @@
 package com.service.api.service.geocoding
 
-import com.service.api.service.geocoding.GeocodingConstants.Companion.GEOCODING_REVERS
 import com.service.api.service.geocoding.GeocodingConstants.Companion.GEOCODING_SEARCH
 import com.service.api.service.geocoding.GeocodingConstants.Companion.SEARCH_FORMAT
 import com.service.api.service.geocoding.GeocodingConstants.Companion.SEARCH_LANGUAGE
@@ -11,13 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface GeocodingApiService {
-    @GET(GEOCODING_REVERS)
-    suspend fun reverseGeocoding(
-        @Query("latitude") latitude: Double,
-        @Query("longitude") longitude: Double,
-        @Query("language") language: String = "en",
-        @Query("format") format: String = "json"
-    ): Response<GeocodingResponse>
+
     @GET(GEOCODING_SEARCH)
     suspend fun searchCities(
         @Query("name") name: String,

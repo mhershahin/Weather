@@ -34,25 +34,4 @@ class SavedLocationsRepositoryImpl @Inject constructor(
         locationDao.markCurrent(id)
     }
 
-
-    override suspend fun upsertGpsLocation(latitude: Double, longitude: Double): Location {
-        val gps = Location(
-            id = GPS_LOCATION_ID,
-            name = "Current Location",
-            country = "",
-            region = "",
-            latitude = latitude,
-            longitude = longitude,
-            isCurrent = true,
-            kind = LocationKind.GPS,
-        )
-        locationDao.upsert(LocationEntity.fromDomain(gps))
-        locationDao.clearCurrentFlag()
-        locationDao.markCurrent(GPS_LOCATION_ID)
-        return gps
-    }
-
-    companion object {
-        const val GPS_LOCATION_ID = -42
-    }
 }

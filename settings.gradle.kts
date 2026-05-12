@@ -42,9 +42,6 @@ include(":feature:radar:radar-domain")
 
 include(":data")
 include(":data:api")
-include(":data:datastore")
-include(":data:datastore:core")
-include(":data:datastore:repo")
 
 include(":common")
 include(":common:entity")

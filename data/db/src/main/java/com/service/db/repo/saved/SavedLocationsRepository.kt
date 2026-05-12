@@ -9,5 +9,4 @@ interface SavedLocationsRepository {
     suspend fun save(location: Location)
     suspend fun remove(id: Int)
     suspend fun setCurrent(id: Int)
-    suspend fun upsertGpsLocation(latitude: Double, longitude: Double): Location
 }

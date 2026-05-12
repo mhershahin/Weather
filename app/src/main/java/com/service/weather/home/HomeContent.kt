@@ -1,14 +1,16 @@
 package com.service.weather.home
-import com.service.base_ui.R
 
 import android.annotation.SuppressLint
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
+import com.service.base_ui.R
 import com.service.entity.ui.FeaturesMain
 import com.service.feature_api.Home
 import com.service.weather.ui.BottomBar
@@ -45,6 +47,9 @@ fun HomeScreen(
             bottomBarVisibility = bottomBarVisibility,
             dependencyProvider = viewModel.getDependencyProvider()
         )
+    }
+    BackHandler(enabled = false){
+
     }
 }
 

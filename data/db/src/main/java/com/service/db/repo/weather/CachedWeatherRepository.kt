@@ -8,5 +8,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface CachedWeatherRepository {
     fun observeForLocation(locationId: Int): Flow<Weather?>
-    suspend fun refresh(location: Location,weather: Result<WeatherResponse>): Result<Unit>
+    suspend fun refreshHourly(location: Location, weather: Result<WeatherResponse>): Result<Unit>
+    suspend fun refreshForecast(location: Location, weather: Result<WeatherResponse>): Result<Unit>
 }

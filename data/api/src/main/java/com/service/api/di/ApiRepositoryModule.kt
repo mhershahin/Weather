@@ -3,8 +3,6 @@ package com.service.api.di
 import com.service.api.BuildConfig
 import com.service.api.repository.dayle.DailyWeatherRepository
 import com.service.api.repository.dayle.DailyWeatherRepositoryImpl
-import com.service.api.repository.geocoding.ReverseGeocodingRepository
-import com.service.api.repository.geocoding.ReverseGeocodingRepositoryImpl
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.multi.MultiLocationRepositoryImpl
 import com.service.api.repository.search.SearchCityRepository
@@ -128,12 +126,6 @@ object ApiRepositoryModule {
             geocodingApiService
         )
 
-    @Singleton
-    @Provides
-    fun provideReverseGeocodingRepository(
-        geocodingApiService: GeocodingApiService
-    ): ReverseGeocodingRepository =
-        ReverseGeocodingRepositoryImpl(geocodingApiService)
 
 
     @Singleton

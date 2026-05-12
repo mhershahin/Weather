@@ -1,3 +1,3 @@
 package com.service.entity
 
-data class LatLon(val latitude: Double, val longitude: Double)
+data class LatLon(val latitude: Double, val longitude: Double, val name: String? = null)

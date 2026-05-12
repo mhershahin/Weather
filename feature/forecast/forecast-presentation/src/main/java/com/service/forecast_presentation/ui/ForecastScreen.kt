@@ -102,9 +102,8 @@ private fun ForecastContent(state: ForecastContract.State) {
                 fontSize = sizes.thirteenSp,
             )
         }
-        Spacer(Modifier.height(spacing.sixteenDp))
         LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(top = spacing.sixteenDp,bottom = spacing.sixteenDp),
             verticalArrangement = Arrangement.spacedBy(spacing.twelveDp),
             contentPadding = PaddingValues(bottom = spacing.sixteenDp),
         ) {

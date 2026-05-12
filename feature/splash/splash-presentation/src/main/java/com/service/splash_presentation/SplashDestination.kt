@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
@@ -39,11 +40,14 @@ fun SplashDestination(
         viewModel.effect.collect { effect ->
             when (effect) {
                 SplashContract.Effect.NavigateHome -> {
+                    Log.e("MherMher1234","NavigateHome")
+
                     navController.navigate(Home.getRout()) {
                         popUpTo("splash") { inclusive = true }
                     }
                 }
                 SplashContract.Effect.CloseApp -> {
+                    Log.e("MherMher1234","CloseApp")
                     (context as? Activity)?.finishAndRemoveTask()
                 }
                 SplashContract.Effect.RequestPermission -> {

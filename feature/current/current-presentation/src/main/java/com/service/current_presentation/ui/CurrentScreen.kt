@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -51,11 +53,12 @@ internal fun CurrentScreen(
                 .fillMaxSize()
                 .background(MaterialTheme.colors.background)
         ) {
-            AppTopBar(title = stringResource(R.string.current),)
+            AppTopBar(title = stringResource(R.string.current))
             when {
                 state.isLoading && state.tempC == null -> LoadingState()
                 state.errorMessage != null && state.tempC == null ->
                     ErrorState(message = state.errorMessage)
+
                 else -> CurrentContent(state)
             }
         }
@@ -120,11 +123,11 @@ private fun CurrentContent(state: CurrentContract.State) {
             Column(modifier = Modifier.padding(spacing.sixteenDp)) {
                 SectionHeader(title = stringResource(R.string.hourly_forecast))
                 Spacer(Modifier.height(spacing.twelveDp))
-                Row(
+                LazyRow(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                    horizontalArrangement = Arrangement.spacedBy(spacing.twelveDp),
                 ) {
-                    state.hourly.forEach { slot ->
+                    items(state.hourly, key = { it.label }) { slot ->
                         HourlyForecastItem(
                             label = slot.label,
                             icon = WeatherCodeMapper.icon(slot.weatherCode, slot.isDay),

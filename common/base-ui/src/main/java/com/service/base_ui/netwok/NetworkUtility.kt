@@ -11,13 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.produceState
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+
 @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
 private fun Context.observeConnectivityAsFlow(): Flow<ConnectionState> = callbackFlow @androidx.annotation.RequiresPermission(
     android.Manifest.permission.ACCESS_NETWORK_STATE

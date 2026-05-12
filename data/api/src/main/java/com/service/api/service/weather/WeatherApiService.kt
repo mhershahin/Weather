@@ -3,14 +3,14 @@ package com.service.api.service.weather
 import com.service.api.service.weather.RequestConstants.Companion.CURRENT_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.DAILY_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.FORECAST
-import com.service.api.service.weather.RequestConstants.Companion.WEEKLY_DAILY_PARAMS
-import com.service.api.service.weather.RequestConstants.Companion.WEEKLY_HOURLY_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.FORECAST_DAYS_DAILY
-import com.service.api.service.weather.RequestConstants.Companion.HOURLY_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.FORECAST_DAYS_WEEKLY
+import com.service.api.service.weather.RequestConstants.Companion.HOURLY_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.MULTI_LOCATION_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.TEMP_UNIT
 import com.service.api.service.weather.RequestConstants.Companion.TIME_ZONE
+import com.service.api.service.weather.RequestConstants.Companion.WEEKLY_DAILY_PARAMS
+import com.service.api.service.weather.RequestConstants.Companion.WEEKLY_HOURLY_PARAMS
 import com.service.api.service.weather.RequestConstants.Companion.WIND_SPEED_UNIT
 import com.service.entity.response.weather.WeatherResponse
 import retrofit2.Response

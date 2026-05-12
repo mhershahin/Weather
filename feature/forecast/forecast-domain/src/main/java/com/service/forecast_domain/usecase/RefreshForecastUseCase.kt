@@ -15,5 +15,9 @@ class RefreshForecastUseCaseImpl @Inject constructor(
     private val weeklyRepo: WeeklyWeatherRepository
 ) : RefreshForecastUseCase {
 
-    override suspend fun invoke(location: Location): Result<Unit> = cachedRepo.refresh(location,weeklyRepo.getWeeklyWeather(location.latitude,location.longitude))
+    override suspend fun invoke(location: Location): Result<Unit> =
+        cachedRepo.refreshForecast(
+            location,
+            weeklyRepo.getWeeklyWeather(location.latitude, location.longitude),
+        )
 }

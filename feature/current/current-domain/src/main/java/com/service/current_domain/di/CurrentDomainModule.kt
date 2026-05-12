@@ -1,10 +1,10 @@
 package com.service.current_domain.di
 
-import com.service.api.repository.weekly.WeeklyWeatherRepository
+import com.service.api.repository.dayle.DailyWeatherRepository
 import com.service.current_domain.usecase.ObserveCurrentWeatherUseCase
 import com.service.current_domain.usecase.ObserveCurrentWeatherUseCaseImpl
-import com.service.current_domain.usecase.RefreshCurrentWeatherUseCase
-import com.service.current_domain.usecase.RefreshCurrentWeatherUseCaseImpl
+import com.service.current_domain.usecase.refresh.RefreshCurrentWeatherUseCase
+import com.service.current_domain.usecase.refresh.RefreshCurrentWeatherUseCaseImpl
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
 import dagger.Module
@@ -25,17 +25,17 @@ object CurrentDomainModule {
     ): ObserveCurrentWeatherUseCase =
         ObserveCurrentWeatherUseCaseImpl(
             savedRepo,
-            cachedRepo,
+            cachedRepo
         )
 
     @Singleton
     @Provides
     fun provideRefreshCurrentWeatherUseCase(
         cachedRepo: CachedWeatherRepository,
-        weeklyRepo: WeeklyWeatherRepository,
+        dailyWeatherRepository: DailyWeatherRepository
     ): RefreshCurrentWeatherUseCase =
         RefreshCurrentWeatherUseCaseImpl(
             cachedRepo,
-            weeklyRepo,
+            dailyWeatherRepository
         )
 }

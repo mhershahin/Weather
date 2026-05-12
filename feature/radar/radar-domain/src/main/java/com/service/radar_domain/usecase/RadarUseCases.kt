@@ -81,10 +81,9 @@ class SelectCurrentLocationUseCaseImpl @Inject constructor(
     override suspend fun invoke(location: Location) {
         repo.save(location)
         repo.setCurrent(location.id)
-        cachedRepo.refresh(
-            location,
-            weeklyRepo.getWeeklyWeather(location.latitude, location.longitude),
-        )
+        val response = weeklyRepo.getWeeklyWeather(location.latitude, location.longitude)
+        cachedRepo.refreshHourly(location, response)
+        cachedRepo.refreshForecast(location, response)
     }
 }
 

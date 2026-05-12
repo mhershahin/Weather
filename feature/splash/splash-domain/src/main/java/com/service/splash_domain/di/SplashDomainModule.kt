@@ -3,6 +3,8 @@ package com.service.splash_domain.di
 import android.content.Context
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.service.api.repository.dayle.DailyWeatherRepository
+import com.service.api.repository.search.SearchCityRepository
 import com.service.api.repository.weekly.WeeklyWeatherRepository
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
@@ -49,9 +51,13 @@ object SplashDomainModule {
     @Singleton
     @Provides
     fun provideGetLocationProviderUseCase(
+        @ApplicationContext context: Context,
+        dispatchers: DispatcherProvider,
         fusedLocationProviderClient: FusedLocationProviderClient,
     ): GetLocationProviderUseCase =
         GetLocationProviderUseCaseImpl(
+            context,
+            dispatchers,
             fusedLocationProviderClient,
         )
 
@@ -71,11 +77,13 @@ object SplashDomainModule {
     fun provideSaveDeviceLocationUseCase(
         savedRepo: SavedLocationsRepository,
         getLocationProviderUseCase: GetLocationProviderUseCase,
+        searchCityRepository: SearchCityRepository,
         dispatchers: DispatcherProvider,
     ): SaveDeviceLocationUseCase =
         SaveDeviceLocationUseCaseImpl(
             savedRepo,
             getLocationProviderUseCase,
+            searchCityRepository,
             dispatchers,
         )
 
@@ -84,13 +92,15 @@ object SplashDomainModule {
     fun provideUpdateAllDataUseCase(
         savedRepo: SavedLocationsRepository,
         weatherRepo: CachedWeatherRepository,
-        weeklyRepo: WeeklyWeatherRepository,
+        weeklyWeatherRepository: WeeklyWeatherRepository,
+        dailyWeatherRepository: DailyWeatherRepository,
         dispatchers: DispatcherProvider,
     ): UpdateAllDataUseCase =
         UpdateAllDataUseCaseImpl(
             savedRepo,
             weatherRepo,
-            weeklyRepo,
+            weeklyWeatherRepository,
+            dailyWeatherRepository,
             dispatchers,
         )
 }

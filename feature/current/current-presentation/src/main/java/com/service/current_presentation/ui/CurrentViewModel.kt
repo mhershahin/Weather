@@ -1,17 +1,17 @@
 package com.service.current_presentation.ui
 
+import android.util.Log
 import com.service.base_ui.BaseViewModel
-import com.service.current_domain.usecase.CurrentSnapshot
 import com.service.current_domain.usecase.ObserveCurrentWeatherUseCase
-import com.service.current_domain.usecase.RefreshCurrentWeatherUseCase
+import com.service.current_domain.usecase.refresh.RefreshCurrentWeatherUseCase
 import com.service.entity.Result
 import com.service.entity.domain.Location
 import com.service.entity.domain.Weather
+import com.service.entity.ui.CurrentSnapshot
 import com.service.utils.format.formatHourLabel
 import com.service.utils.format.parseHour
 import com.service.utils.weather.WeatherCodeMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.distinctUntilChanged
 import java.time.LocalDateTime
 import javax.inject.Inject
 import kotlin.math.roundToInt
@@ -25,8 +25,12 @@ class CurrentViewModel @Inject constructor(
     private var lastRefreshedLocationId: Int? = null
 
     init {
-        launchIODispatcher {
-            observe().distinctUntilChanged().collect { snap ->
+        launchMainDispatcher {
+            Log.e("MherMher1234"," CurrentViewModel ")
+
+            observe().collect { snap ->
+                Log.e("MherMher1234","snap $snap")
+
                 applySnapshot(snap)
                 triggerRefreshIfNeeded(snap.location)
             }
@@ -88,7 +92,7 @@ class CurrentViewModel @Inject constructor(
         val c = weather.current
         val isDay = c?.isDay ?: true
         val nowIdx = currentHourIndex(weather.hourly.map { it.isoTime })
-        val slots = (0 until 4).mapNotNull { off ->
+        val slots = (0 until 24).mapNotNull { off ->
             weather.hourly.getOrNull(nowIdx + off)?.let { h ->
                 CurrentContract.HourSlot(
                     label = formatHourLabel(h.isoTime, isNow = off == 0),
