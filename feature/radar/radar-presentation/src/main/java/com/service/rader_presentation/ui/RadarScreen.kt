@@ -79,7 +79,6 @@ internal fun RadarScreen(
                 SavedSection(
                     state = state,
                     onAddCity = { onEventSent(RadarContract.Event.OpenSearch) },
-                    onToggleEdit = { onEventSent(RadarContract.Event.ToggleEdit) },
                     onRemove = { onEventSent(RadarContract.Event.RemoveCity(it)) },
                     onCityClick = { onEventSent(RadarContract.Event.CityClicked(it)) },
                 )
@@ -92,7 +91,6 @@ internal fun RadarScreen(
 private fun SavedSection(
     state: RadarContract.State,
     onAddCity: () -> Unit,
-    onToggleEdit: () -> Unit,
     onRemove: (Int) -> Unit,
     onCityClick: (Location) -> Unit,
 ) {
@@ -104,17 +102,7 @@ private fun SavedSection(
         verticalArrangement = Arrangement.spacedBy(spacing.twelveDp),
     ) {
         item {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                SectionHeader(title = stringResource(R.string.saved_locations))
-                TextButton(onClick = onToggleEdit) {
-                    Text(
-                        text = stringResource(if (state.isEditing) R.string.done else R.string.edit),
-                        color = MaterialTheme.colors.primary,
-                        fontSize = sizes.twelveSp,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                }
-            }
+            SectionHeader(title = stringResource(R.string.saved_locations))
         }
         items(state.saved, key = { "saved-${it.location.id}" }) { city ->
             SavedLocationCard(
@@ -122,7 +110,7 @@ private fun SavedSection(
                 country = city.location.country,
                 temp = city.tempC?.let { "${it}°" } ?: "—",
                 icon = WeatherCodeMapper.icon(city.weatherCode, city.isDay),
-                isEditing = state.isEditing,
+                canDelete = state.saved.size>1,
                 onClick = { onCityClick(city.location) },
                 onRemove = { onRemove(city.location.id) },
             )
@@ -137,7 +125,7 @@ private fun SavedSection(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
             )
-            Spacer(Modifier.height(spacing.eightDp))
+            Spacer(Modifier.height(spacing.sixtyFourDp))
         }
     }
 }

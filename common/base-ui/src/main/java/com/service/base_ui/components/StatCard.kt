@@ -92,6 +92,8 @@ fun StatCard(
                             .background(MaterialTheme.colors.primary)
                     )
                 }
+            } else {
+                Spacer(Modifier.height(spacing.fourteenDp))
             }
         }
     }

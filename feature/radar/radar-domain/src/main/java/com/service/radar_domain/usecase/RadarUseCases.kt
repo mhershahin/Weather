@@ -10,17 +10,13 @@ import com.service.entity.domain.Location
 import com.service.entity.domain.LocationKind
 import com.service.entity.domain.toLocation
 import com.service.entity.response.weather.WeatherResponse
+import com.service.entity.ui.CityCard
 
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
-data class CityCard(
-    val location: Location,
-    val tempC: Int?,
-    val weatherCode: Int?,
-    val isDay: Boolean,
-)
+
 
 interface ObserveSavedLocationsUseCase {
     operator fun invoke(): Flow<List<Location>>

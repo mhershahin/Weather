@@ -54,6 +54,7 @@ internal fun WeeklyScreen(
                 state.isLoading && state.days.isEmpty() -> LoadingState()
                 state.errorMessage != null && state.days.isEmpty() ->
                     ErrorState(message = state.errorMessage)
+
                 else -> WeeklyContent(state)
             }
         }
@@ -63,27 +64,65 @@ internal fun WeeklyScreen(
 @Composable
 private fun WeeklyContent(state: WeeklyContract.State) {
     val spacing = LocalSpacing.current
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = spacing.sixteenDp),
+        verticalArrangement = Arrangement.spacedBy(spacing.fourDp)
+    ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = spacing.sixteenDp, bottom = spacing.sixteenDp),
+            verticalArrangement = Arrangement.spacedBy(spacing.twelveDp),
+            contentPadding = PaddingValues(bottom = spacing.sixteenDp),
+        ) {
+            item { WeeklyTitleInf(false, state.cityLabel, state.dateRange) }
+            items(state.days, key = { it.date + it.day }) { row ->
+                ForecastDayRow(
+                    day = row.day,
+                    date = row.date,
+                    icon = WeatherCodeMapper.icon(row.weatherCode, row.isDay),
+                    precipPct = row.precipPct,
+                    tempMax = row.tempMax,
+                    tempMin = row.tempMin,
+                    isToday = row.isToday,
+                )
+            }
+            item { Spacer(Modifier.height(spacing.fortyDp)) }
+        }
+    }
+}
+
+@Composable
+fun WeeklyTitleInf(isCurrent: Boolean = false, cityLabel: String, dateRange: String) {
+    val spacing = LocalSpacing.current
     val sizes = LocalTextSize.current
-    Column(modifier = Modifier.fillMaxSize().padding(horizontal = spacing.sixteenDp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = spacing.sixteenDp),
+        verticalArrangement = Arrangement.spacedBy(spacing.fourDp)
+    ) {
         Spacer(Modifier.height(spacing.eightDp))
+        if(isCurrent){
+            Text(
+                text = stringResource(R.string.current_location).uppercase(),
+                color = MaterialTheme.colors.primary,
+                fontSize = sizes.elevenSp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
         Text(
-            text = stringResource(R.string.current_location).uppercase(),
-            color = MaterialTheme.colors.primary,
-            fontSize = sizes.elevenSp,
-            fontWeight = FontWeight.SemiBold,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth(),
-        )
-        Spacer(Modifier.height(spacing.twoDp))
-        Text(
-            text = state.cityLabel,
+            text = cityLabel,
             color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.SemiBold,
             fontSize = sizes.twentyTwoSp,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),
         )
-        Spacer(Modifier.height(spacing.fourDp))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
@@ -97,27 +136,10 @@ private fun WeeklyContent(state: WeeklyContract.State) {
             )
             Spacer(Modifier.size(spacing.sixDp))
             Text(
-                text = state.dateRange,
+                text = dateRange,
                 color = MaterialTheme.colors.secondary,
                 fontSize = sizes.thirteenSp,
             )
-        }
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth().padding(top = spacing.sixteenDp,bottom = spacing.sixteenDp),
-            verticalArrangement = Arrangement.spacedBy(spacing.twelveDp),
-            contentPadding = PaddingValues(bottom = spacing.sixteenDp),
-        ) {
-            items(state.days, key = { it.date + it.day }) { row ->
-                ForecastDayRow(
-                    day = row.day,
-                    date = row.date,
-                    icon = WeatherCodeMapper.icon(row.weatherCode, row.isDay),
-                    precipPct = row.precipPct,
-                    tempMax = row.tempMax,
-                    tempMin = row.tempMin,
-                    isToday = row.isToday,
-                )
-            }
         }
     }
 }

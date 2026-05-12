@@ -21,7 +21,7 @@ interface DailyContract {
     data class State(
         val isLoading: Boolean = true,
         val errorMessage: String? = null,
-        val cityLabel: String = "Current Location",
+        val cityLabel: String = "",
         val tempC: Int? = null,
         val condition: String = "",
         val highC: Int? = null,

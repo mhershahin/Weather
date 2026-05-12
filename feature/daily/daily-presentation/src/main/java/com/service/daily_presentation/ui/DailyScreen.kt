@@ -77,9 +77,19 @@ private fun DailyContent(state: DailyContract.State) {
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = spacing.sixteenDp)
+            .padding(horizontal = spacing.sixteenDp),
+        verticalArrangement = Arrangement.spacedBy(spacing.eightDp)
     ) {
-        Spacer(Modifier.height(spacing.sixteenDp))
+
+        Spacer(Modifier.width(spacing.eightDp))
+        Text(
+            text = stringResource(R.string.current_location).uppercase(),
+            color = MaterialTheme.colors.primary,
+            fontSize = sizes.elevenSp,
+            fontWeight = FontWeight.SemiBold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(),
+        )
         Text(
             text = state.cityLabel,
             modifier = Modifier.fillMaxWidth(),
@@ -88,16 +98,14 @@ private fun DailyContent(state: DailyContract.State) {
             fontSize = sizes.twentyEightSp,
             textAlign = TextAlign.Center,
         )
-        Spacer(Modifier.height(spacing.eightDp))
         Text(
             text = state.tempC?.let { "${it}°" } ?: "—",
             modifier = Modifier.fillMaxWidth(),
             color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.Light,
-            fontSize = sizes.ninetySixSp,
+            fontSize = sizes.sixtySP,
             textAlign = TextAlign.Center,
         )
-        Spacer(Modifier.height(spacing.fourDp))
         Text(
             text = state.condition,
             modifier = Modifier.fillMaxWidth(),
@@ -105,7 +113,6 @@ private fun DailyContent(state: DailyContract.State) {
             fontSize = sizes.sixteenSp,
             textAlign = TextAlign.Center,
         )
-        Spacer(Modifier.height(spacing.eightDp))
         if (state.highC != null && state.lowC != null) {
             Text(
                 text = "H: ${state.highC}°    L: ${state.lowC}°",
@@ -116,9 +123,6 @@ private fun DailyContent(state: DailyContract.State) {
                 textAlign = TextAlign.Center,
             )
         }
-
-        Spacer(Modifier.height(spacing.twentyDp))
-
         Surface(
             color = MaterialTheme.colors.surface,
             shape = RoundedCornerShape(spacing.sixteenDp),
@@ -142,8 +146,6 @@ private fun DailyContent(state: DailyContract.State) {
             }
         }
 
-        Spacer(Modifier.height(spacing.sixteenDp))
-
         Row(modifier = Modifier.fillMaxWidth()) {
             StatCard(
                 icon = Icons.Filled.WbSunny,
@@ -153,7 +155,7 @@ private fun DailyContent(state: DailyContract.State) {
                 progress = state.uvIndex?.let { (it / 11f).coerceIn(0f, 1f) },
                 modifier = Modifier.weight(1f)
             )
-            Spacer(Modifier.width(spacing.twelveDp))
+            Spacer(Modifier.width(spacing.eightDp))
             StatCard(
                 icon = WeatherCodeMapper.Humidity,
                 label = stringResource(R.string.humidity),
@@ -163,8 +165,6 @@ private fun DailyContent(state: DailyContract.State) {
             )
         }
 
-        Spacer(Modifier.height(spacing.twelveDp))
-
         Row(modifier = Modifier.fillMaxWidth()) {
             StatCard(
                 icon = WeatherCodeMapper.Wind,
@@ -173,7 +173,7 @@ private fun DailyContent(state: DailyContract.State) {
                 subText = state.windDirText.takeIf { it.isNotEmpty() }?.let { "From $it" },
                 modifier = Modifier.weight(1f)
             )
-            Spacer(Modifier.width(spacing.twelveDp))
+            Spacer(Modifier.width(spacing.eightDp))
             StatCard(
                 icon = Icons.Filled.Visibility,
                 label = stringResource(R.string.visibility),
@@ -182,7 +182,5 @@ private fun DailyContent(state: DailyContract.State) {
                 modifier = Modifier.weight(1f)
             )
         }
-
-        Spacer(Modifier.height(spacing.twentyDp))
     }
 }

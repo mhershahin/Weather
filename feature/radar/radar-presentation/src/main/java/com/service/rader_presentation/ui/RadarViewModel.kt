@@ -9,6 +9,7 @@ import com.service.radar_domain.usecase.RemoveLocationUseCase
 import com.service.radar_domain.usecase.SearchLocationsUseCase
 import com.service.radar_domain.usecase.SelectCurrentLocationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -33,19 +34,19 @@ class RadarViewModel @Inject constructor(
         launchIODispatcher {
             observeSaved().distinctUntilChanged().collect { list ->
                 val cards = fetchCards(list)
-                setState { copy(saved = cards) }
+                setState { copy(saved = cards.toImmutableList()) }
             }
         }
         launchIODispatcher {
             searchQueryFlow.debounce(300).collectLatest { q ->
                 val trimmed = q.trim()
                 if (trimmed.length < 2) {
-                    setState { copy(searchResults = emptyList(), isSearching = false) }
+                    setState { copy(searchResults = emptyList<Location>().toImmutableList(), isSearching = false) }
                     return@collectLatest
                 }
                 setState { copy(isSearching = true) }
                 val results = searchLocations(trimmed)
-                setState { copy(searchResults = results, isSearching = false) }
+                setState { copy(searchResults = results.toImmutableList(), isSearching = false) }
             }
         }
     }
@@ -54,9 +55,8 @@ class RadarViewModel @Inject constructor(
 
     override fun handleEvents(event: RadarContract.Event) {
         when (event) {
-            RadarContract.Event.OpenSearch -> handelOpenSearch()
-            RadarContract.Event.CloseSearch -> handelCloseSearch()
-            RadarContract.Event.ToggleEdit -> handelToggleEdit()
+            is RadarContract.Event.OpenSearch -> handelOpenSearch()
+            is RadarContract.Event.CloseSearch -> handelCloseSearch()
             is RadarContract.Event.SearchQueryChanged -> handelSearchQueryChanged(event.query)
             is RadarContract.Event.AddCity -> handelAddCity(event.location)
             is RadarContract.Event.RemoveCity -> handelRemoveCity(event.id)
@@ -69,12 +69,8 @@ class RadarViewModel @Inject constructor(
     }
 
     private fun handelCloseSearch() {
-        setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList()) }
+        setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
         searchQueryFlow.value = ""
-    }
-
-    private fun handelToggleEdit() {
-        setState { copy(isEditing = !isEditing) }
     }
 
     private fun handelSearchQueryChanged(query: String) {
@@ -85,7 +81,7 @@ class RadarViewModel @Inject constructor(
     private fun handelAddCity(location: Location) {
         launchIODispatcher {
             addLocation(location)
-            setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList()) }
+            setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
             searchQueryFlow.value = ""
         }
     }

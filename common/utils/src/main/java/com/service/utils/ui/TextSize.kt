@@ -24,7 +24,7 @@ data class TextSize(
     val thirtyTwoSp: TextUnit = 32.sp,
     val fortySp: TextUnit = 40.sp,
     val fortyEightSp: TextUnit = 48.sp,
-    val ninetySixSp: TextUnit = 96.sp,
+    val sixtySP: TextUnit = 60.sp,
 )
 
 val LocalTextSize = compositionLocalOf { TextSize() }

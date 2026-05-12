@@ -1,7 +1,7 @@
 package com.service.base_ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,12 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,8 +33,8 @@ fun SavedLocationCard(
     country: String,
     temp: String,
     icon: ImageVector,
+    canDelete: Boolean,
     modifier: Modifier = Modifier,
-    isEditing: Boolean = false,
     onClick: () -> Unit = {},
     onRemove: () -> Unit = {},
 ) {
@@ -50,7 +47,14 @@ fun SavedLocationCard(
         modifier = modifier
             .fillMaxWidth()
             .height(spacing.hundredDp + spacing.twentyDp)
-            .clickable(enabled = !isEditing) { onClick() }
+            .combinedClickable(
+                onClick = { onClick() },
+                onLongClick = {
+                    if (canDelete) {
+                        onRemove()
+                    }
+                },
+            )
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Box(
@@ -102,20 +106,7 @@ fun SavedLocationCard(
                     )
                 }
             }
-            if (isEditing) {
-                IconButton(
-                    onClick = onRemove,
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(spacing.sixDp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Close,
-                        contentDescription = "Remove",
-                        tint = MaterialTheme.colors.error
-                    )
-                }
-            }
+
         }
     }
 }
