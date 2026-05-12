@@ -51,6 +51,7 @@ dependencies {
 
     implementation(deps.kotlinx.coroutines.core)
     implementation(projects.common.entity)
+    implementation(projects.common.utils)
     implementation(projects.data.db)
     implementation(projects.data.api)
 }

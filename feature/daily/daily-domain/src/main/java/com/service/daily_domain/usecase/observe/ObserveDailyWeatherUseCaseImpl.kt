@@ -1,9 +1,9 @@
-package com.service.daily_domain.usecase
+package com.service.daily_domain.usecase.observe
 
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
 import com.service.entity.ui.CurrentSnapshot
-import kotlinx.coroutines.Dispatchers
+import com.service.utils.dispatcher.DispatcherProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -12,16 +12,11 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-
-
-interface ObserveDailyWeatherUseCase {
-    operator fun invoke(): Flow<CurrentSnapshot>
-}
-
 @OptIn(ExperimentalCoroutinesApi::class)
-class ObserveDailyWeatherUseCaseImpl @Inject constructor(
+internal class ObserveDailyWeatherUseCaseImpl @Inject constructor(
     private val savedRepo: SavedLocationsRepository,
     private val cachedRepo: CachedWeatherRepository,
+    private val dispatchers: DispatcherProvider,
 ) : ObserveDailyWeatherUseCase {
 
     override fun invoke(): Flow<CurrentSnapshot> =
@@ -30,5 +25,5 @@ class ObserveDailyWeatherUseCaseImpl @Inject constructor(
             else combine(flowOf(loc), cachedRepo.observeForLocation(loc.id)) { l, w ->
                 CurrentSnapshot(l, w)
             }
-        }.flowOn(Dispatchers.IO)
+        }.flowOn(dispatchers.io)
 }

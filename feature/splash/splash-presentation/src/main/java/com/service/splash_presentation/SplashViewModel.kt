@@ -1,6 +1,5 @@
 package com.service.splash_presentation
 
-import android.util.Log
 import com.service.base_ui.BaseViewModel
 import com.service.splash_domain.usecase.location.GetCurrentLocationUseCase
 import com.service.splash_domain.usecase.permission.HasLocationPermissionUseCase
@@ -36,10 +35,7 @@ class SplashViewModel @Inject constructor(
     private fun reload(){
         launchMainDispatcher {
             val savedLocation = saveDeviceLocationUseCase.invoke()
-            Log.e("MherMher1234"," savedLocation")
             updateAllDataUseCase.invoke(savedLocation)
-
-            Log.e("MherMher1234","Has Data")
             setEffect { SplashContract.Effect.NavigateHome }
         }
     }

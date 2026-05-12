@@ -1,6 +1,5 @@
 package com.service.splash_domain.usecase.update
 
-import android.util.Log
 import com.service.api.repository.dayle.DailyWeatherRepository
 import com.service.api.repository.weekly.WeeklyWeatherRepository
 import com.service.db.repo.saved.SavedLocationsRepository
@@ -22,8 +21,6 @@ internal class UpdateAllDataUseCaseImpl @Inject constructor(
         withContext(dispatchers.io) {
             val weeklyWeather = weeklyWeatherRepository.getWeeklyWeather(location.latitude, location.longitude)
             val dailyWeather = dailyWeatherRepository.getDailyWeather(location.latitude, location.longitude)
-            Log.e("MherMher1234","$weeklyWeather")
-            Log.e("MherMher1234","$dailyWeather")
             weatherRepo.refreshForecast(location, weeklyWeather)
             weatherRepo.refreshHourly(location, dailyWeather)
         }

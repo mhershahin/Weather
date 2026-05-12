@@ -1,12 +1,13 @@
 package com.service.daily_domain.di
 
 import com.service.api.repository.dayle.DailyWeatherRepository
-import com.service.daily_domain.usecase.ObserveDailyWeatherUseCase
-import com.service.daily_domain.usecase.ObserveDailyWeatherUseCaseImpl
+import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCase
+import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCaseImpl
 import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCase
 import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCaseImpl
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
+import com.service.utils.dispatcher.DispatcherProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,10 +23,12 @@ object DailyDomainModule {
     fun provideObserveDailyWeatherUseCase(
         savedRepo: SavedLocationsRepository,
         cachedRepo: CachedWeatherRepository,
+        dispatchers: DispatcherProvider,
     ): ObserveDailyWeatherUseCase =
         ObserveDailyWeatherUseCaseImpl(
             savedRepo,
-            cachedRepo
+            cachedRepo,
+            dispatchers,
         )
 
     @Singleton

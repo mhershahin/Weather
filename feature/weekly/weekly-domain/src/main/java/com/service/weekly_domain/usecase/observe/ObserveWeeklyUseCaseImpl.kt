@@ -1,30 +1,21 @@
-package com.service.weekly_domain.usecase
+package com.service.weekly_domain.usecase.observe
 
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
-import com.service.entity.domain.Location
-import com.service.entity.domain.Weather
-
+import com.service.utils.dispatcher.DispatcherProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-data class WeeklySnapshot(
-    val location: Location?,
-    val weather: Weather?,
-)
-
-interface ObserveWeeklyUseCase {
-    operator fun invoke(): Flow<WeeklySnapshot>
-}
-
 @OptIn(ExperimentalCoroutinesApi::class)
-class ObserveWeeklyUseCaseImpl @Inject constructor(
+internal class ObserveWeeklyUseCaseImpl @Inject constructor(
     private val savedRepo: SavedLocationsRepository,
     private val cachedRepo: CachedWeatherRepository,
+    private val dispatchers: DispatcherProvider,
 ) : ObserveWeeklyUseCase {
 
     override fun invoke(): Flow<WeeklySnapshot> =
@@ -33,5 +24,5 @@ class ObserveWeeklyUseCaseImpl @Inject constructor(
             else combine(flowOf(loc), cachedRepo.observeForLocation(loc.id)) { l, w ->
                 WeeklySnapshot(l, w)
             }
-        }
+        }.flowOn(dispatchers.io)
 }

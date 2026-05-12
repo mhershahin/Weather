@@ -8,7 +8,6 @@ interface DailyContract {
 
     sealed class Event : ViewEvent {
         data object Refresh : Event()
-        data object SearchClicked : Event()
     }
 
     data class HourSlot(

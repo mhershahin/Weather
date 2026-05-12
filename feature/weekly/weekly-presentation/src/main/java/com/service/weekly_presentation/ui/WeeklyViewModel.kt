@@ -6,9 +6,9 @@ import com.service.entity.domain.Location
 import com.service.utils.format.formatDayDate
 import com.service.utils.format.formatDayShort
 import com.service.utils.format.formatRange
-import com.service.weekly_domain.usecase.ObserveWeeklyUseCase
-import com.service.weekly_domain.usecase.RefreshWeeklyUseCase
-import com.service.weekly_domain.usecase.WeeklySnapshot
+import com.service.weekly_domain.usecase.observe.ObserveWeeklyUseCase
+import com.service.weekly_domain.usecase.observe.WeeklySnapshot
+import com.service.weekly_domain.usecase.refresh.RefreshWeeklyUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class WeeklyViewModel @Inject constructor(
     private var lastRefreshedLocationId: Int? = null
 
     init {
-        launchIODispatcher {
+        launchMainDispatcher {
             observe().distinctUntilChanged().collect { snap ->
                 applySnapshot(snap)
                 triggerRefreshIfNeeded(snap.location)
@@ -46,7 +46,7 @@ class WeeklyViewModel @Inject constructor(
         val id = location?.id ?: return
         if (lastRefreshedLocationId == id) return
         lastRefreshedLocationId = id
-        launchIODispatcher {
+        launchMainDispatcher {
             when (val res = refresh(location)) {
                 is Result.Error -> setEffect {
                     WeeklyContract.Effect.Dialog.ShowTopAlertDialog(

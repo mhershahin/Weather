@@ -2,12 +2,12 @@ package com.service.rader_presentation.ui
 
 import com.service.base_ui.BaseViewModel
 import com.service.entity.domain.Location
-import com.service.radar_domain.usecase.AddLocationUseCase
-import com.service.radar_domain.usecase.FetchCityCardsUseCase
-import com.service.radar_domain.usecase.ObserveSavedLocationsUseCase
-import com.service.radar_domain.usecase.RemoveLocationUseCase
-import com.service.radar_domain.usecase.SearchLocationsUseCase
-import com.service.radar_domain.usecase.SelectCurrentLocationUseCase
+import com.service.radar_domain.usecase.add.AddLocationUseCase
+import com.service.radar_domain.usecase.fetch.FetchCityCardsUseCase
+import com.service.radar_domain.usecase.observe.ObserveSavedLocationsUseCase
+import com.service.radar_domain.usecase.remove.RemoveLocationUseCase
+import com.service.radar_domain.usecase.search.SearchLocationsUseCase
+import com.service.radar_domain.usecase.select.SelectCurrentLocationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.FlowPreview
@@ -31,13 +31,13 @@ class RadarViewModel @Inject constructor(
     private val searchQueryFlow = MutableStateFlow("")
 
     init {
-        launchIODispatcher {
+        launchMainDispatcher {
             observeSaved().distinctUntilChanged().collect { list ->
                 val cards = fetchCards(list)
                 setState { copy(saved = cards.toImmutableList()) }
             }
         }
-        launchIODispatcher {
+        launchMainDispatcher {
             searchQueryFlow.debounce(300).collectLatest { q ->
                 val trimmed = q.trim()
                 if (trimmed.length < 2) {
@@ -65,21 +65,27 @@ class RadarViewModel @Inject constructor(
     }
 
     private fun handelOpenSearch() {
-        setState { copy(isSearchOpen = true) }
+        launchMainDispatcher{
+            setState { copy(isSearchOpen = true) }
+        }
     }
 
     private fun handelCloseSearch() {
-        setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
-        searchQueryFlow.value = ""
+        launchMainDispatcher{
+            setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
+            searchQueryFlow.value = ""
+        }
     }
 
     private fun handelSearchQueryChanged(query: String) {
-        setState { copy(searchQuery = query) }
-        searchQueryFlow.value = query
+        launchMainDispatcher{
+            setState { copy(searchQuery = query) }
+            searchQueryFlow.value = query
+        }
     }
 
     private fun handelAddCity(location: Location) {
-        launchIODispatcher {
+        launchMainDispatcher {
             addLocation(location)
             setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
             searchQueryFlow.value = ""
@@ -87,11 +93,11 @@ class RadarViewModel @Inject constructor(
     }
 
     private fun handelRemoveCity(id: Int) {
-        launchIODispatcher { removeLocation(id) }
+        launchMainDispatcher { removeLocation(id) }
     }
 
     private fun handelCityClicked(location: Location) {
-        launchIODispatcher {
+        launchMainDispatcher {
             selectCurrent(location)
             setEffect { RadarContract.Effect.Navigation.ToDailyScreen }
         }

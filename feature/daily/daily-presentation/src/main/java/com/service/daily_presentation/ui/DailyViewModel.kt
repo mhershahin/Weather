@@ -1,8 +1,7 @@
 package com.service.daily_presentation.ui
 
-import android.util.Log
 import com.service.base_ui.BaseViewModel
-import com.service.daily_domain.usecase.ObserveDailyWeatherUseCase
+import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCase
 import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCase
 import com.service.entity.Result
 import com.service.entity.domain.Location
@@ -26,11 +25,7 @@ class DailyViewModel @Inject constructor(
 
     init {
         launchMainDispatcher {
-            Log.e("MherMher1234", " DailyViewModel ")
-
             observe().collect { snap ->
-                Log.e("MherMher1234", "snap $snap")
-
                 applySnapshot(snap)
                 triggerRefreshIfNeeded(snap.location)
             }
@@ -42,7 +37,6 @@ class DailyViewModel @Inject constructor(
     override fun handleEvents(event: DailyContract.Event) {
         when (event) {
             DailyContract.Event.Refresh -> handelRefresh()
-            DailyContract.Event.SearchClicked -> handelSearchClicked()
         }
     }
 
@@ -50,13 +44,11 @@ class DailyViewModel @Inject constructor(
         lastRefreshedLocationId = null
     }
 
-    private fun handelSearchClicked() = Unit
-
     private fun triggerRefreshIfNeeded(location: Location?) {
         val id = location?.id ?: return
         if (lastRefreshedLocationId == id) return
         lastRefreshedLocationId = id
-        launchIODispatcher {
+        launchMainDispatcher {
             when (val res = refresh(location)) {
                 is Result.Error -> setEffect {
                     DailyContract.Effect.Dialog.ShowTopAlertDialog(
