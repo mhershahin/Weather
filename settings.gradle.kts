@@ -26,7 +26,6 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Weather"
 include(":app")
-include(":app:app-domain")
 
 include(":feature")
 include(":feature:splash")
