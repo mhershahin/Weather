@@ -37,10 +37,6 @@ interface DailyContract {
     sealed class Effect : ViewSideEffect {
         sealed class Navigation : Effect()
         sealed class Dialog : Effect() {
-            data class ShowTopAlertDialog(
-                val isErrorAlert: Boolean,
-                val errorOrAlertMessage: String?,
-            ) : Dialog()
         }
     }
 }

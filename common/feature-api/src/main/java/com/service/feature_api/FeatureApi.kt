@@ -11,7 +11,6 @@ interface FeatureApi {
         navGraphBuilder: NavGraphBuilder,
         navController: NavHostController,
         modifier: Modifier = Modifier,
-        bottomBarVisibility: MutableState<Boolean>,
-        onShowTopAlertDialogCallBack: (isErrorAlert: Boolean, errorOrAlertMessage: String?) -> Unit
+        bottomBarVisibility: MutableState<Boolean>
     )
 }

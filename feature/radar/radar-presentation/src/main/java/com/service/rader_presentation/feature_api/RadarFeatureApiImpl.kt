@@ -10,26 +10,18 @@ import com.service.feature_api.Home
 import com.service.rader_presentation.ui.RadarDestination
 import javax.inject.Inject
 
-class RadarFeatureApiImpl @Inject constructor() :RadarFeatureApi{
-private val feature = Home.Radar
+class RadarFeatureApiImpl @Inject constructor() : RadarFeatureApi {
+    private val feature = Home.Radar
 
     override fun getFeature(): Feature = feature
     override fun registerGraph(
         navGraphBuilder: NavGraphBuilder,
         navController: NavHostController,
         modifier: Modifier,
-        bottomBarVisibility: MutableState<Boolean>,
-        onShowTopAlertDialogCallBack: (isErrorAlert: Boolean, errorOrAlertMessage: String?) -> Unit
+        bottomBarVisibility: MutableState<Boolean>
     ) {
         navGraphBuilder.composable(route = feature.getRout()) {
-            RadarDestination(
-                navController=navController,
-                bottomBarVisibility = bottomBarVisibility,
-                onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack,
-            )
+            RadarDestination(navController = navController)
         }
     }
-
-
-
 }

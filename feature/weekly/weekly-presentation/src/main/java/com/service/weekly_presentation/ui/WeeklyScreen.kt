@@ -40,7 +40,6 @@ internal fun WeeklyScreen(
     state: WeeklyContract.State,
     effectFlow: Flow<WeeklyContract.Effect>?,
     onEventSent: (event: WeeklyContract.Event) -> Unit,
-    onNavigationRequested: (navigationEffect: WeeklyContract.Effect.Navigation) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { padding ->
         Column(

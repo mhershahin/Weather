@@ -3,7 +3,6 @@ package com.service.daily_presentation.ui
 import com.service.base_ui.BaseViewModel
 import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCase
 import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCase
-import com.service.entity.Result
 import com.service.entity.domain.Location
 import com.service.entity.domain.Weather
 import com.service.entity.ui.CurrentSnapshot
@@ -49,17 +48,6 @@ class DailyViewModel @Inject constructor(
         val id = location?.id ?: return
         if (lastRefreshedLocationId == id) return
         lastRefreshedLocationId = id
-        launchMainDispatcher {
-            when (val res = refresh(location)) {
-                is Result.Error -> setEffect {
-                    DailyContract.Effect.Dialog.ShowTopAlertDialog(
-                        isErrorAlert = true,
-                        errorOrAlertMessage = res.message ?: "Failed to load weather",
-                    )
-                }
-                is Result.Success -> Unit
-            }
-        }
     }
 
     private fun applySnapshot(snap: CurrentSnapshot) {

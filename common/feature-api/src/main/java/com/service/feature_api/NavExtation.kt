@@ -10,13 +10,11 @@ fun NavGraphBuilder.register(
     navController: NavHostController,
     modifier: Modifier = Modifier,
     bottomBarVisibility: MutableState<Boolean>,
-    onShowTopAlertDialogCallBack: (isErrorAlert: Boolean, errorOrAlertMessage: String?) -> Unit,
 ) {
     featureApi.registerGraph(
         navGraphBuilder = this,
         navController = navController,
         modifier = modifier,
         bottomBarVisibility = bottomBarVisibility,
-        onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack
     )
 }

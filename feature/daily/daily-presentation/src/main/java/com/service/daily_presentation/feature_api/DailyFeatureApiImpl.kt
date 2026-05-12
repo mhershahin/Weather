@@ -19,13 +19,9 @@ class DailyFeatureApiImpl @Inject constructor() : DailyFeatureApi {
         navController: NavHostController,
         modifier: Modifier,
         bottomBarVisibility: MutableState<Boolean>,
-        onShowTopAlertDialogCallBack: (isErrorAlert: Boolean, errorOrAlertMessage: String?) -> Unit
     ) {
         navGraphBuilder.composable(route = feature.getRout()) {
-            DailyDestination(
-                navController = navController,
-                onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack,
-            )
+            DailyDestination()
         }
     }
 }

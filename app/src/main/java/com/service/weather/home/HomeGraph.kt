@@ -2,7 +2,6 @@ package com.service.weather.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -18,12 +17,6 @@ fun HomeGraph(
     dependencyProvider: DependencyProvider,
 ) {
 
-    val onShowTopAlertDialogCallBack: (isErrorAlert: Boolean, errorOrAlertMessage: String?) -> Unit =
-        remember {
-            { isErrorAlert: Boolean, errorOrAlertMessage: String? ->
-
-            }
-        }
     NavHost(
         navController = navController,
         route = Home.getRout(),
@@ -39,21 +32,18 @@ fun HomeGraph(
             navController = navController,
             bottomBarVisibility = bottomBarVisibility,
             modifier = modifier,
-            onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack
         )
         register(
             weekly,
             navController = navController,
             bottomBarVisibility = bottomBarVisibility,
             modifier = modifier,
-            onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack
         )
         register(
             radar,
             navController = navController,
             bottomBarVisibility = bottomBarVisibility,
             modifier = modifier,
-            onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack
         )
     }
 }

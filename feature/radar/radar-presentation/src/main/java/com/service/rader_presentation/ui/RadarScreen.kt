@@ -53,7 +53,6 @@ internal fun RadarScreen(
     state: RadarContract.State,
     effectFlow: Flow<RadarContract.Effect>?,
     onEventSent: (event: RadarContract.Event) -> Unit,
-    onNavigationRequested: (navigationEffect: RadarContract.Effect.Navigation) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { padding ->
         Column(

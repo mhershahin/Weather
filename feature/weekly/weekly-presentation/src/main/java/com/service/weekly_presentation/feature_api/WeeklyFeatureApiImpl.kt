@@ -19,14 +19,9 @@ class WeeklyFeatureApiImpl @Inject constructor() : WeeklyFeatureApi {
         navController: NavHostController,
         modifier: Modifier,
         bottomBarVisibility: MutableState<Boolean>,
-        onShowTopAlertDialogCallBack: (isErrorAlert: Boolean, errorOrAlertMessage: String?) -> Unit
     ) {
         navGraphBuilder.composable(route = feature.getRout()) {
-            WeeklyDestination(
-                navController = navController,
-                bottomBarVisibility = bottomBarVisibility,
-                onShowTopAlertDialogCallBack = onShowTopAlertDialogCallBack,
-            )
+            WeeklyDestination()
         }
     }
 }

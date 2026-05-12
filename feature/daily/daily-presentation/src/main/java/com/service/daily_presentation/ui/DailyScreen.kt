@@ -45,7 +45,6 @@ internal fun DailyScreen(
     state: DailyContract.State,
     effectFlow: Flow<DailyContract.Effect>?,
     onEventSent: (event: DailyContract.Event) -> Unit,
-    onNavigationRequested: (navigationEffect: DailyContract.Effect.Navigation) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { paddingValues ->
         Column(
@@ -59,7 +58,6 @@ internal fun DailyScreen(
                 state.isLoading && state.tempC == null -> LoadingState()
                 state.errorMessage != null && state.tempC == null ->
                     ErrorState(message = state.errorMessage)
-
                 else -> DailyContent(state)
             }
         }
