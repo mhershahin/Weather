@@ -3,6 +3,7 @@ package com.service.daily_presentation.ui
 import com.service.base_ui.ViewEvent
 import com.service.base_ui.ViewSideEffect
 import com.service.base_ui.ViewState
+import com.service.entity.ui.HourSlot
 
 interface DailyContract {
 
@@ -10,12 +11,7 @@ interface DailyContract {
         data object Refresh : Event()
     }
 
-    data class HourSlot(
-        val label: String,
-        val tempC: Int,
-        val weatherCode: Int,
-        val isDay: Boolean,
-    )
+
 
     data class State(
         val isLoading: Boolean = true,

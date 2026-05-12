@@ -20,8 +20,8 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
-private fun Context.observeConnectivityAsFlow(): Flow<ConnectionState> = callbackFlow @androidx.annotation.RequiresPermission(
-    android.Manifest.permission.ACCESS_NETWORK_STATE
+private fun Context.observeConnectivityAsFlow(): Flow<ConnectionState> = callbackFlow @RequiresPermission(
+    Manifest.permission.ACCESS_NETWORK_STATE
 ) {
     val connectivityManager = getSystemService(ConnectivityManager::class.java)
 

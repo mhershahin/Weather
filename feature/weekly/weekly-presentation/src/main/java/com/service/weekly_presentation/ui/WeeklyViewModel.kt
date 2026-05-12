@@ -3,11 +3,11 @@ package com.service.weekly_presentation.ui
 import com.service.base_ui.BaseViewModel
 import com.service.entity.Result
 import com.service.entity.domain.Location
+import com.service.entity.ui.WeeklySnapshot
 import com.service.utils.format.formatDayDate
 import com.service.utils.format.formatDayShort
 import com.service.utils.format.formatRange
 import com.service.weekly_domain.usecase.observe.ObserveWeeklyUseCase
-import com.service.weekly_domain.usecase.observe.WeeklySnapshot
 import com.service.weekly_domain.usecase.refresh.RefreshWeeklyUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged

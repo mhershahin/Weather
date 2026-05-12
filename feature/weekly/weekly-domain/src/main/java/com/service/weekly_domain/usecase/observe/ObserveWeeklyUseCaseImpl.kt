@@ -2,6 +2,7 @@ package com.service.weekly_domain.usecase.observe
 
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
+import com.service.entity.ui.WeeklySnapshot
 import com.service.utils.dispatcher.DispatcherProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

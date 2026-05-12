@@ -1,4 +1,4 @@
-package com.service.weekly_domain.usecase.observe
+package com.service.entity.ui
 
 import com.service.entity.domain.Location
 import com.service.entity.domain.Weather

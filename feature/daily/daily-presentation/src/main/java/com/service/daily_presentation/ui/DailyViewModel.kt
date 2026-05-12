@@ -7,6 +7,7 @@ import com.service.entity.Result
 import com.service.entity.domain.Location
 import com.service.entity.domain.Weather
 import com.service.entity.ui.CurrentSnapshot
+import com.service.entity.ui.HourSlot
 import com.service.utils.format.formatHourLabel
 import com.service.utils.format.parseHour
 import com.service.utils.weather.WeatherCodeMapper
@@ -86,7 +87,7 @@ class DailyViewModel @Inject constructor(
         val nowIdx = currentHourIndex(weather.hourly.map { it.isoTime })
         val slots = (0 until 24).mapNotNull { off ->
             weather.hourly.getOrNull(nowIdx + off)?.let { h ->
-                DailyContract.HourSlot(
+                HourSlot(
                     label = formatHourLabel(h.isoTime, isNow = off == 0),
                     tempC = h.tempC,
                     weatherCode = h.weatherCode,
