@@ -42,17 +42,15 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
     // Coroutines
     implementation(deps.kotlinx.coroutines.core)
-    implementation(deps.kotlinx.coroutines.android)
+
     //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
 
     //Retrofit
     implementation(deps.retrofit.core)
-    implementation(deps.retrofit.converter.scalars)
     implementation(deps.okhttp.logging)
     implementation(deps.retrofit.kotlinx.serialization)
 

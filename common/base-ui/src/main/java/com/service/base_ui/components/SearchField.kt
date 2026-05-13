@@ -19,6 +19,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,6 +30,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.tooling.preview.Preview
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 
 @Composable
@@ -85,5 +91,22 @@ fun SearchField(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun SearchFieldEmptyPreview() {
+    WeatherTheme {
+        SearchField(query = "", onQueryChange = {}, placeholder = "Search city")
+    }
+}
+
+@Preview
+@Composable
+private fun SearchFieldWithTextPreview() {
+    WeatherTheme {
+        var q by remember { mutableStateOf("London") }
+        SearchField(query = q, onQueryChange = { q = it }, placeholder = "Search city")
     }
 }

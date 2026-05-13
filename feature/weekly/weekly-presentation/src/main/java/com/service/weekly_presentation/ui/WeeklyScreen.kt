@@ -24,12 +24,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import com.service.base_ui.R
 import com.service.base_ui.ScaffoldSnackFree
 import com.service.base_ui.components.AppTopBar
 import com.service.base_ui.components.ErrorState
 import com.service.base_ui.components.ForecastDayRow
 import com.service.base_ui.components.LoadingState
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import com.service.utils.weather.WeatherCodeMapper
@@ -140,5 +142,65 @@ fun WeeklyTitleInf(isCurrent: Boolean = false, cityLabel: String, dateRange: Str
                 fontSize = sizes.thirteenSp,
             )
         }
+    }
+}
+
+private fun sampleWeeklyState() = WeeklyContract.State(
+    isLoading = false,
+    cityLabel = "London",
+    isCurrentLocation = true,
+    dateRange = "Jun 3 – Jun 9",
+    days = listOf(
+        WeeklyContract.DayRow("Monday", "Jun 3", 2, true, 30, 24, 14, isToday = true),
+        WeeklyContract.DayRow("Tuesday", "Jun 4", 1, true, 10, 26, 15, isToday = false),
+        WeeklyContract.DayRow("Wednesday", "Jun 5", 3, true, 60, 22, 13, isToday = false),
+        WeeklyContract.DayRow("Thursday", "Jun 6", 61, true, 80, 19, 12, isToday = false),
+        WeeklyContract.DayRow("Friday", "Jun 7", 0, true, 5, 27, 16, isToday = false),
+        WeeklyContract.DayRow("Saturday", "Jun 8", 2, true, 20, 28, 17, isToday = false),
+        WeeklyContract.DayRow("Sunday", "Jun 9", 1, true, 15, 26, 16, isToday = false),
+    ),
+)
+
+@Preview
+@Composable
+private fun WeeklyScreenLoadingPreview() {
+    WeatherTheme {
+        WeeklyScreen(
+            state = WeeklyContract.State(isLoading = true),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun WeeklyScreenErrorPreview() {
+    WeatherTheme {
+        WeeklyScreen(
+            state = WeeklyContract.State(isLoading = false, errorMessage = "Unable to load forecast"),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun WeeklyScreenContentPreview() {
+    WeatherTheme {
+        WeeklyScreen(
+            state = sampleWeeklyState(),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun WeeklyTitleInfPreview() {
+    WeatherTheme {
+        WeeklyTitleInf(isCurrent = true, cityLabel = "London", dateRange = "Jun 3 – Jun 9")
     }
 }

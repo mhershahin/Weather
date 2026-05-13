@@ -39,16 +39,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import com.service.base_ui.R
 import com.service.base_ui.ScaffoldSnackFree
 import com.service.base_ui.components.AppTopBar
 import com.service.base_ui.components.SavedLocationCard
 import com.service.base_ui.components.SearchField
 import com.service.base_ui.components.SectionHeader
+import com.service.base_ui.theme.WeatherTheme
 import com.service.entity.domain.Location
+import com.service.entity.ui.CityCard
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import com.service.utils.weather.WeatherCodeMapper
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.Flow
 
 @Composable
@@ -269,6 +273,69 @@ private fun SearchResultRow(loc: Location, onClick: () -> Unit) {
                 .clip(RoundedCornerShape(spacing.fourteenDp))
                 .border(spacing.oneDp, MaterialTheme.colors.primary.copy(alpha = 0.4f), RoundedCornerShape(spacing.fourteenDp))
                 .padding(spacing.fourDp),
+        )
+    }
+}
+
+private fun sampleLocation(
+    id: Int,
+    name: String,
+    country: String,
+    region: String = "",
+) = Location(
+    id = id,
+    name = name,
+    country = country,
+    region = region,
+    latitude = 0.0,
+    longitude = 0.0,
+)
+
+@Preview
+@Composable
+private fun RadarScreenSavedPreview() {
+    val saved = listOf(
+        CityCard(sampleLocation(1, "London", "United Kingdom", "England"), tempC = 18, weatherCode = 2, isDay = true),
+        CityCard(sampleLocation(2, "Yerevan", "Armenia"), tempC = 24, weatherCode = 0, isDay = true),
+        CityCard(sampleLocation(3, "Reykjavik", "Iceland"), tempC = 6, weatherCode = 61, isDay = false),
+    ).toImmutableList()
+    WeatherTheme {
+        RadarScreen(
+            state = RadarContract.State(saved = saved, gpsLocationId = 1),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RadarScreenSearchPreview() {
+    val results = listOf(
+        sampleLocation(10, "London", "United Kingdom", "England"),
+        sampleLocation(11, "Londonderry", "United Kingdom", "Northern Ireland"),
+    ).toImmutableList()
+    WeatherTheme {
+        RadarScreen(
+            state = RadarContract.State(
+                isSearchOpen = true,
+                searchQuery = "Lon",
+                searchResults = results,
+            ),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RadarScreenLoadingPreview() {
+    WeatherTheme {
+        RadarScreen(
+            state = RadarContract.State(isLoading = true),
+            effectFlow = null,
+            onEventSent = {},
         )
     }
 }

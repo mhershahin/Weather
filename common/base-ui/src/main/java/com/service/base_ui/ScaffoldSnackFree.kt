@@ -7,13 +7,16 @@ import androidx.compose.material.FabPosition
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material.Text
 import androidx.compose.material.contentColorFor
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import com.service.base_ui.theme.WeatherTheme
 
 @Composable
 fun ScaffoldSnackFree(
@@ -55,4 +58,12 @@ fun ScaffoldSnackFree(
         contentColor = contentColor,
         content = content,
     )
+}
+
+@Preview
+@Composable
+private fun ScaffoldSnackFreePreview() {
+    WeatherTheme {
+        ScaffoldSnackFree { Text(text = "Scaffold content") }
+    }
 }

@@ -7,7 +7,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalTextSize
 
 @Composable
@@ -27,5 +29,22 @@ fun SectionHeader(
             modifier = Modifier.weight(1f)
         )
         trailing?.invoke()
+    }
+}
+
+@Preview
+@Composable
+private fun SectionHeaderPreview() {
+    WeatherTheme { SectionHeader(title = "Hourly Forecast") }
+}
+
+@Preview
+@Composable
+private fun SectionHeaderWithTrailingPreview() {
+    WeatherTheme {
+        SectionHeader(
+            title = "Saved Locations",
+            trailing = { Text(text = "Edit", color = MaterialTheme.colors.primary) },
+        )
     }
 }

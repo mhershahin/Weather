@@ -40,10 +40,6 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
-    implementation(deps.google.material)
-
     //Test
     testImplementation(deps.junit)
     androidTestImplementation(deps.junit)
@@ -61,15 +57,9 @@ dependencies {
     ksp(deps.hilt.compiler)
 
     //Compose
-    implementation(deps.androidx.compose.ui)
     implementation(deps.androidx.compose.runtime)
-    implementation(deps.androidx.compose.material)
-    implementation(deps.androidx.compose.material3)
     implementation(deps.androidx.compose.material.icons.extended)
-    implementation(deps.androidx.compose.ui.tooling.preview)
-    implementation(deps.androidx.compose.animation)
-    implementation(deps.androidx.activity.compose)
-    implementation(deps.accompanist.permissions)
+    implementation(deps.androidx.compose.ui)
 
     implementation(projects.common.entity)
 }

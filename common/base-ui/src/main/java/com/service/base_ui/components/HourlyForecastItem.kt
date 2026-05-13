@@ -8,11 +8,15 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 
 @Composable
@@ -47,5 +51,13 @@ fun HourlyForecastItem(
             color = MaterialTheme.colors.onSurface,
             fontWeight = FontWeight.SemiBold
         )
+    }
+}
+
+@Preview
+@Composable
+private fun HourlyForecastItemPreview() {
+    WeatherTheme {
+        HourlyForecastItem(label = "3 PM", icon = Icons.Filled.WbSunny, temp = "24°")
     }
 }

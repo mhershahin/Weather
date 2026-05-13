@@ -45,50 +45,29 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
-
     //Compose
     implementation(deps.androidx.compose.ui)
     implementation(deps.androidx.compose.runtime)
     implementation(deps.androidx.compose.material)
     implementation(deps.androidx.compose.ui.tooling.preview)
+    debugImplementation(deps.androidx.compose.ui.tooling)
     implementation(deps.androidx.navigation.compose)
-    implementation(deps.androidx.activity.compose)
     implementation(deps.accompanist.permissions)
-
 
     //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
-    implementation(libs.hilt.navigation.compose)
 
     //Lifecycle
-    implementation(deps.androidx.lifecycle.runtime)
     implementation(deps.androidx.lifecycle.viewmodel.compose)
-
-
-    implementation(deps.kotlinx.collections.immutable)
-
-    implementation(deps.androidx.compose.material.icons.extended)
-
-
-    //Accompanist
-    implementation(deps.accompanist.insets)
-    implementation(deps.accompanist.permissions)
-
-    // Material Icons
-    implementation(deps.androidx.compose.material.icons.extended)
 
     //Coroutines
     implementation(deps.kotlinx.coroutines.core)
-    implementation(deps.kotlinx.coroutines.android)
 
     implementation(projects.common.entity)
     implementation(projects.common.utils)
     implementation(projects.common.baseUi)
     implementation(projects.common.featureApi)
-    implementation(projects.feature.weekly.weeklyDomain)
     implementation(projects.feature.splash.splashDomain)
 }

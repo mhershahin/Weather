@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(deps.plugins.android.library)
-    alias(deps.plugins.ksp)
     alias(deps.plugins.kotlin.serialization)
 }
 
@@ -40,7 +39,6 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
     // Kotlin Serialization
     implementation(deps.kotlinx.serialization.json)
 

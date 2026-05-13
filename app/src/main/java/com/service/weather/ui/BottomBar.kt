@@ -18,13 +18,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.service.base_ui.R
+import com.service.base_ui.theme.WeatherTheme
 import com.service.entity.ui.FeaturesMain
 import com.service.feature_api.Home
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 
 
 @Composable
@@ -112,4 +117,17 @@ fun getCurrentRouteName(currentRoute: String?, tabs: ImmutableList<FeaturesMain>
         }
     }
     return Home.Daily.getRout()
+}
+
+@Preview
+@Composable
+private fun BottomBarPreview() {
+    val tabs = listOf(
+        FeaturesMain(titleId = R.string.daily, routName = Home.Daily.getRout(), iconResId = R.drawable.ic_daily),
+        FeaturesMain(titleId = R.string.weekly, routName = Home.Weekly.getRout(), iconResId = R.drawable.ic_weekly),
+        FeaturesMain(titleId = R.string.radar, routName = Home.Radar.getRout(), iconResId = R.drawable.ic_radar),
+    ).toImmutableList()
+    WeatherTheme {
+        BottomBar(navController = rememberNavController(), tabs = tabs)
+    }
 }

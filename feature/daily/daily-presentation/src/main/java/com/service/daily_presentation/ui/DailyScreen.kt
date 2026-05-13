@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import com.service.base_ui.R
 import com.service.base_ui.ScaffoldSnackFree
 import com.service.base_ui.components.AppTopBar
@@ -35,6 +36,8 @@ import com.service.base_ui.components.HourlyForecastItem
 import com.service.base_ui.components.LoadingState
 import com.service.base_ui.components.SectionHeader
 import com.service.base_ui.components.StatCard
+import com.service.base_ui.theme.WeatherTheme
+import com.service.entity.ui.HourSlot
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import com.service.utils.weather.WeatherCodeMapper
@@ -182,5 +185,66 @@ private fun DailyContent(state: DailyContract.State) {
                 modifier = Modifier.weight(1f)
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun DailyScreenLoadingPreview() {
+    WeatherTheme {
+        DailyScreen(
+            state = DailyContract.State(isLoading = true),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun DailyScreenErrorPreview() {
+    WeatherTheme {
+        DailyScreen(
+            state = DailyContract.State(isLoading = false, errorMessage = "Failed to load weather"),
+            effectFlow = null,
+            onEventSent = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun DailyScreenContentPreview() {
+    WeatherTheme {
+        DailyScreen(
+            state = DailyContract.State(
+                isLoading = false,
+                cityLabel = "London",
+                isCurrentLocation = true,
+                tempC = 21,
+                condition = "Partly cloudy",
+                highC = 24,
+                lowC = 15,
+                weatherCode = 2,
+                isDay = true,
+                hourly = listOf(
+                    HourSlot(label = "Now", tempC = 21, weatherCode = 2, isDay = true),
+                    HourSlot(label = "1 PM", tempC = 22, weatherCode = 1, isDay = true),
+                    HourSlot(label = "2 PM", tempC = 23, weatherCode = 2, isDay = true),
+                    HourSlot(label = "3 PM", tempC = 24, weatherCode = 3, isDay = true),
+                    HourSlot(label = "4 PM", tempC = 24, weatherCode = 3, isDay = true),
+                ),
+                uvIndex = 5,
+                uvLabel = "Moderate",
+                humidityPct = 62,
+                dewPointC = 11,
+                windKmh = 12,
+                windDirText = "SW",
+                visibilityMi = 10,
+                visibilityNote = "Clear",
+            ),
+            effectFlow = null,
+            onEventSent = {},
+        )
     }
 }

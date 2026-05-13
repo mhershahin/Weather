@@ -46,17 +46,14 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
-
     //Compose
     implementation(deps.androidx.compose.ui)
     implementation(deps.androidx.compose.runtime)
     implementation(deps.androidx.compose.material)
     implementation(deps.androidx.compose.ui.tooling.preview)
+    debugImplementation(deps.androidx.compose.ui.tooling)
     implementation(deps.androidx.navigation.compose)
     implementation(deps.androidx.activity.compose)
-    implementation(deps.accompanist.permissions)
 
 
     //Hilt

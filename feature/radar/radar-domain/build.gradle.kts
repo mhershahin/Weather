@@ -40,9 +40,6 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
-
     testImplementation(deps.junit)
     //Hilt
     implementation(deps.hilt.android)

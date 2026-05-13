@@ -40,21 +40,9 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
-
     //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
-
-    // Room
-    implementation(deps.androidx.room.runtime)
-    implementation(deps.androidx.room.ktx)
-    ksp(deps.androidx.room.compiler)
-
-    implementation(deps.kotlinx.coroutines.core)
-
-    implementation(projects.common.entity)
 
     // Room
     implementation(deps.androidx.room.runtime)

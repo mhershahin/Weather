@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(deps.plugins.android.library)
     alias(deps.plugins.ksp)
-    alias(deps.plugins.hilt)
 }
 android {
     namespace = "com.service.feature_api"
@@ -38,10 +37,5 @@ android {
 }
 
 dependencies {
-    //Hilt
-    implementation(deps.hilt.android)
-    ksp(deps.hilt.compiler)
-    //Common
     implementation(deps.androidx.navigation.compose)
-    implementation(projects.common.entity)
 }

@@ -16,12 +16,16 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 
@@ -118,5 +122,36 @@ fun ForecastDayRow(
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun ForecastDayRowTodayPreview() {
+    WeatherTheme {
+        ForecastDayRow(
+            day = "Monday",
+            date = "Jun 3",
+            icon = Icons.Filled.Cloud,
+            precipPct = 70,
+            tempMax = 26,
+            tempMin = 15,
+            isToday = true,
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ForecastDayRowPreview() {
+    WeatherTheme {
+        ForecastDayRow(
+            day = "Tuesday",
+            date = "Jun 4",
+            icon = Icons.Filled.Cloud,
+            precipPct = 20,
+            tempMax = 28,
+            tempMin = 17,
+        )
     }
 }

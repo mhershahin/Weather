@@ -12,12 +12,16 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 
 @Composable
@@ -63,4 +67,23 @@ fun AppTopBar(
         }
     }
     Divider(color = Color.White.copy(alpha = 0.06f), thickness = spacing.oneDp)
+}
+
+@Preview
+@Composable
+private fun AppTopBarPreview() {
+    WeatherTheme { AppTopBar(title = "Daily") }
+}
+
+@Preview
+@Composable
+private fun AppTopBarWithActionPreview() {
+    WeatherTheme {
+        AppTopBar(
+            title = "Radar",
+            trailingIcon = Icons.Filled.Search,
+            trailingDescription = "Search",
+            onTrailingClick = {},
+        )
+    }
 }

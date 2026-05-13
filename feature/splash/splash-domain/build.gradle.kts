@@ -41,7 +41,6 @@ android {
 
 dependencies {
     implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
 
     testImplementation(deps.junit)
     //Hilt
@@ -49,7 +48,6 @@ dependencies {
     ksp(deps.hilt.compiler)
 
     implementation(deps.kotlinx.coroutines.core)
-    implementation(deps.kotlinx.coroutines.android)
 
     implementation(projects.common.entity)
     implementation(projects.common.utils)

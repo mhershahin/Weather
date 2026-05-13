@@ -82,42 +82,23 @@ dependencies {
     implementation(deps.androidx.compose.material)
     implementation(deps.androidx.compose.ui.tooling.preview)
     implementation(deps.androidx.navigation.compose)
-    implementation(deps.androidx.lifecycle.extensions)
-
 
     //Compose Test
-    debugImplementation(deps.androidx.compose.ui.test)
     debugImplementation(deps.androidx.compose.ui.tooling)
 
     //Hilt
     implementation(deps.hilt.android)
     ksp(deps.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
 
     //Lifecycle
     implementation(deps.androidx.lifecycle.runtime)
-    implementation(deps.androidx.lifecycle.viewmodel.compose)
 
     //Test
     testImplementation(deps.junit)
-    androidTestImplementation(deps.junit)
-
-// Leak Canary
-//        debugImplementation(deps.leakcanary.android)
 
     // Coroutines
     implementation(deps.kotlinx.coroutines.core)
-    implementation(deps.kotlinx.coroutines.android)
-
-    implementation(deps.jackson.core)
-    implementation(deps.jackson.kotlin)
-    implementation(deps.jackson.databind)
-
-    implementation(deps.retrofit.converter.jackson)
-    implementation(deps.okhttp.logging)
-
-
 
     //Desugaring
     coreLibraryDesugaring(deps.desugar.jdk.libs)

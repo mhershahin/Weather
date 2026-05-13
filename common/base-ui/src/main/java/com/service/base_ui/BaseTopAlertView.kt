@@ -23,6 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 import kotlinx.coroutines.delay
 
@@ -89,5 +91,31 @@ fun BaseTopAlertView(
             delay(autoDismissMillis)
             onTimerEnd.invoke()
         }
+    }
+}
+
+@Preview
+@Composable
+private fun BaseTopAlertViewErrorPreview() {
+    WeatherTheme {
+        BaseTopAlertView(
+            isVisible = true,
+            message = "No internet connection",
+            isErrorAlert = true,
+            autoDismissMillis = null,
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun BaseTopAlertViewSuccessPreview() {
+    WeatherTheme {
+        BaseTopAlertView(
+            isVisible = true,
+            message = "Connection restored",
+            isErrorAlert = false,
+            autoDismissMillis = null,
+        )
     }
 }

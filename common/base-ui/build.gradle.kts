@@ -44,26 +44,14 @@ android {
 }
 
 dependencies {
-
-    implementation(deps.androidx.core.ktx)
-    implementation(deps.androidx.appcompat)
-    implementation(deps.google.material)
-
-
     //Compose
     implementation(deps.androidx.compose.ui)
     implementation(deps.androidx.compose.runtime)
     implementation(deps.androidx.compose.material)
     implementation(deps.androidx.compose.material.icons.extended)
     implementation(deps.androidx.compose.ui.tooling.preview)
+    debugImplementation(deps.androidx.compose.ui.tooling)
     implementation(deps.androidx.compose.animation)
-    implementation(deps.androidx.activity.compose)
-    implementation(deps.accompanist.permissions)
-
-    //Pager
-    implementation(libs.accompanist.pager.indicators)
-    implementation(libs.accompanist.pager)
-
 
     //Hilt
     implementation(deps.hilt.android)
@@ -73,10 +61,6 @@ dependencies {
     implementation(deps.androidx.lifecycle.runtime)
     implementation(deps.androidx.lifecycle.viewmodel.compose)
 
-    implementation(deps.kotlinx.collections.immutable)
-
-
     //Common
-    implementation(projects.common.entity)
     implementation(projects.common.utils)
 }

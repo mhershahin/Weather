@@ -13,6 +13,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 
 @Composable
@@ -44,4 +46,16 @@ fun ErrorState(message: String, modifier: Modifier = Modifier) {
             Spacer(Modifier.height(spacing.eightDp))
         }
     }
+}
+
+@Preview
+@Composable
+private fun LoadingStatePreview() {
+    WeatherTheme { LoadingState() }
+}
+
+@Preview
+@Composable
+private fun ErrorStatePreview() {
+    WeatherTheme { ErrorState(message = "Something went wrong while fetching weather.") }
 }
