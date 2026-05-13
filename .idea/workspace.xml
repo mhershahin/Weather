@@ -21,83 +21,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="generate with ai previews and remove unused codes">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependency/DependencyProvider.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependency/DependencyProviderImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/CityCardUi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/CurrentSnapshotUi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/FeaturesMainUi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/HourSlotUi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/WeeklySnapshotUi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/src/test/java/com/service/utils/format/DateFormattersTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/src/test/java/com/service/utils/weather/WeatherCodeMapperTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/daily/DailyWeatherRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/daily/DailyWeatherRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/test/java/com/service/radar_domain/usecase/fetch/FetchCityCardsUseCaseImplTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/androidTest/java/com/service/radar_presentation/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/radar_presentation/feature_api/RadarFeatureApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/radar_presentation/feature_api/RadarFeatureApiImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/radar_presentation/ui/RadarContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/radar_presentation/ui/RadarDestination.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/radar_presentation/ui/RadarScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/radar_presentation/ui/RadarViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/src/test/java/com/service/radar_presentation/ExampleUnitTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.claude/settings.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.claude/settings.local.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependecy/DependencyProvider.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/dependecy/DependencyProviderImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/di/AppProviderModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/di/AppProviderModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeContent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeGraph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/home/HomeViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/weather/ui/BottomBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/base-ui/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/base-ui/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/CityCard.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/CurrentSnapshot.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/FeaturesMain.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/HourSlot.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/entity/src/main/java/com/service/entity/ui/WeeklySnapshot.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/RetrofitUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/RetrofitUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/dispatcher/DispatcherProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/src/main/java/com/service/utils/dispatcher/DispatcherProvider.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/src/test/java/com/service/utils/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/di/ApiRepositoryModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/di/ApiRepositoryModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/dayle/DailyWeatherRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/api/src/main/java/com/service/api/repository/dayle/DailyWeatherRepositoryImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/di/DailyDomainModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/di/DailyDomainModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/usecase/observe/ObserveDailyWeatherUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/usecase/observe/ObserveDailyWeatherUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/usecase/observe/ObserveDailyWeatherUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/usecase/observe/ObserveDailyWeatherUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/usecase/refresh/RefreshDailyWeatherUseCase.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-domain/src/main/java/com/service/daily_domain/usecase/refresh/RefreshDailyWeatherUseCaseImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyContract.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyDestination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyDestination.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/daily/daily-presentation/src/main/java/com/service/daily_presentation/ui/DailyViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/di/RadarDomainModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/di/RadarDomainModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/fetch/FetchCityCardsUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/fetch/FetchCityCardsUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/fetch/FetchCityCardsUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/fetch/FetchCityCardsUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/select/UpdateWeatherDataUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-domain/src/main/java/com/service/radar_domain/usecase/select/UpdateWeatherDataUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/test/java/com/service/radar_domain/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/feature/radar/radar-presentation/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/androidTest/java/com/service/rader_presentation/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/feature_api/RadarFeatureApi.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/feature_api/RadarFeatureApiImpl.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarContract.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarDestination.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/main/java/com/service/rader_presentation/ui/RadarViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/radar/radar-presentation/src/test/java/com/service/rader_presentation/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/di/SplashDomainModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/di/SplashDomainModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/location/provider/GetLocationProviderUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/location/provider/GetLocationProviderUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/update/UpdateAllDataUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/splash/splash-domain/src/main/java/com/service/splash_domain/usecase/update/UpdateAllDataUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/java/com/service/splash_presentation/SplashViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/splash/splash-presentation/src/main/java/com/service/splash_presentation/SplashViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/weekly/weekly-domain/src/main/java/com/service/weekly_domain/usecase/observe/ObserveWeeklyUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/weekly/weekly-domain/src/main/java/com/service/weekly_domain/usecase/observe/ObserveWeeklyUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/weekly/weekly-domain/src/main/java/com/service/weekly_domain/usecase/observe/ObserveWeeklyUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/weekly/weekly-domain/src/main/java/com/service/weekly_domain/usecase/observe/ObserveWeeklyUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyContract.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyContract.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyDestination.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyDestination.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/feature/weekly/weekly-presentation/src/main/java/com/service/weekly_presentation/ui/WeeklyViewModel.kt" afterDir="false" />
+    <list default="true" id="c57c5806-32b3-4328-b773-4469a8d5b095" name="Changes" comment="ai usage fix spelling">
+      <change beforePath="$PROJECT_DIR$/common/utils/src/androidTest/java/com/service/utils/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/src/androidTest/java/com/service/utils/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/radar/radar-domain/src/androidTest/java/com/service/radar_domain/ExampleInstrumentedTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -426,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778661629094</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ai usage fix spelling">
+      <option name="closed" value="true" />
+      <created>1778674175554</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778674175554</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -447,7 +381,8 @@
     <MESSAGE value="delete unused modules" />
     <MESSAGE value="fix location weather showing bug" />
     <MESSAGE value="generate with ai previews and remove unused codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="generate with ai previews and remove unused codes" />
+    <MESSAGE value="ai usage fix spelling" />
+    <option name="LAST_COMMIT_MESSAGE" value="ai usage fix spelling" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
