@@ -1,4 +1,4 @@
-package com.service.rader_presentation
+package com.service.radar_presentation
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.service.rader_presentation.test", appContext.packageName)
+        assertEquals("com.service.radar_presentation.test", appContext.packageName)
     }
 }

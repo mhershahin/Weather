@@ -1,10 +1,7 @@
 package com.service.daily_domain.di
 
-import com.service.api.repository.dayle.DailyWeatherRepository
 import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCase
 import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCaseImpl
-import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCase
-import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCaseImpl
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
 import com.service.utils.dispatcher.DispatcherProvider
@@ -29,16 +26,5 @@ object DailyDomainModule {
             savedRepo,
             cachedRepo,
             dispatchers,
-        )
-
-    @Singleton
-    @Provides
-    fun provideRefreshDailyWeatherUseCase(
-        cachedRepo: CachedWeatherRepository,
-        dailyWeatherRepository: DailyWeatherRepository
-    ): RefreshDailyWeatherUseCase =
-        RefreshDailyWeatherUseCaseImpl(
-            cachedRepo,
-            dailyWeatherRepository
         )
 }

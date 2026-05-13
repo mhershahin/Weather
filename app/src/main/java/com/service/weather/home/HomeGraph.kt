@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.service.feature_api.Home
 import com.service.feature_api.register
-import com.service.weather.dependecy.DependencyProvider
+import com.service.weather.dependency.DependencyProvider
 
 @Composable
 fun HomeGraph(

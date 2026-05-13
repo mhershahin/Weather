@@ -1,4 +1,4 @@
-package com.service.rader_presentation.feature_api
+package com.service.radar_presentation.feature_api
 
 import com.service.feature_api.FeatureApi
 

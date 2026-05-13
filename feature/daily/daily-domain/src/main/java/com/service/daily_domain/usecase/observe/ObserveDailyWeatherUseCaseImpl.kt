@@ -2,7 +2,7 @@ package com.service.daily_domain.usecase.observe
 
 import com.service.db.repo.saved.SavedLocationsRepository
 import com.service.db.repo.weather.CachedWeatherRepository
-import com.service.entity.ui.CurrentSnapshot
+import com.service.entity.ui.CurrentSnapshotUi
 import com.service.utils.dispatcher.DispatcherProvider
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -19,13 +19,13 @@ internal class ObserveDailyWeatherUseCaseImpl @Inject constructor(
     private val dispatchers: DispatcherProvider,
 ) : ObserveDailyWeatherUseCase {
 
-    override fun invoke(): Flow<CurrentSnapshot> =
+    override fun invoke(): Flow<CurrentSnapshotUi> =
         combine(savedRepo.observeCurrent(), savedRepo.observeGps()) { active, gps ->
             active to gps?.id
         }.flatMapLatest { (loc, gpsId) ->
-            if (loc == null) flowOf(CurrentSnapshot(null, null, gpsId))
+            if (loc == null) flowOf(CurrentSnapshotUi(null, null, gpsId))
             else combine(flowOf(loc), cachedRepo.observeForLocation(loc.id)) { l, w ->
-                CurrentSnapshot(l, w, gpsId)
+                CurrentSnapshotUi(l, w, gpsId)
             }
         }.flowOn(dispatchers.io)
 }

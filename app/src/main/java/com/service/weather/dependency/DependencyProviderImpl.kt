@@ -1,7 +1,7 @@
-package com.service.weather.dependecy
+package com.service.weather.dependency
 
 import com.service.daily_presentation.feature_api.DailyFeatureApi
-import com.service.rader_presentation.feature_api.RadarFeatureApi
+import com.service.radar_presentation.feature_api.RadarFeatureApi
 import com.service.weekly_presentation.feature_api.WeeklyFeatureApi
 import javax.inject.Inject
 

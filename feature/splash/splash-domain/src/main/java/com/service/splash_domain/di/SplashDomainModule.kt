@@ -3,7 +3,7 @@ package com.service.splash_domain.di
 import android.content.Context
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.service.api.repository.dayle.DailyWeatherRepository
+import com.service.api.repository.daily.DailyWeatherRepository
 import com.service.api.repository.search.SearchCityRepository
 import com.service.api.repository.weekly.WeeklyWeatherRepository
 import com.service.db.repo.saved.SavedLocationsRepository

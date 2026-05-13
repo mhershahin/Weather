@@ -3,7 +3,7 @@ package com.service.weekly_presentation.ui
 import com.service.base_ui.BaseViewModel
 import com.service.entity.Result
 import com.service.entity.domain.Location
-import com.service.entity.ui.WeeklySnapshot
+import com.service.entity.ui.WeeklySnapshotUi
 import com.service.utils.format.formatDayDate
 import com.service.utils.format.formatDayShort
 import com.service.utils.format.formatRange
@@ -34,11 +34,11 @@ class WeeklyViewModel @Inject constructor(
 
     override fun handleEvents(event: WeeklyContract.Event) {
         when (event) {
-            WeeklyContract.Event.Refresh -> handelRefresh()
+            WeeklyContract.Event.Refresh -> handleRefresh()
         }
     }
 
-    private fun handelRefresh() {
+    private fun handleRefresh() {
         lastRefreshedLocationId = null
     }
 
@@ -49,7 +49,7 @@ class WeeklyViewModel @Inject constructor(
         launchMainDispatcher {
             when (val res = refresh(location)) {
                 is Result.Error -> setEffect {
-                    WeeklyContract.Effect.Dialog.ShowTopAlertDialog(
+                    WeeklyContract.Effect.ShowTopAlertDialog(
                         isErrorAlert = true,
                         errorOrAlertMessage = res.message ?: "Failed to load forecast",
                     )
@@ -59,7 +59,7 @@ class WeeklyViewModel @Inject constructor(
         }
     }
 
-    private fun applySnapshot(snap: WeeklySnapshot) {
+    private fun applySnapshot(snap: WeeklySnapshotUi) {
         val isCurrent = snap.location != null && snap.gpsLocationId != null && snap.location?.id == snap.gpsLocationId
         val location = snap.location ?: run {
             setState { copy(isLoading = true, isCurrentLocation = isCurrent) }

@@ -1,10 +1,10 @@
-package com.service.rader_presentation.ui
+package com.service.radar_presentation.ui
 
 import com.service.base_ui.ViewEvent
 import com.service.base_ui.ViewSideEffect
 import com.service.base_ui.ViewState
 import com.service.entity.domain.Location
-import com.service.entity.ui.CityCard
+import com.service.entity.ui.CityCardUi
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 
@@ -22,7 +22,7 @@ interface RadarContract {
     data class State(
         val isLoading: Boolean = false,
         val isEditing: Boolean = false,
-        val saved: ImmutableList<CityCard> = emptyList<CityCard>().toImmutableList(),
+        val saved: ImmutableList<CityCardUi> = emptyList<CityCardUi>().toImmutableList(),
         val isSearchOpen: Boolean = false,
         val searchQuery: String = "",
         val searchResults: ImmutableList<Location> = emptyList<Location>().toImmutableList(),
@@ -36,9 +36,6 @@ interface RadarContract {
 
         sealed class Navigation : Effect() {
             data object ToDailyScreen : Navigation()
-        }
-
-        sealed class Dialog : Effect() {
         }
     }
 }

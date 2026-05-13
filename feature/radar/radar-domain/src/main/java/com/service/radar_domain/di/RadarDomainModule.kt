@@ -1,6 +1,6 @@
 package com.service.radar_domain.di
 
-import com.service.api.repository.dayle.DailyWeatherRepository
+import com.service.api.repository.daily.DailyWeatherRepository
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.search.SearchCityRepository
 import com.service.api.repository.weekly.WeeklyWeatherRepository

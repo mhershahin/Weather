@@ -20,15 +20,15 @@ class SplashViewModel @Inject constructor(
 
     override fun handleEvents(event: SplashContract.Event) {
         when (event) {
-            SplashContract.Event.Start -> handelStart()
-            SplashContract.Event.PermissionGranted -> handelPermissionGranted()
-            SplashContract.Event.PermissionDenied -> handelPermissionDenied()
-            SplashContract.Event.DialogConfirmed -> handelDialogConfirmed()
-            SplashContract.Event.DialogDismissed -> handelDialogDismissed()
+            SplashContract.Event.Start -> handleStart()
+            SplashContract.Event.PermissionGranted -> handlePermissionGranted()
+            SplashContract.Event.PermissionDenied -> handlePermissionDenied()
+            SplashContract.Event.DialogConfirmed -> handleDialogConfirmed()
+            SplashContract.Event.DialogDismissed -> handleDialogDismissed()
         }
     }
 
-    private fun handelPermissionGranted() {
+    private fun handlePermissionGranted() {
         reload()
     }
 
@@ -40,21 +40,21 @@ class SplashViewModel @Inject constructor(
         }
     }
 
-    private fun handelDialogConfirmed() {
+    private fun handleDialogConfirmed() {
         launchMainDispatcher {
             setState { copy(showPermissionDialog = false) }
             setEffect { SplashContract.Effect.OpenAppSettings }
         }
     }
 
-    private fun handelDialogDismissed() {
+    private fun handleDialogDismissed() {
         launchMainDispatcher {
             setState { copy(showPermissionDialog = false) }
             setEffect { SplashContract.Effect.CloseApp }
         }
     }
 
-    private fun handelStart() {
+    private fun handleStart() {
         launchMainDispatcher {
             setState { copy(isLoading = true) }
             val current = getCurrentLocationUseCase.invoke()
@@ -62,14 +62,14 @@ class SplashViewModel @Inject constructor(
                 updateAllDataUseCase.invoke(current)
                 setEffect { SplashContract.Effect.NavigateHome }
             } else if (hasLocationPermissionUseCase.invoke()) {
-                handelPermissionGranted()
+                handlePermissionGranted()
             } else {
                 setEffect { SplashContract.Effect.RequestPermission }
             }
         }
     }
 
-    private fun handelPermissionDenied() {
+    private fun handlePermissionDenied() {
         launchMainDispatcher {
             setState { copy(showPermissionDialog = true) }
         }

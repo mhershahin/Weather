@@ -1,4 +1,4 @@
-package com.service.rader_presentation.ui
+package com.service.radar_presentation.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -48,17 +48,15 @@ import com.service.base_ui.components.SearchField
 import com.service.base_ui.components.SectionHeader
 import com.service.base_ui.theme.WeatherTheme
 import com.service.entity.domain.Location
-import com.service.entity.ui.CityCard
+import com.service.entity.ui.CityCardUi
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import com.service.utils.weather.WeatherCodeMapper
 import kotlinx.collections.immutable.toImmutableList
-import kotlinx.coroutines.flow.Flow
 
 @Composable
 internal fun RadarScreen(
     state: RadarContract.State,
-    effectFlow: Flow<RadarContract.Effect>?,
     onEventSent: (event: RadarContract.Event) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { padding ->
@@ -295,14 +293,13 @@ private fun sampleLocation(
 @Composable
 private fun RadarScreenSavedPreview() {
     val saved = listOf(
-        CityCard(sampleLocation(1, "London", "United Kingdom", "England"), tempC = 18, weatherCode = 2, isDay = true),
-        CityCard(sampleLocation(2, "Yerevan", "Armenia"), tempC = 24, weatherCode = 0, isDay = true),
-        CityCard(sampleLocation(3, "Reykjavik", "Iceland"), tempC = 6, weatherCode = 61, isDay = false),
+        CityCardUi(sampleLocation(1, "London", "United Kingdom", "England"), tempC = 18, weatherCode = 2, isDay = true),
+        CityCardUi(sampleLocation(2, "Yerevan", "Armenia"), tempC = 24, weatherCode = 0, isDay = true),
+        CityCardUi(sampleLocation(3, "Reykjavik", "Iceland"), tempC = 6, weatherCode = 61, isDay = false),
     ).toImmutableList()
     WeatherTheme {
         RadarScreen(
             state = RadarContract.State(saved = saved, gpsLocationId = 1),
-            effectFlow = null,
             onEventSent = {},
         )
     }
@@ -322,7 +319,6 @@ private fun RadarScreenSearchPreview() {
                 searchQuery = "Lon",
                 searchResults = results,
             ),
-            effectFlow = null,
             onEventSent = {},
         )
     }
@@ -334,7 +330,6 @@ private fun RadarScreenLoadingPreview() {
     WeatherTheme {
         RadarScreen(
             state = RadarContract.State(isLoading = true),
-            effectFlow = null,
             onEventSent = {},
         )
     }

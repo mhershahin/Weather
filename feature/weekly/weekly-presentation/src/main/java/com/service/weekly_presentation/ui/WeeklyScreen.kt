@@ -35,12 +35,10 @@ import com.service.base_ui.theme.WeatherTheme
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import com.service.utils.weather.WeatherCodeMapper
-import kotlinx.coroutines.flow.Flow
 
 @Composable
 internal fun WeeklyScreen(
     state: WeeklyContract.State,
-    effectFlow: Flow<WeeklyContract.Effect>?,
     onEventSent: (event: WeeklyContract.Event) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { padding ->
@@ -167,7 +165,6 @@ private fun WeeklyScreenLoadingPreview() {
     WeatherTheme {
         WeeklyScreen(
             state = WeeklyContract.State(isLoading = true),
-            effectFlow = null,
             onEventSent = {},
         )
     }
@@ -179,7 +176,6 @@ private fun WeeklyScreenErrorPreview() {
     WeatherTheme {
         WeeklyScreen(
             state = WeeklyContract.State(isLoading = false, errorMessage = "Unable to load forecast"),
-            effectFlow = null,
             onEventSent = {},
         )
     }
@@ -191,7 +187,6 @@ private fun WeeklyScreenContentPreview() {
     WeatherTheme {
         WeeklyScreen(
             state = sampleWeeklyState(),
-            effectFlow = null,
             onEventSent = {},
         )
     }

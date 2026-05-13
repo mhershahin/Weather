@@ -1,7 +1,7 @@
 package com.service.weather.home
 
 import com.service.base_ui.BaseViewModel
-import com.service.weather.dependecy.DependencyProvider
+import com.service.weather.dependency.DependencyProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

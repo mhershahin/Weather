@@ -1,4 +1,4 @@
-package com.service.rader_presentation.feature_api
+package com.service.radar_presentation.feature_api
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.service.feature_api.Feature
 import com.service.feature_api.Home
-import com.service.rader_presentation.ui.RadarDestination
+import com.service.radar_presentation.ui.RadarDestination
 import javax.inject.Inject
 
 class RadarFeatureApiImpl @Inject constructor() : RadarFeatureApi {

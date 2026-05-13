@@ -24,7 +24,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.service.base_ui.R
 import com.service.base_ui.theme.WeatherTheme
-import com.service.entity.ui.FeaturesMain
+import com.service.entity.ui.FeaturesMainUi
 import com.service.feature_api.Home
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
@@ -35,7 +35,7 @@ import kotlinx.collections.immutable.toImmutableList
 @Composable
 fun BottomBar(
     navController: NavController,
-    tabs: ImmutableList<FeaturesMain>?
+    tabs: ImmutableList<FeaturesMainUi>?
 ) {
     val navBackStackEntry = navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry.value?.destination
@@ -105,7 +105,7 @@ fun BottomBar(
     }
 }
 
-fun getCurrentRouteName(currentRoute: String?, tabs: ImmutableList<FeaturesMain>?): String {
+fun getCurrentRouteName(currentRoute: String?, tabs: ImmutableList<FeaturesMainUi>?): String {
     if (currentRoute != null && tabs != null) {
         val cleanRoute = currentRoute.replace("{", "").replace("}", "")
         tabs.forEach {
@@ -123,9 +123,9 @@ fun getCurrentRouteName(currentRoute: String?, tabs: ImmutableList<FeaturesMain>
 @Composable
 private fun BottomBarPreview() {
     val tabs = listOf(
-        FeaturesMain(titleId = R.string.daily, routName = Home.Daily.getRout(), iconResId = R.drawable.ic_daily),
-        FeaturesMain(titleId = R.string.weekly, routName = Home.Weekly.getRout(), iconResId = R.drawable.ic_weekly),
-        FeaturesMain(titleId = R.string.radar, routName = Home.Radar.getRout(), iconResId = R.drawable.ic_radar),
+        FeaturesMainUi(titleId = R.string.daily, routName = Home.Daily.getRout(), iconResId = R.drawable.ic_daily),
+        FeaturesMainUi(titleId = R.string.weekly, routName = Home.Weekly.getRout(), iconResId = R.drawable.ic_weekly),
+        FeaturesMainUi(titleId = R.string.radar, routName = Home.Radar.getRout(), iconResId = R.drawable.ic_radar),
     ).toImmutableList()
     WeatherTheme {
         BottomBar(navController = rememberNavController(), tabs = tabs)

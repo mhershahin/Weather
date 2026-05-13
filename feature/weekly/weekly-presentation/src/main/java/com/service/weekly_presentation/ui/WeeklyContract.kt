@@ -31,12 +31,9 @@ interface WeeklyContract {
     ) : ViewState
 
     sealed class Effect : ViewSideEffect {
-        sealed class Navigation : Effect()
-        sealed class Dialog : Effect() {
-            data class ShowTopAlertDialog(
-                val isErrorAlert: Boolean,
-                val errorOrAlertMessage: String?,
-            ) : Dialog()
-        }
+        data class ShowTopAlertDialog(
+            val isErrorAlert: Boolean,
+            val errorOrAlertMessage: String?,
+        ) : Effect()
     }
 }

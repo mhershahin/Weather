@@ -22,7 +22,7 @@ internal class GetLocationProviderUseCaseImpl @Inject constructor(
 ) : GetLocationProviderUseCase {
 
     override suspend fun invoke(): LatLon {
-        val cords = withTimeoutOrNull(5_000L) {
+        val cords = withTimeoutOrNull(LOCATION_TIMEOUT_MILLIS) {
             try {
                 fetchCurrent() ?: fetchLast()
             } catch (e: SecurityException) {
@@ -33,7 +33,7 @@ internal class GetLocationProviderUseCaseImpl @Inject constructor(
             val (lat, lon) = cords
             LatLon(lat, lon, resolveCityName(lat, lon))
         } else {
-            LatLon(40.7128, -74.0060)
+            FALLBACK_LOCATION
         }
     }
 
@@ -82,5 +82,11 @@ internal class GetLocationProviderUseCaseImpl @Inject constructor(
                 if (cont.isActive) cont.resume(pair)
             }
             .addOnFailureListener { if (cont.isActive) cont.resume(null) }
+    }
+
+    private companion object {
+        const val LOCATION_TIMEOUT_MILLIS = 5_000L
+        // Default fallback when GPS is unavailable: New York City.
+        val FALLBACK_LOCATION = LatLon(latitude = 40.7128, longitude = -74.0060)
     }
 }

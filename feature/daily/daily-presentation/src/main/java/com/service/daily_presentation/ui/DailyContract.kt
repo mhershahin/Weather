@@ -3,7 +3,7 @@ package com.service.daily_presentation.ui
 import com.service.base_ui.ViewEvent
 import com.service.base_ui.ViewSideEffect
 import com.service.base_ui.ViewState
-import com.service.entity.ui.HourSlot
+import com.service.entity.ui.HourSlotUi
 
 interface DailyContract {
 
@@ -22,7 +22,7 @@ interface DailyContract {
         val lowC: Int? = null,
         val weatherCode: Int? = null,
         val isDay: Boolean = true,
-        val hourly: List<HourSlot> = emptyList(),
+        val hourly: List<HourSlotUi> = emptyList(),
         val uvIndex: Int? = null,
         val uvLabel: String = "",
         val humidityPct: Int? = null,
@@ -33,9 +33,5 @@ interface DailyContract {
         val visibilityNote: String = "",
     ) : ViewState
 
-    sealed class Effect : ViewSideEffect {
-        sealed class Navigation : Effect()
-        sealed class Dialog : Effect() {
-        }
-    }
+    sealed class Effect : ViewSideEffect
 }

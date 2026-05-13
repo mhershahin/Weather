@@ -1,4 +1,4 @@
-package com.service.rader_presentation.ui
+package com.service.radar_presentation.ui
 
 import com.service.base_ui.BaseViewModel
 import com.service.base_ui.R
@@ -70,45 +70,45 @@ class RadarViewModel @Inject constructor(
 
     override fun handleEvents(event: RadarContract.Event) {
         when (event) {
-            is RadarContract.Event.OpenSearch -> handelOpenSearch()
-            is RadarContract.Event.CloseSearch -> handelCloseSearch()
-            is RadarContract.Event.SearchQueryChanged -> handelSearchQueryChanged(event.query)
-            is RadarContract.Event.AddCity -> handelAddCity(event.location)
-            is RadarContract.Event.RemoveCity -> handelRemoveCity(event.id)
-            is RadarContract.Event.CityClicked -> handelCityClicked(event.location)
+            is RadarContract.Event.OpenSearch -> handleOpenSearch()
+            is RadarContract.Event.CloseSearch -> handleCloseSearch()
+            is RadarContract.Event.SearchQueryChanged -> handleSearchQueryChanged(event.query)
+            is RadarContract.Event.AddCity -> handleAddCity(event.location)
+            is RadarContract.Event.RemoveCity -> handleRemoveCity(event.id)
+            is RadarContract.Event.CityClicked -> handleCityClicked(event.location)
         }
     }
 
-    private fun handelOpenSearch() {
+    private fun handleOpenSearch() {
         launchMainDispatcher{
             setState { copy(isSearchOpen = true) }
         }
     }
 
-    private fun handelCloseSearch() {
+    private fun handleCloseSearch() {
         launchMainDispatcher{
             setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
             searchQueryFlow.value = ""
         }
     }
 
-    private fun handelSearchQueryChanged(query: String) {
+    private fun handleSearchQueryChanged(query: String) {
         launchMainDispatcher{
             setState { copy(searchQuery = query) }
             searchQueryFlow.value = query
         }
     }
 
-    private fun handelAddCity(location: Location) {
+    private fun handleAddCity(location: Location) {
         launchMainDispatcher {
             addLocation.invoke(location)
             setState { copy(isSearchOpen = false, searchQuery = "", searchResults = emptyList<Location>().toImmutableList()) }
             searchQueryFlow.value = ""
-            handelCityClicked(location)
+            handleCityClicked(location)
         }
     }
 
-    private fun handelRemoveCity(id: Int) {
+    private fun handleRemoveCity(id: Int) {
         val state = viewState.value
         if (state.gpsLocationId == id) {
             setEffect { RadarContract.Effect.ShowToast(R.string.cant_delete_current_location) }
@@ -132,7 +132,7 @@ class RadarViewModel @Inject constructor(
         }
     }
 
-    private fun handelCityClicked(location: Location) {
+    private fun handleCityClicked(location: Location) {
         launchMainDispatcher {
             setState { copy(isLoading = true) }
             updateWeatherDataUseCase.invoke(location)

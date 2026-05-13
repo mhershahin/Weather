@@ -1,4 +1,4 @@
-package com.service.rader_presentation.ui
+package com.service.radar_presentation.ui
 
 import android.widget.Toast
 import androidx.compose.runtime.Composable
@@ -26,13 +26,11 @@ fun RadarDestination(
                 is RadarContract.Effect.ShowToast -> {
                     Toast.makeText(context, context.getString(effect.messageRes), Toast.LENGTH_SHORT).show()
                 }
-                is RadarContract.Effect.Dialog -> Unit
             }
         }
     }
     RadarScreen(
         state = viewModel.viewState.value,
-        effectFlow = viewModel.effect,
         onEventSent = viewModel::setEvent,
     )
 }

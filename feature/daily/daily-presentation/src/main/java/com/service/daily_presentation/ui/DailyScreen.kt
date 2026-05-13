@@ -1,6 +1,5 @@
 package com.service.daily_presentation.ui
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,16 +36,14 @@ import com.service.base_ui.components.LoadingState
 import com.service.base_ui.components.SectionHeader
 import com.service.base_ui.components.StatCard
 import com.service.base_ui.theme.WeatherTheme
-import com.service.entity.ui.HourSlot
+import com.service.entity.ui.HourSlotUi
 import com.service.utils.ui.LocalSpacing
 import com.service.utils.ui.LocalTextSize
 import com.service.utils.weather.WeatherCodeMapper
-import kotlinx.coroutines.flow.Flow
 
 @Composable
 internal fun DailyScreen(
     state: DailyContract.State,
-    effectFlow: Flow<DailyContract.Effect>?,
     onEventSent: (event: DailyContract.Event) -> Unit,
 ) {
     ScaffoldSnackFree(backgroundColor = MaterialTheme.colors.background) { paddingValues ->
@@ -64,9 +61,6 @@ internal fun DailyScreen(
                 else -> DailyContent(state)
             }
         }
-    }
-    BackHandler {
-
     }
 }
 
@@ -194,7 +188,6 @@ private fun DailyScreenLoadingPreview() {
     WeatherTheme {
         DailyScreen(
             state = DailyContract.State(isLoading = true),
-            effectFlow = null,
             onEventSent = {},
         )
     }
@@ -206,7 +199,6 @@ private fun DailyScreenErrorPreview() {
     WeatherTheme {
         DailyScreen(
             state = DailyContract.State(isLoading = false, errorMessage = "Failed to load weather"),
-            effectFlow = null,
             onEventSent = {},
         )
     }
@@ -228,11 +220,11 @@ private fun DailyScreenContentPreview() {
                 weatherCode = 2,
                 isDay = true,
                 hourly = listOf(
-                    HourSlot(label = "Now", tempC = 21, weatherCode = 2, isDay = true),
-                    HourSlot(label = "1 PM", tempC = 22, weatherCode = 1, isDay = true),
-                    HourSlot(label = "2 PM", tempC = 23, weatherCode = 2, isDay = true),
-                    HourSlot(label = "3 PM", tempC = 24, weatherCode = 3, isDay = true),
-                    HourSlot(label = "4 PM", tempC = 24, weatherCode = 3, isDay = true),
+                    HourSlotUi(label = "Now", tempC = 21, weatherCode = 2, isDay = true),
+                    HourSlotUi(label = "1 PM", tempC = 22, weatherCode = 1, isDay = true),
+                    HourSlotUi(label = "2 PM", tempC = 23, weatherCode = 2, isDay = true),
+                    HourSlotUi(label = "3 PM", tempC = 24, weatherCode = 3, isDay = true),
+                    HourSlotUi(label = "4 PM", tempC = 24, weatherCode = 3, isDay = true),
                 ),
                 uvIndex = 5,
                 uvLabel = "Moderate",
@@ -243,7 +235,6 @@ private fun DailyScreenContentPreview() {
                 visibilityMi = 10,
                 visibilityNote = "Clear",
             ),
-            effectFlow = null,
             onEventSent = {},
         )
     }

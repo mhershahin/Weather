@@ -1,4 +1,4 @@
-package com.service.api.repository.dayle
+package com.service.api.repository.daily
 
 import com.service.api.service.weather.WeatherApiService
 import com.service.entity.Result

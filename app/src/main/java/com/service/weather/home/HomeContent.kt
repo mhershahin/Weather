@@ -17,7 +17,7 @@ import com.service.base_ui.BaseTopAlertView
 import com.service.base_ui.R
 import com.service.base_ui.ScaffoldSnackFree
 import com.service.base_ui.network.ConnectivityStatus
-import com.service.entity.ui.FeaturesMain
+import com.service.entity.ui.FeaturesMainUi
 import com.service.feature_api.Home
 import com.service.weather.ui.BottomBar
 import kotlinx.collections.immutable.ImmutableList
@@ -76,19 +76,19 @@ fun HomeScreen(
     }
 }
 
-private fun getFeatureList(): ImmutableList<FeaturesMain> {
+private fun getFeatureList(): ImmutableList<FeaturesMainUi> {
     return listOf(
-        FeaturesMain(
+        FeaturesMainUi(
             titleId = R.string.daily,
             routName = Home.Daily.getRout(),
             iconResId = R.drawable.ic_daily
         ),
-        FeaturesMain(
+        FeaturesMainUi(
             titleId = R.string.weekly,
             routName = Home.Weekly.getRout(),
             iconResId = R.drawable.ic_weekly
         ),
-        FeaturesMain(
+        FeaturesMainUi(
             titleId = R.string.radar,
             routName = Home.Radar.getRout(),
             iconResId = R.drawable.ic_radar

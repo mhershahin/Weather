@@ -1,8 +1,8 @@
 package com.service.api.di
 
 import com.service.api.BuildConfig
-import com.service.api.repository.dayle.DailyWeatherRepository
-import com.service.api.repository.dayle.DailyWeatherRepositoryImpl
+import com.service.api.repository.daily.DailyWeatherRepository
+import com.service.api.repository.daily.DailyWeatherRepositoryImpl
 import com.service.api.repository.multi.MultiLocationRepository
 import com.service.api.repository.multi.MultiLocationRepositoryImpl
 import com.service.api.repository.search.SearchCityRepository

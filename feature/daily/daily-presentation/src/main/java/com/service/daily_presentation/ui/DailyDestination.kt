@@ -9,7 +9,6 @@ fun DailyDestination(
 ) {
     DailyScreen(
         state = viewModel.viewState.value,
-        effectFlow = viewModel.effect,
         onEventSent = viewModel::setEvent,
     )
 }

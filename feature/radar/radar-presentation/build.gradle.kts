@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.service.rader_presentation"
+    namespace = "com.service.radar_presentation"
     compileSdk {
         version = release(deps.versions.sdk.compile.get().toInt()) {
             minorApiLevel = 1

@@ -1,10 +1,11 @@
 package com.service.utils.dispatcher
 
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
 
 interface DispatcherProvider {
-    val main
+    val main: CoroutineDispatcher
         get() = Dispatchers.Main
     val default
         get() = Dispatchers.Default

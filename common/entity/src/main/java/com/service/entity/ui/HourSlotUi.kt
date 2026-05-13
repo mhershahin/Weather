@@ -1,6 +1,6 @@
 package com.service.entity.ui
 
-data class HourSlot(
+data class HourSlotUi(
     val label: String,
     val tempC: Int,
     val weatherCode: Int,

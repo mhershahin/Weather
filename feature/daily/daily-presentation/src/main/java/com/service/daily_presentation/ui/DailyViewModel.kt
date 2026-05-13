@@ -2,11 +2,10 @@ package com.service.daily_presentation.ui
 
 import com.service.base_ui.BaseViewModel
 import com.service.daily_domain.usecase.observe.ObserveDailyWeatherUseCase
-import com.service.daily_domain.usecase.refresh.RefreshDailyWeatherUseCase
 import com.service.entity.domain.Location
 import com.service.entity.domain.Weather
-import com.service.entity.ui.CurrentSnapshot
-import com.service.entity.ui.HourSlot
+import com.service.entity.ui.CurrentSnapshotUi
+import com.service.entity.ui.HourSlotUi
 import com.service.utils.format.formatHourLabel
 import com.service.utils.format.parseHour
 import com.service.utils.weather.WeatherCodeMapper
@@ -18,7 +17,6 @@ import kotlin.math.roundToInt
 @HiltViewModel
 class DailyViewModel @Inject constructor(
     private val observe: ObserveDailyWeatherUseCase,
-    private val refresh: RefreshDailyWeatherUseCase,
 ) : BaseViewModel<DailyContract.Event, DailyContract.State, DailyContract.Effect>() {
 
     private var lastRefreshedLocationId: Int? = null
@@ -36,11 +34,11 @@ class DailyViewModel @Inject constructor(
 
     override fun handleEvents(event: DailyContract.Event) {
         when (event) {
-            DailyContract.Event.Refresh -> handelRefresh()
+            DailyContract.Event.Refresh -> handleRefresh()
         }
     }
 
-    private fun handelRefresh() {
+    private fun handleRefresh() {
         lastRefreshedLocationId = null
     }
 
@@ -50,7 +48,7 @@ class DailyViewModel @Inject constructor(
         lastRefreshedLocationId = id
     }
 
-    private fun applySnapshot(snap: CurrentSnapshot) {
+    private fun applySnapshot(snap: CurrentSnapshotUi) {
         val location = snap.location
         val weather = snap.weather
         val isCurrent = location != null && snap.gpsLocationId != null && location.id == snap.gpsLocationId
@@ -77,7 +75,7 @@ class DailyViewModel @Inject constructor(
         val nowIdx = currentHourIndex(weather.hourly.map { it.isoTime })
         val slots = (0 until 24).mapNotNull { off ->
             weather.hourly.getOrNull(nowIdx + off)?.let { h ->
-                HourSlot(
+                HourSlotUi(
                     label = formatHourLabel(h.isoTime, isNow = off == 0),
                     tempC = h.tempC,
                     weatherCode = h.weatherCode,
